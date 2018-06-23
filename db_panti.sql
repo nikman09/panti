@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Jun 2018 pada 16.07
--- Versi Server: 10.1.28-MariaDB
--- PHP Version: 5.6.32
+-- Generation Time: Jun 23, 2018 at 02:06 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
@@ -37,39 +37,41 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admins`
+-- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id_username`, `username`, `password`, `nama_lengkap`, `foto`) VALUES
-(1, 'admin', 'ed447b10b54c1ccbf0adffad50421770', 'Muhammad Ifan Mashudi', '1.jpg');
+(1, 'admin', 'ed447b10b54c1ccbf0adffad50421770', 'Muhammad Ifan Mashudi', '1.jpg'),
+(2, 'nikman', '78e96b7de2cfaa6d3743781169c32680', 'Nikman', '1.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `asrama`
+-- Table structure for table `asrama`
 --
 
 CREATE TABLE `asrama` (
   `kd_asrama` varchar(15) NOT NULL,
   `asrama` varchar(50) NOT NULL,
-  `kouta` varchar(10) NOT NULL
+  `kouta` varchar(10) NOT NULL,
+  `id_pegawai` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `asrama`
+-- Dumping data for table `asrama`
 --
 
-INSERT INTO `asrama` (`kd_asrama`, `asrama`, `kouta`) VALUES
-('1', 'Merah Siam', '15'),
-('2', 'Kecubung', '20'),
-('3', 'Intan', '17'),
-('4', 'Berlian', '15'),
-('5', 'Mutiara', '15');
+INSERT INTO `asrama` (`kd_asrama`, `asrama`, `kouta`, `id_pegawai`) VALUES
+('1', 'Merah Siam', '1', '1'),
+('2', 'Kecubung', '20', '1'),
+('3', 'Intan', '17', '4'),
+('4', 'Berlian', '15', ''),
+('5', 'Mutiara', '15', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `instruktur`
+-- Table structure for table `instruktur`
 --
 
 CREATE TABLE `instruktur` (
@@ -82,7 +84,7 @@ CREATE TABLE `instruktur` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal`
+-- Table structure for table `jadwal`
 --
 
 CREATE TABLE `jadwal` (
@@ -99,15 +101,13 @@ CREATE TABLE `jadwal` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `klien`
+-- Table structure for table `klien`
 --
 
 CREATE TABLE `klien` (
   `id_klien` int(10) NOT NULL,
   `nir` int(15) NOT NULL,
   `nik` varchar(20) NOT NULL,
-  `kd_probi` varchar(15) NOT NULL,
-  `kd_asrama` varchar(15) NOT NULL,
   `nama_klien` varchar(150) NOT NULL,
   `sex` varchar(2) NOT NULL,
   `agama` enum('Islam','Kristen Protestan','Katolik','Hindu','Budha','Kong Hu Cu') NOT NULL,
@@ -130,20 +130,24 @@ CREATE TABLE `klien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `klien`
+-- Dumping data for table `klien`
 --
 
-INSERT INTO `klien` (`id_klien`, `nir`, `nik`, `kd_probi`, `kd_asrama`, `nama_klien`, `sex`, `agama`, `tempat_lahir`, `tanggal_lahir`, `umur`, `alamat`, `kota`, `hp`, `email`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `hp_ortu`, `foto`, `status`, `status_daftar`, `tgl_insert`, `tgl_update`) VALUES
-(1, 1, '', '001', '1', '1', '', 'Islam', '11', '2017-11-11', 0, '1', '', '1', '1', '1', '1', '1', ' 1', '', '', '', '2018-06-13 04:47:05', '0000-00-00 00:00:00'),
-(2, 2, '2', '', '', '2', 'L', 'Islam', '2', '2018-06-12', 0, ' 2', 'Hulu Sungai Tengah', ' 2', '2', '2', '2', '2', '2', '', 'calon', '', '2018-06-17 10:41:57', '0000-00-00 00:00:00'),
-(3, 3, '3', '', '', '3', 'P', 'Islam', '3', '2018-06-12', 0, ' 3', 'Hulu Sungai Tengah', ' 3', '3', '0', '0', '0', '0', '', 'calon', '', '2018-06-17 10:37:23', '0000-00-00 00:00:00'),
-(4, 4, '4', '', '', '44', 'L', 'Islam', 'nea', '2018-06-17', 0, ' 4', 'Banjar', ' 4', '4', '4', '4', '4', '4', '', 'aktif', '', '2018-06-17 10:44:00', '0000-00-00 00:00:00'),
-(5, 5, '55', '', '', '5', 'L', 'Islam', '55', '2018-06-03', 0, ' 5', 'Barito Kuala', ' 5', ' 5', '0', '0', '0', '0', '', 'meninggal', '', '2018-06-17 10:45:19', '0000-00-00 00:00:00');
+INSERT INTO `klien` (`id_klien`, `nir`, `nik`, `nama_klien`, `sex`, `agama`, `tempat_lahir`, `tanggal_lahir`, `umur`, `alamat`, `kota`, `hp`, `email`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `hp_ortu`, `foto`, `status`, `status_daftar`, `tgl_insert`, `tgl_update`) VALUES
+(1, 2, '2', '2', 'L', 'Islam', '2', '2018-06-12', 0, ' 2', 'Hulu Sungai Tengah', ' 2', '2', '2', '2', '2', '2', '', 'aktif', '', '2018-06-17 10:41:57', '0000-00-00 00:00:00'),
+(3, 3, '3', '3', 'P', 'Islam', '3', '2018-06-12', 0, ' 3', 'Hulu Sungai Tengah', ' 3', '3', '0', '0', '0', '0', '', 'calon', '', '2018-06-17 10:37:23', '0000-00-00 00:00:00'),
+(4, 4, '4', '44', 'L', 'Islam', 'nea', '2018-06-17', 0, ' 4', 'Banjar', ' 4', '4', '4', '4', '4', '4', '', 'aktif', '', '2018-06-17 10:44:00', '0000-00-00 00:00:00'),
+(5, 5, '55', '5', 'L', 'Islam', '55', '2018-06-03', 0, ' 5', 'Barito Kuala', ' 5', ' 5', '0', '0', '0', '0', '', 'meninggal', '', '2018-06-17 10:45:19', '0000-00-00 00:00:00'),
+(11, 0, '21', '123451', 'L', 'Islam', '1', '2018-06-07', 0, '1', 'Hulu Sungai Tengah', '1', '', '', '', '', '', '', 'calon', 'n', '2018-06-21 21:58:17', '2018-06-21 21:58:17'),
+(12, 0, '211', '123451', 'L', 'Islam', '1', '2018-06-07', 0, '1', 'Hulu Sungai Tengah', '1', '', '', '', '', '', '', 'calon', 'n', '2018-06-21 21:58:39', '2018-06-21 21:58:39'),
+(13, 0, '123', '12', 'L', 'Islam', '12', '2018-05-30', 0, '12', 'Banjar', '1212', '', '', '', '', '', '', 'calon', 'n', '2018-06-21 22:10:14', '2018-06-21 22:10:14'),
+(121, 12, '2', '21', 'P', 'Islam', '2121', '2018-06-22', 0, '1234  ', 'Balangan', '2  ', '1  ', '121', '21', '21  ', '21  ', '0', 'calon', '', '2018-06-22 09:15:05', '2018-06-22 09:32:06'),
+(23233, 2312, '312', '3', 'L', 'Islam', '3', '2018-06-22', 0, '23', 'Banjar', '32', '3', '23', '23', '32', '2', '0', 'calon', '', '2018-06-22 09:32:31', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mapel`
+-- Table structure for table `mapel`
 --
 
 CREATE TABLE `mapel` (
@@ -152,7 +156,7 @@ CREATE TABLE `mapel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `mapel`
+-- Dumping data for table `mapel`
 --
 
 INSERT INTO `mapel` (`kd_mp`, `mapel`) VALUES
@@ -162,7 +166,7 @@ INSERT INTO `mapel` (`kd_mp`, `mapel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `nilai`
+-- Table structure for table `nilai`
 --
 
 CREATE TABLE `nilai` (
@@ -176,7 +180,7 @@ CREATE TABLE `nilai` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -201,7 +205,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `sex`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `hp`, `jabatan`, `probi`, `password`, `file_foto`, `tgl_insert`, `tgl_update`, `status`, `pendidikan`, `jurusan`, `email`) VALUES
@@ -212,7 +216,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `sex`, `tempat_lahir
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penempatan`
+-- Table structure for table `penempatan`
 --
 
 CREATE TABLE `penempatan` (
@@ -222,10 +226,18 @@ CREATE TABLE `penempatan` (
   `tgl_insert` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `penempatan`
+--
+
+INSERT INTO `penempatan` (`id_penempatan`, `id_klien`, `kd_asrama`, `tgl_insert`) VALUES
+(16, 1, '2', '2018-06-22 15:34:16'),
+(17, 4, '1', '2018-06-23 12:20:30');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penentuan_rombel`
+-- Table structure for table `penentuan_rombel`
 --
 
 CREATE TABLE `penentuan_rombel` (
@@ -238,22 +250,31 @@ CREATE TABLE `penentuan_rombel` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penunjukan`
+-- Table structure for table `penunjukan`
 --
 
 CREATE TABLE `penunjukan` (
   `id_penunjukan` int(11) NOT NULL,
   `id_pegawai` int(11) NOT NULL,
+  `nama_pegawai` varchar(128) NOT NULL,
   `kd_asrama` int(15) NOT NULL,
   `sk` varchar(30) NOT NULL,
-  `tmt` date NOT NULL,
-  `tgl_sk` date NOT NULL
+  `tmt` varchar(64) NOT NULL,
+  `tgl_sk` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `penunjukan`
+--
+
+INSERT INTO `penunjukan` (`id_penunjukan`, `id_pegawai`, `nama_pegawai`, `kd_asrama`, `sk`, `tmt`, `tgl_sk`) VALUES
+(8, 1, 'Muhammad Ifan Mashudi', 2, '', '', NULL),
+(13, 1, 'Muhammad Ifan Mashudi', 1, '123', '12', '2018-06-13');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyaluran`
+-- Table structure for table `penyaluran`
 --
 
 CREATE TABLE `penyaluran` (
@@ -267,7 +288,7 @@ CREATE TABLE `penyaluran` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `probi`
+-- Table structure for table `probi`
 --
 
 CREATE TABLE `probi` (
@@ -276,7 +297,7 @@ CREATE TABLE `probi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `probi`
+-- Dumping data for table `probi`
 --
 
 INSERT INTO `probi` (`kd_probi`, `probi`) VALUES
@@ -289,7 +310,34 @@ INSERT INTO `probi` (`kd_probi`, `probi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rombel`
+-- Table structure for table `riwayat_penempatan`
+--
+
+CREATE TABLE `riwayat_penempatan` (
+  `id` int(11) NOT NULL,
+  `id_penempatan` int(11) NOT NULL,
+  `id_klien` int(11) NOT NULL,
+  `nama_klien` varchar(124) NOT NULL,
+  `kd_asrama_asal` varchar(11) NOT NULL,
+  `asrama_asal` varchar(124) NOT NULL,
+  `kd_asrama_akhir` varchar(11) NOT NULL,
+  `asrama_akhir` varchar(124) NOT NULL,
+  `ket` varchar(123) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `riwayat_penempatan`
+--
+
+INSERT INTO `riwayat_penempatan` (`id`, `id_penempatan`, `id_klien`, `nama_klien`, `kd_asrama_asal`, `asrama_asal`, `kd_asrama_akhir`, `asrama_akhir`, `ket`, `tanggal`) VALUES
+(6, 16, 1, '2', '1', 'Merah Siam', '2', 'Kecubung', 'pindah', '2018-06-22 07:34:16'),
+(7, 17, 4, '44', '', '', '1', 'Merah Siam', 'tambah', '2018-06-23 04:20:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rombel`
 --
 
 CREATE TABLE `rombel` (
@@ -300,7 +348,7 @@ CREATE TABLE `rombel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `rombel`
+-- Dumping data for table `rombel`
 --
 
 INSERT INTO `rombel` (`id_rombel`, `rombel`, `kelas`, `kd_probi`) VALUES
@@ -310,7 +358,7 @@ INSERT INTO `rombel` (`id_rombel`, `rombel`, `kelas`, `kd_probi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ruangan`
+-- Table structure for table `ruangan`
 --
 
 CREATE TABLE `ruangan` (
@@ -319,7 +367,7 @@ CREATE TABLE `ruangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `ruangan`
+-- Dumping data for table `ruangan`
 --
 
 INSERT INTO `ruangan` (`kd_ruangan`, `nama_ruangan`) VALUES
@@ -329,7 +377,7 @@ INSERT INTO `ruangan` (`kd_ruangan`, `nama_ruangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tahunakademik`
+-- Table structure for table `tahunakademik`
 --
 
 CREATE TABLE `tahunakademik` (
@@ -340,7 +388,7 @@ CREATE TABLE `tahunakademik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tahunakademik`
+-- Dumping data for table `tahunakademik`
 --
 
 INSERT INTO `tahunakademik` (`id_tahunakademik`, `tahunakademik`, `status`, `semester_aktif`) VALUES
@@ -424,6 +472,12 @@ ALTER TABLE `probi`
   ADD PRIMARY KEY (`kd_probi`);
 
 --
+-- Indexes for table `riwayat_penempatan`
+--
+ALTER TABLE `riwayat_penempatan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rombel`
 --
 ALTER TABLE `rombel`
@@ -443,32 +497,32 @@ ALTER TABLE `ruangan`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id_username` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id_username` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `klien`
 --
 ALTER TABLE `klien`
-  MODIFY `id_klien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id_klien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23234;
 --
 -- AUTO_INCREMENT for table `penempatan`
 --
 ALTER TABLE `penempatan`
-  MODIFY `id_penempatan` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_penempatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `penunjukan`
 --
 ALTER TABLE `penunjukan`
-  MODIFY `id_penunjukan` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_penunjukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `riwayat_penempatan`
+--
+ALTER TABLE `riwayat_penempatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `rombel`
 --
 ALTER TABLE `rombel`
-  MODIFY `id_rombel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
+  MODIFY `id_rombel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
