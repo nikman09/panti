@@ -99,6 +99,7 @@ $(document).ready(function(){
 	</table>
 	<p align="right" style="margin-top:20px">
 	<a href="<?php echo site_url("penempatan/riwayatpenempatan") ?>" class="btn btn-success btn-small"> Riwayat Penempatan </a>
+	<a href="<?php echo site_url("penunjukan") ?>" class="btn btn-success btn-small"> Riwayat Penunjukan </a>
 	</p>
 </div>
 

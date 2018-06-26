@@ -44,6 +44,7 @@ $(document).ready(function(){
 				if ($('#a').val()=="tambah") {
 					$('#id').val('');
 					$('#nir').val('');
+					$('#nik').val('');
 					$('#nama_klien').val('');
 					$('#tempat_lahir').val('');
 					$('#tanggal_lahir').val('');
@@ -94,16 +95,7 @@ $(document).ready(function(){
 		</h3>
 
 		<form name="my-form" id="my-form">
-			
-
-			<div class="profile-user-info">
-				<div class="profile-info-row">
-					<div class="profile-info-name">ID</div>
-					<div class="profile-info-value">
-						<input type="text" name="id" id="id" value="<?php echo $id_klien; ?>"  class="span3"  />
-					</div>
-			</div>
-			</div>
+		<input type="hidden" name="id" id="id" value="<?php echo $id_klien; ?>"  class="span3"  />
 	<input type="hidden" value="<?php echo $a ?>" id="a" name="a" />
  			<div class="profile-user-info">
 				<div class="profile-info-row">

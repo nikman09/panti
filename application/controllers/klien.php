@@ -40,7 +40,6 @@ public function simpan(){
 		if (!empty($cek) && $level=='admin'){
 			date_default_timezone_set('Asia/Jakarta');
 			$id['id_klien'] = $this->input->post('id');
-			$dt['id_klien'] = $this->input->post('id');
 			$dt['nir'] = $this->input->post('nir');
 			$dt['nik'] = $this->input->post('nik');
 			$dt['nama_klien'] = $this->input->post('nama_klien');
@@ -68,7 +67,7 @@ public function simpan(){
 				echo "Data Sukses Disimpan";
 			} else {
 				$dt['tgl_insert'] = date('Y-m-d h:i:s');
-				$this->model_klien->insert($id,$dt);
+				$this->model_klien->insert($dt);
 				echo "Data Sukses Disimpan";
 
 			}

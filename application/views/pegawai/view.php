@@ -24,7 +24,6 @@ $(document).ready(function(){
 	});
 
 	$('#tambah').click(function(){
-		$('#id').val('');
 		$('#nip').val('');
 		$('#nama').val('');
 		$('#sex').val('');
@@ -39,7 +38,6 @@ $(document).ready(function(){
 	
 	});	
 	$('#reset').click(function(){
-		$('#id').val('');
 		$('#nip').val('');
 		$('#nama').val('');
 		$('#sex').val('');
@@ -61,7 +59,6 @@ function editData(id){
 		url: '<?php echo site_url(); ?>/pegawai/cari/' + id,
 		dataType: "json",
 		success: function(data){
-			$('#id').val(data.id);
 			$('#id').attr('readonly', 'true');
 			$('#nip').val(data.nip);
 			$('#nama').val(data.nama);
@@ -127,7 +124,7 @@ function editData(id){
 							<a class="green" href="#modal-table" onclick="javascript:editData('<?php echo $dt->nip;?>')" data-toggle="modal" >
 								<i class="icon-pencil bigger-130"></i>
 							</a>
-							<a class="red" href="<?php echo site_url(); ?>/pegawai/hapus/<?php echo $dt->nip; ?>" onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+							<a class="red" href="<?php echo site_url(); ?>/pegawai/hapus/<?php echo $dt->id_pegawai; ?>" onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
 								<i class="icon-trash bigger-130"></i>
 							</a>
 						</div>
@@ -153,12 +150,7 @@ function editData(id){
 	<div class="modal-body no-padding">
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Id Pegawai</label>
-					<div class="controls">
-						<input type="text" name="id" id="id" placeholder="id" class="span2" />
-					</div>
-				</div>
+				
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">NIP</label>
 					<div class="controls">

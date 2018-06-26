@@ -56,7 +56,7 @@
 
 				<ul class="nav nav-list">
 					<li <?php echo $home; ?> >
-						<a href="index.html">
+						<a href="<?php echo base_url(); ?>index.php/home">
 							<i class="icon-dashboard"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>

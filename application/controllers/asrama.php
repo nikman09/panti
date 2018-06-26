@@ -47,7 +47,7 @@ class Asrama extends CI_Controller {
 				echo "Data Sukses Disimpan";
 			} else {
 				//$dt['tgl_insert'] = date('Y-m-d h:i:s');
-				$this->model_asrama->insert($id,$dt);
+				$this->model_asrama->insert($dt);
 				echo "Data Sukses Disimpan";
 
 			}

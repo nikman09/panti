@@ -44,6 +44,9 @@
 
 		</tbody>
 	</table>
+	<p align="right" style="margin-top:20px">
+	<a href="<?php echo site_url("penempatan") ?>" class="btn btn-success btn-small"> Kembali </a>
+	</p>
 </div>
 
 <div id="modal-table" class="modal hide fade " tabindex="-1">

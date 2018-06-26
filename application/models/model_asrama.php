@@ -34,8 +34,8 @@ class Model_asrama extends CI_Model {
 		$this->db->update("asrama", $dt, $id);
 	}
 
-	public function insert($id, $dt){
-		$this->db->insert("asrama", $dt, $id);
+	public function insert($dt){
+		$this->db->insert("asrama", $dt);
 	}
 	public function delete($id){
 		$this->db->delete("asrama", $id);

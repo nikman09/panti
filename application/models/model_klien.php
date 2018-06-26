@@ -33,8 +33,8 @@ class Model_klien extends CI_Model {
 		$this->db->update("klien", $dt, $id);
 	}
 
-	public function insert($id, $dt){
-		$this->db->insert("klien", $dt, $id);
+	public function insert($dt){
+		$this->db->insert("klien", $dt);
 	}
 	public function delete($id){
 		$this->db->delete("klien", $id);

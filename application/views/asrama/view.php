@@ -5,11 +5,6 @@ $(document).ready(function(){
 		var asrama	= $('#asrama').val();
 		var string = $('#my-form').serialize();
 		
-		if(kode.length == 0){
-			alert('Maaf, Kode Tidak boleh kosong');
-			$('#kode').focus();
-			return false;
-		}
 		if(asrama.length == 0){
 			alert('Maaf, Nama Asrama Tidak boleh kosong');
 			$('#asrama').focus();
@@ -118,12 +113,7 @@ function editData(id){
 	<div class="modal-body no-padding">
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Kode Asrama</label>
-					<div class="controls">
-						<input type="text" name="kode" id="kode" placeholder="Kode Asrama" class="span4"  maxlength="10" />
-					</div>
-				</div>
+					<input type="hidden" name="kode" id="kode" placeholder="Kode Asrama" class="span4"  maxlength="10" />
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Nama Asrama</label>
 					<div class="controls">
