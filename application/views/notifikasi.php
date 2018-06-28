@@ -1,7 +1,7 @@
 <ul class="nav ace-nav pull-right">
 						
 
-						<li class="light-blue">
+						<li class="" style="background:#438eb9">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<img class="nav-user-photo" src="<?php echo base_url();?>assets/avatar/<?php echo $this->model_data->cari_foto_username($this->session->userdata('username')) ?>" alt="Jason's Photo" />
 								<span class="user-info">

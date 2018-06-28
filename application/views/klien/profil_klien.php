@@ -7,69 +7,80 @@ $(document).ready(function(){
 		$(this).prev().focus();
 	});
 
-	$('#simpan').click(function(){
-		var string = $('#my-form').serialize();
+	<?php if (isset($_GET['a'])) { echo 'var a = 1;'; } else { echo 'var a = 0;'; }   ?>
 
-		if (!$('#nama_klien').val()){
-			$.gritter.add({
-				title: 'Peringatan',
-				text: 'Nama Lengkap tidak boleh kosong',
-				class_name: 'gritter-error'
-			});
-			$('#nama_klien').focus();
-			return false;
-		}
-
-		if (!$('#tanggal_lahir').val()){
-			$.gritter.add({
-				title: 'Peringatan',
-				text: 'Tanggal Lahir tidak boleh kosong',
-				class_name: 'gritter-error'
-			});
-			$('#tanggal_lahir').focus();
-			return false;
-		}
-
-		$.ajax({
-			type: 'POST',
-			url: '<?php echo site_url(); ?>/klien/simpan',
-			data:string,
-			cache : false,
-			success:function(data){
-				$.gritter.add({
-					title: 'Info...!',
-					text: data,
-					class_name: 'gritter-info'
-				});
-				if ($('#a').val()=="tambah") {
-					$('#id').val('');
-					$('#nir').val('');
-					$('#nik').val('');
-					$('#nama_klien').val('');
-					$('#tempat_lahir').val('');
-					$('#tanggal_lahir').val('');
-					$('#sex').val('');
-					$('#agama').val('');
-					$('#alamat').val('');
-					$('#kota').val('');
-					$('#hp').val('');
-					$('#email').val('');
-					$('#status').val('');
-					$('#foto').val('');
-					$('#nama_ayah').val('');
-					$('#nama_ibu').val('');
-					$('#alamat_ortu').val('');
-					$('#hp_ortu').val('');
-				} else {
-
-				}
-
-
-
-			}
+	if (a==1) {
+		$.gritter.add({
+			title: 'Info',
+			text: 'Berhasil Menambah Data',
+			class_name: 'gritter-info'
 		});
+	}
 
-	});
+
+	// $('#simpana').click(function(){
+	// 	var string = $('#my-form').serialize();
+
+	// 	if (!$('#nama_klien').val()){
+	// 		$.gritter.add({
+	// 			title: 'Peringatan',
+	// 			text: 'Nama Lengkap tidak boleh kosong',
+	// 			class_name: 'gritter-error'
+	// 		});
+	// 		$('#nama_klien').focus();
+	// 		return false;
+	// 	}
+
+	// 	if (!$('#tanggal_lahir').val()){
+	// 		$.gritter.add({
+	// 			title: 'Peringatan',
+	// 			text: 'Tanggal Lahir tidak boleh kosong',
+	// 			class_name: 'gritter-error'
+	// 		});
+	// 		$('#tanggal_lahir').focus();
+	// 		return false;
+	// 	}
+		
+	// 	$.ajax({
+	// 		type: 'POST',
+	// 		url: '<?php echo site_url(); ?>/klien/simpan',
+	// 		data:string,
+	// 		cache : false,
+	// 		success:function(data){
+	// 			$.gritter.add({
+	// 				title: 'Info...!',
+	// 				text: data,
+	// 				class_name: 'gritter-info'
+	// 			});
+	// 			if ($('#a').val()=="tambah") {
+	// 				$('#id').val('');
+	// 				$('#nir').val('');
+	// 				$('#nik').val('');
+	// 				$('#nama_klien').val('');
+	// 				$('#tempat_lahir').val('');
+	// 				$('#tanggal_lahir').val('');
+	// 				$('#sex').val('');
+	// 				$('#agama').val('');
+	// 				$('#alamat').val('');
+	// 				$('#kota').val('');
+	// 				$('#hp').val('');
+	// 				$('#email').val('');
+	// 				$('#status').val('');
+	// 				$('#foto').val('');
+	// 				$('#nama_ayah').val('');
+	// 				$('#nama_ibu').val('');
+	// 				$('#alamat_ortu').val('');
+	// 				$('#hp_ortu').val('');
+	// 			} else {
+
+	// 			}
+
+
+
+	// 		}
+	// 	});
+
+	// });
 });	
 
 
@@ -84,7 +95,7 @@ $(document).ready(function(){
 			<?php if (empty($foto)) { ?>
 			<img class="editable" id="avatar2" src="<?php echo base_url(); ?>assets/foto_klien/no_foto.jpg"/>
 			<?php } else { ?>
-			<img class="editable" id="avatar2" src="<?php echo base__url(); ?>assets/foto_klien/<?php echo $foto; ?>" />
+			<img class="editable" id="avatar2" src="<?php echo base_url(); ?>assets/foto_klien/<?php echo $foto; ?>" />
 			<?php } ?>
 		</span>
 	</div>
@@ -94,14 +105,14 @@ $(document).ready(function(){
 		<i class=" icon-user"></i> DATA KLIEN
 		</h3>
 
-		<form name="my-form" id="my-form">
+		<form name="my-form" id="my-form" method="post" enctype="multipart/form-data" action="<?php echo site_url('klien/simpan') ?>"> 
 		<input type="hidden" name="id" id="id" value="<?php echo $id_klien; ?>"  class="span3"  />
 	<input type="hidden" value="<?php echo $a ?>" id="a" name="a" />
  			<div class="profile-user-info">
 				<div class="profile-info-row">
 					<div class="profile-info-name">NIR</div>
 					<div class="profile-info-value">
-						<input type="text" name="nir" id="nir" value="<?php echo $nir; ?>"  class="span3"  />
+						<input type="text" name="nir" id="nir" value="<?php echo $nir; ?>"  class="span3" required />
 					</div>
 			</div>
 			</div>
@@ -110,7 +121,7 @@ $(document).ready(function(){
 				<div class="profile-info-row">
 					<div class="profile-info-name">NIK</div>
 					<div class="profile-info-value">
-						<input type="text" name="nik" id="nik" value="<?php echo $nik; ?>"  class="span3"  />
+						<input type="text" name="nik" id="nik" value="<?php echo $nik; ?>"  class="span3" required />
 					</div>
 			</div>
 			</div>
@@ -119,7 +130,7 @@ $(document).ready(function(){
 				<div class="profile-info-row">
 					<div class="profile-info-name">Nama Lengkap</div>
 					<div class="profile-info-value">
-						<input type="text" name="nama_klien" id="nama_klien" value="<?php echo $nama_klien; ?>"  class="span6" />
+						<input type="text" name="nama_klien" id="nama_klien" value="<?php echo $nama_klien; ?>"  class="span6" required/>
 					</div>
 			</div>
 			</div>
@@ -128,9 +139,9 @@ $(document).ready(function(){
 				<div class="profile-info-row">
 					<div class="profile-info-name">TTL</div>
 					<div class="profile-info-value">
-						<input type="text" name="tempat_lahir" id="tempat_lahir" value="<?php echo $tempat_lahir; ?>"  class="span6" />
+						<input type="text" name="tempat_lahir" id="tempat_lahir" value="<?php echo $tempat_lahir; ?>"  class="span6" required/>
 						<div class="input-append">
-							<input type="text" name="tanggal_lahir" id="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>"  class="span6 date-picker" data-date-format="dd-mm-yyyy" />
+							<input type="text" name="tanggal_lahir" id="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>"  class="span6 date-picker" data-date-format="dd-mm-yyyy" required/>
 							<span class="add-on">
 								<i class="icon-calendar"> </i>
 							</span>
@@ -143,7 +154,7 @@ $(document).ready(function(){
 				<div class="profile-info-row">
 					<div class="profile-info-name">Jenis Kelamin</div>
 					<div class="profile-info-value">
-						<select name="sex" id="sex" class="span5">
+						<select name="sex" id="sex" class="span5" required>
 							<option value="" selected="selected">--Pilih Jenis Kelamin--</option>
 							<option value="L" <?php if ($sex == 'L') { ?> selected="selected"<?php } ?>>Laki-laki</option>
 							<option value="P" <?php if ($sex == 'P') { ?> selected="selected"<?php } ?> >Perempuan</option>
@@ -156,7 +167,7 @@ $(document).ready(function(){
 				<div class="profile-info-row">
 					<div class="profile-info-name">Agama</div>
 					<div class="profile-info-value">
-						<select name="agama" id="agama"  class="span6">
+						<select name="agama" id="agama"  class="span6" required>
 							<option value="">--Pilih Agama--</option>
 							<?php
 								foreach ($data_agama as $dt ) {
@@ -220,7 +231,7 @@ $(document).ready(function(){
 				<div class="profile-info-row">
 					<div class="profile-info-name">Status <?php echo $status ?></div>
 					<div class="profile-info-value">
-						<select name="status" id="status"  class="span6">
+						<select name="status" id="status"  class="span6" required>
 							<option value="">--Tentukan Status Klien</option>
 							<?php
 								foreach ($data_status as $dt ) {
@@ -238,7 +249,7 @@ $(document).ready(function(){
 				<div class="profile-info-row">
 					<div class="profile-info-name">Upload File Foto</div>
 					<div class="profile-info-value">
-						<input type="file" name="foto"> 
+						<input type="file" name="foto" ID="foto"> 
 							
 					</div>
 			</div>
@@ -288,11 +299,11 @@ $(document).ready(function(){
 			</div>
 
 			<div class="alert alert-error" align="center">
-				<button type="button" name="simpan" id="simpan" class="btn btn-mini btn-primary">
-				<i class="icon-save"></i>Simpan
+				<button type="submit" name="simpan" id="simpan" class="btn btn-mini btn-primary">
+				<i class="icon-save"></i> Simpan
 				</button>
 				<a href="<?php echo base_url(); ?>index.php/klien" class="btn btn-mini btn-success">
-				<i class="icon-double-angle-right"></i>Kembali
+				<i class="icon-double-angle-left"></i> Kembali
 				</a>
 			</div>
 		</form>

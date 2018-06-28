@@ -34,12 +34,17 @@ public function all2(){
 		$this->db->update("tahunakademik", $dt, $id);
 	}
 
-	public function insert($id, $dt){
-		$this->db->insert("tahunakademik", $dt, $id);
+	public function insert($dt){
+		$this->db->insert("tahunakademik", $dt);
 	}
 	public function delete($id){
 		$this->db->delete("tahunakademik", $id);
 	}	
+
+	public function ganti($id,$dt){
+		$this->db->where("id_tahunakademik !=",$id);
+		$this->db->update("tahunakademik", $dt);
+	}
 }
 
 ?>

@@ -52,11 +52,7 @@ function editData(id){
 	<div class="table-header">
 		<?php echo $judul; ?>
 		<div class="widget-toolbar no-border pull-right">
-			<a href="<?php echo site_url(); ?>/ruangan" class="btn btn-small btn-info" role="button"  >
-				<i class="icon-refresh"></i>
-				Refresh
-			</a>
-			<a href="#modal-table" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah">
+			<a href="#modal-table" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah">
 				<i class="icon-check"></i>
 				Tambah Data
 			</a>

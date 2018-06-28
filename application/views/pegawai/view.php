@@ -81,7 +81,7 @@ function editData(id){
 	<div class="table-header">
 		<?php echo $judul; ?>
 		<div class="widget-toolbar no-border pull-right">
-			<a href="#modal-table" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah">
+			<a href="#modal-table" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah">
 				<i class="icon-check"></i>
 				Tambah Data
 			</a>
@@ -150,7 +150,7 @@ function editData(id){
 	<div class="modal-body no-padding">
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
-				
+				<br/>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">NIP</label>
 					<div class="controls">
@@ -167,7 +167,7 @@ function editData(id){
 					<label class="control-label" for="form-filed-1">Jenis Kelamin</label>
 					<div class="controls">
 						<select name="sex" id="sex" class="span3">
-							<option value="Tidak">--Pilih--</option>
+							<option value="">--Pilih--</option>
 							<option value="L">Laki-laki</option>
 							<option value="P">Perempuan</option>
 						</select>
@@ -207,7 +207,7 @@ function editData(id){
 					<label class="control-label" for="form-filed-1">Jenjang Pendidikan</label>
 					<div class="controls">
 						<select name="pendidikan" id="pendidikan" class="span5">
-							<option value="Tidak" selected="selected">--Pilih--</option>
+							<option value="" selected="selected">--Pilih--</option>
 							<?php
 								foreach ($data_jenjang as $dt ) {
 									?>
@@ -228,7 +228,7 @@ function editData(id){
 					<label class="control-label" for="form-filed-1">Status</label>
 					<div class="controls">
 						<select name="status" id="status" class="span5">
-							<option value="Tidak" selected="selected">--Pilih--</option>
+							<option value="" selected="selected">--Pilih--</option>
 							<?php
 								foreach ($data_status as $dt ) {
 									?>

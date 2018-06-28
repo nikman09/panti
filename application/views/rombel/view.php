@@ -42,10 +42,10 @@ function editData(id){
 		url: "<?php echo site_url(); ?>/rombel/cari/" + id,
 		dataType: "json",
 		success: function(data){
-			$('#id').val(data_id);
-			$('#rombel').val(data_rombel);
-			$('#kelas').val(data_kelas);
-			$('#probi').val(data_probi);
+			$('#id').val(data.id);
+			$('#rombel').val(data.rombel);
+			$('#kelas').val(data.kelas);
+			$('#probi').val(data.probi);
 		}
 	});
 }
@@ -56,11 +56,7 @@ function editData(id){
 	<div class="table-header">
 		<?php echo $judul; ?>
 		<div class="widget-toolbar no-border pull-right">
-			<a href="<?php echo site_url(); ?>/rombel" class="btn btn-small btn-info" role="button"  >
-				<i class="icon-refresh"></i>
-				Refresh
-			</a>
-			<a href="#modal-table" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah">
+			<a href="#modal-table" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah">
 				<i class="icon-check"></i>
 				Tambah Data
 			</a>
@@ -123,6 +119,7 @@ function editData(id){
 	<div class="modal-body no-padding">
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
+			<br/>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">ID</label>
 					<div class="controls">
@@ -138,7 +135,7 @@ function editData(id){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Kelas</label>
 					<div class="controls">
-						<input type="text" name="kelas" id="kelas" placeholder="Kelas" class="span4" />
+						<input type="text" name="kelas" id="kelas" placeholder="kelas" class="span4" />
 					</div>
 				</div>
 				<div class="control-group">
@@ -146,12 +143,11 @@ function editData(id){
 					<div class="controls">
 						<select name="probi" id="probi"  class="span6" >
 							<option value="">-Pilih Program Pembinaan</option>
-							<option><?php 
+							<?php 
 								foreach ($probi->result_array() as $row) {
 									echo "<option value='".$row['kd_probi']."'>".$row['probi']."</option>";
 								}
 							 ?>
-							 </option>
 						</select>
 					</div>
 				</div>

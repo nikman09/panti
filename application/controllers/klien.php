@@ -55,20 +55,57 @@ public function simpan(){
 			$dt['nama_ibu'] = $this->input->post('nama_ibu');
 			$dt['alamat_ortu'] = $this->input->post('alamat_ortu');
 			$dt['hp_ortu'] = $this->input->post('hp_ortu');
-			$dt['foto'] = $this->input->post('foto');
-
-
-
-
 			if ($this->model_klien->ada($id)) {
 				
+					$config['upload_path'] = './assets/foto_klien';
+					$config['allowed_types'] = 'png|jpg|jpeg';
+					$this->load->library('upload', $config);
+					if ($this->upload->do_upload("foto")) {
+					$upload = $this->upload->data();
+					$foto = $upload["raw_name"].$upload["file_ext"];
+					$data['foto'] = $foto;
+					
+					$config['image_library'] = 'gd2';
+					$config['source_image'] = "./assets/foto_klien/$foto";
+					$config['create_thumb'] = FALSE;
+					$config['maintain_ratio'] = TRUE;
+					$config['width']         = 1000;
+					$config['height']       = 1000;
+					$this->load->library('image_lib', $config);
+					$this->image_lib->resize();
+					
+					$row= $this->model_klien->get($id);
+					$foto2 = $row->foto;
+					$path1 ="./assets/foto_klien/".$foto2."";
+					if(is_file($path1)) {
+						unlink($path1); //menghapus gambar di folder produk 
+					}
+					$dt['foto'] = $foto;
+				}
 				$dt['tgl_update'] = date('Y-m-d h:i:s');
 				$this->model_klien->update($id, $dt);
-				echo "Data Sukses Disimpan";
+				redirect(site_url('klien/edit/'.$id['id_klien'] .'?b=1'));
+
 			} else {
-				$dt['tgl_insert'] = date('Y-m-d h:i:s');
+				$config['upload_path'] = './assets/foto_klien';
+				$config['allowed_types'] = 'png|jpg|jpeg';
+				$this->load->library('upload', $config);
+				$this->upload->do_upload("foto");
+				$upload = $this->upload->data();
+				$foto = $upload["raw_name"].$upload["file_ext"];
+				
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = "./assets/foto_klien/$foto";
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = TRUE;
+				$config['width']         = 1000;
+				$config['height']       = 1000;
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+				$dt['foto'] = $foto;
+				$dt['status_daftar'] = $this->input->post('y');
 				$this->model_klien->insert($dt);
-				echo "Data Sukses Disimpan";
+				redirect(site_url('klien/tambah?a=1'));
 
 			}
 		} else {
@@ -155,7 +192,8 @@ public function simpan(){
 						'all_klien' => $this->model_klien->data_all_klien(),
 						'content'	=> 'klien/form_klien',
 						'tgl_hari' => hari_ini(date('w')),
-						'tgl_indo' => tgl_indo(date('Y-m-d'))
+						'tgl_indo' => tgl_indo(date('Y-m-d')),
+						'foto'	=> $dt->foto,
 					);
 				
 			// $d['probi'] = $this->model_probi->all2();
@@ -175,7 +213,7 @@ public function simpan(){
 		$cek = $this->session->userdata('logged_in');
 		$level = $this->session->userdata('level');
 		if (!empty($cek) && $level=='admin'){
-			$id['nir'] = $this->uri->segment(3);
+			$id['id_klien'] = $this->uri->segment(3);
 
 			if ($this->model_klien->ada($id)) {
 				

@@ -38,7 +38,6 @@ class Tahunakademik extends CI_Controller {
 		$level = $this->session->userdata('level');
 		if (!empty($cek) && $level=='admin'){
 			$id['id_tahunakademik'] = $this->input->post('id');
-			$dt['id_tahunakademik'] = $this->input->post('id');
 			$dt['tahunakademik'] = $this->input->post('tahunakademik');
 			$dt['status'] = $this->input->post('status');
 
@@ -47,11 +46,21 @@ class Tahunakademik extends CI_Controller {
 			if ($this->model_tahunakademik->ada($id)) {
 				$this->model_tahunakademik->update($id, $dt);
 				echo "Data Sukses Disimpan";
+				if ($dt['status']=="Aktif") {
+					$data['status'] = "Tidak Aktif";
+					$this->model_tahunakademik->ganti($id['id_tahunakademik'], $data);
+				} 
 			} else {
-				$this->model_tahunakademik->insert($id, $dt);
-				echo "Data Sukses Disimpan";
-			}
+				$this->model_tahunakademik->insert($dt);
+				$idd = $this->db->insert_id();
+				if ($dt['status']=="Aktif") {
+					$data['status'] = "Tidak Aktif";
+					$this->model_tahunakademik->ganti($idd, $data);
+				} 
+				echo "Data Sukses Disimpan ";
 
+			}
+				
 		} else {
 			redirect('login','refresh');
 		}

@@ -19,7 +19,7 @@ $(document).ready(function(){
 	<div class="table-header">
 		<?php echo $judul; ?>
 		<div class="widget-toolbar no-border pull-right">
-			<a href="<?php echo site_url(); ?>/klien/tambah" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah">
+			<a href="<?php echo site_url(); ?>/klien/tambah" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah">
 				<i class="icon-check"></i>
 				Tambah Data
 			</a>
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			?>
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
-				<td class="center span2"><?php echo $dt->foto; ?></td>
+				<td class="center span2"><img src="<?php echo base_url('assets/foto_klien');echo '/'.$dt->foto; ?>" width="200px"/></td>
 				<td class="center span2"><?php echo $dt->nir; ?></td>
 				<td ><?php echo $dt->nama_klien; ?></td>
 				<td class="center"><?php echo $dt->sex; ?></td>

@@ -3,6 +3,7 @@
 class Model_klien extends CI_Model {
 	public function all(){
 		//mengambil smua data program
+		$this->db->where('status !=','calon');
 		$this->db->order_by('id_klien');
 		$q = $this->db->get('klien');
 		return $q->result();	
@@ -28,6 +29,7 @@ class Model_klien extends CI_Model {
 			return null;
 		}
 	}
+
 
 	public function update($id, $dt){
 		$this->db->update("klien", $dt, $id);

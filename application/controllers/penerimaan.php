@@ -8,9 +8,8 @@ class Penerimaan extends CI_Controller {
 	    parent::__construct();
 
 	    $this->load->model('model_data');
-	    $this->load->model('model_klien');
+	    $this->load->model('model_penerimaan');
 	}
-
 
 	public function index()
 	{
@@ -20,80 +19,52 @@ class Penerimaan extends CI_Controller {
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
 			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Penerimaan Klien';
-			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
-			$d['content'] = 'klien/viewpenerimaan';
-			$d['data'] = $this->model_klien->all();
-			
+			$d['judul'] = 'Klien';
+			$d['nama_klien'] = $this->session->userdata('nama_klien');
+			$d['content'] = 'penerimaan/view';
+			$d['data'] = $this->model_penerimaan->all();
+			$d['data_status'] = $this->model_data->status_klien();
+			$d['all_klien'] = $this->model_penerimaan->all();
 			$this->load->view('home', $d);	
 		} else {
 			redirect('login','refresh');
 		}
 	}
 
-	/* public function simpan() {
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
-			$id['id_klien'] = $this->input->post('id');
-			$dt['id_tahunakademik'] = $this->input->post('id');
-			$dt['tahunakademik'] = $this->input->post('tahunakademik');
-			$dt['status'] = $this->input->post('status');
+	public function cari(){
+	
+			$id['id_klien'] = $this->uri->segment(3);
+			if ($this->model_penerimaan->ada($id)){
+				$data = $this->model_penerimaan->ambilklien($id['id_klien']);
+				$d['id_klien'] = $data->id_klien;
+				$d['nama_klien'] = $data->nama_klien;
+				$d['ktp'] = $data->nik;
+				$d['jk'] = $data->sex;
+				$d['agama'] = $data->agama;
+				$d['tempat_lahir'] = $data->tempat_lahir;
+				$d['tanggal_lahir'] = $data->tanggal_lahir;
+				$d['hp'] = $data->hp;
+				$d['alamat'] = $data->alamat;
+				$d['kota'] =$data->kota;
+				$d['status_daftar'] = $data->status_daftar;
+				$d['status'] = $data->status;
+			} 
+			echo json_encode($d);
 
-
-
-			if ($this->model_tahunakademik->ada($id)) {
-				$this->model_tahunakademik->update($id, $dt);
-				echo "Data Sukses Disimpan";
-			} else {
-				$this->model_tahunakademik->insert($id, $dt);
-				echo "Data Sukses Disimpan";
-			}
-
-		} else {
-			redirect('login','refresh');
-		}
 	}
 
-	public function hapus(){
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
-			$id['id_tahunakademik'] = $this->uri->segment(3);
+	public function simpan() {
+		$id['id_klien'] = $this->input->post('id_klien');
+		$dt['status_daftar'] = $this->input->post('status_daftar');
+		$this->model_penerimaan->update($id, $dt);
+		echo "Berhasil Merubah Status Daftar";
+	}
 
-			if ($this->model_tahunakademik->ada($id)) {
-				
-				$this->model_tahunakademik->delete($id);
-			} 
-			redirect('tahunakademik','refresh');
-		} else {
-			redirect('login','refresh');
-		}	
-	}*/
-
-	public function cari(){
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
-			$id['id_klien'] = $this->uri->segment(3);
-
-			if ($this->model_klien->ada($id)){
-				$dt = $this->model_klien->get($id);
-				$d['id'] = $dt->id_klien;
-				$d['tahunakademik'] = $dt->klien;
-				$d['status'] = $dt->status;
-				
-			} else {
-				$d['id'] = "";
-				$d['klien'] = "";
-				$d['status'] = "";
-			}
-
-			echo json_encode($d);
-		} else {
-			redirect('login', 'refresh');
-		}
-
+	public function simpan2() {
+		$id['id_klien'] = $this->input->post('id_klien2');
+		$dt['status'] = $this->input->post('status2');
+		$this->model_penerimaan->update($id, $dt);
+		echo "Berhasil Memindahkan Data Klien ";
 	}
 
 }

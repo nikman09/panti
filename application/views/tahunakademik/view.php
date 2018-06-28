@@ -6,12 +6,6 @@ $(document).ready(function(){
 		var status = $('#status').val();
 		var string = $('#my-form').serialize(); 
 
-		if(id.length == 0){
-			alert('Maaf, Kode Ruangan Tidak boleh kosong');
-			$('#id').focus();
-			return false;
-		}
-		
 		if(tahunakademik.length == 0){
 			alert('Maaf, Tahun Akademik Tidak boleh kosong');
 			$('#tahunakademik').focus();
@@ -46,11 +40,11 @@ $(document).ready(function(){
 function editData(id){
 	$.ajax({
 		type: 'GET',
-		url: "<?php echo site_url(); ?>/simpan/cari/" + id,
+		url: "<?php echo site_url(); ?>/tahunakademik/cari/" + id,
 		dataType: "json",
 		success: function(data){
-			$('#id').val(data.kode);
-			$('#tahunakademik').val(data.ruangan);
+			$('#id').val(data.id);
+			$('#tahunakademik').val(data.tahunakademik);
 			$('#status').val(data.status);
 		}
 	});
@@ -62,11 +56,7 @@ function editData(id){
 	<div class="table-header">
 		<?php echo $judul; ?>
 		<div class="widget-toolbar no-border pull-right">
-			<a href="<?php echo site_url(); ?>/tahunakademik" class="btn btn-small btn-info" role="button"  >
-				<i class="icon-refresh"></i>
-				Refresh
-			</a>
-			<a href="#modal-table" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah">
+			<a href="#modal-table" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah">
 				<i class="icon-check"></i>
 				Tambah Data
 			</a>
@@ -126,12 +116,10 @@ function editData(id){
 	<div class="modal-body no-padding">
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">ID</label>
-					<div class="controls">
-						<input type="text" name="id" id="id" placeholder="id" class="span4"/>
-					</div>
-				</div>
+			<br/>
+			
+						<input type="hidden" name="id" id="id" placeholder="id" class="span4" />
+				
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Tahun Akademik</label>
 					<div class="controls">
@@ -141,7 +129,8 @@ function editData(id){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Status</label>
 					<div class="controls">
-						<select name="status" id="status" class="span3">
+						<select name="status" id="status" class="span8">
+						 <option value="">.:Pilih Status:.</option>
 							<option value="Aktif">Aktif</option>
 							<option value="Tidak Aktif">Tidak Aktif</option>
 						</select>

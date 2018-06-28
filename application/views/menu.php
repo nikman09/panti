@@ -47,7 +47,8 @@
 					</div>
 				</div><!--#sidebar-shortcuts-->
 				<div align="center">
-					<img src="<?php echo base_url();?>assets/img/logo-kalsel.png" width="80">
+				<br/>
+					<img src="<?php echo base_url();?>assets/img/logo-kalsel.png" width="80" >
 					<h6><?php echo $this->config->item('nama_instansi'); ?>
 						<?php echo $this->config->item('provinsi'); ?>
 						
@@ -159,14 +160,6 @@
 									Penempatan Asrama
 								</a>
 							</li>
-
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/penunjukan">
-									<i class="icon-double-angle-right"></i>
-									Penunjukan Pengelola Asrama
-								</a>
-							</li>
-
 							<li>
 								<a href="<?php echo base_url(); ?>index.php/jadwal">
 									<i class="icon-double-angle-right"></i>

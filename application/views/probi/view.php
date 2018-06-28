@@ -56,7 +56,7 @@ function editData(id){
 	<div class="table-header">
 		<?php echo $judul; ?>
 		<div class="widget-toolbar no-border pull-right">
-			<a href="#modal-table" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah">
+			<a href="#modal-table" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah">
 				<i class="icon-check"></i>
 				Tambah Data
 			</a>
@@ -113,6 +113,7 @@ function editData(id){
 	<div class="modal-body no-padding">
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
+			<br/>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Kode Program</label>
 					<div class="controls">
