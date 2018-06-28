@@ -41,9 +41,9 @@ class Rombel extends CI_Controller {
 			$dt['id_rombel'] = $this->input->post('id');
 			$dt['rombel'] = $this->input->post('rombel');
 			$dt['kelas'] = $this->input->post('kelas');
-			$dt['kd_probi'] = $this->input->post('probi');
+			$dt['kd_probi'] = $this->input->post('probi'); 
 
-
+ 
 
 			if ($this->model_rombel->ada($id)) {
 				$this->model_rombel->update($id, $dt);
