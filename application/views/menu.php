@@ -80,6 +80,12 @@
 									Pegawai
 								</a>
 							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/instruktur">
+									<i class="icon-double-angle-right"></i>
+									Instruktur
+								</a>
+							</li>
 
 							<li>
 								<a href="<?php echo base_url(); ?>index.php/asrama"> 

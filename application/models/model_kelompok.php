@@ -61,8 +61,52 @@ class Model_kelompok extends CI_Model {
 			'id_penentuan' => $idkelompok
 		);
 		return $this->db->delete('penentuan_rombel',$data);
-
 	}
+	
+	
+	public function ambilmapel(){
+		return $this->db->get('mapel');
+	}
+	
+	public function ambildatainstruktur(){
+		$this->db->join('pegawai','instruktur.id_pegawai = pegawai.id_pegawai');
+		return $this->db->get('instruktur');
+	}
+
+	public function ambildataruangan(){
+		return $this->db->get('ruangan');
+	}
+	public function tambahjadwal($data){
+		return $this->db->insert("jadwal",$data);
+	}
+
+	public function ambiljadwal($hari,$id_rombel){
+		$tahunini = $this->tahunini()->id_tahunakademik;
+		$this->db->from('jadwal');
+		$this->db->join('mapel','mapel.kd_mp = jadwal.kd_mapel');
+		$this->db->join('ruangan','ruangan.kd_ruangan = jadwal.kd_ruangan');
+		$this->db->join('instruktur','instruktur.id_instruktur = jadwal.id_instruktur');
+		$this->db->join('pegawai','pegawai.id_pegawai = instruktur.id_pegawai');
+		$this->db->where('id_rombel',$id_rombel);
+		$this->db->where('hari',$hari);
+		$this->db->where('id_tahunakademik',$tahunini);
+		$this->db->order_by('jam','asc');
+		return $this->db->get();
+	}
+
+	public function cekjadwal($id_jadwal){
+
+		$this->db->where('id_jadwal',$id_jadwal);
+		$data = $this->db->get('jadwal');
+		return $data ;
+	}
+	public function hapusjadwal($id_jadwal){
+		$data = array(
+			'id_jadwal' => $id_jadwal
+		);
+		return $this->db->delete('jadwal',$data);
+	}
+
 }
 
 ?>

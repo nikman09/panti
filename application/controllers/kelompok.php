@@ -125,12 +125,54 @@ class Kelompok extends CI_Controller {
 				$d['class'] = 'transaksi'; 
 				$d['judul'] = 'Jadwal "'.$d['rombel']->rombel.'"';
 				$d['content'] = 'kelompok/jadwal';
+				
+				$d['datamapel'] = $this->model_kelompok->ambilmapel();
+				$d['datainstruktur'] = $this->model_kelompok->ambildatainstruktur();
+				$d['dataruangan'] = $this->model_kelompok->ambildataruangan();
+
+				$d['datasenin'] = $this->model_kelompok->ambiljadwal('Senin',$id_rombel);
+				$d['dataselasa'] = $this->model_kelompok->ambiljadwal('Selasa',$id_rombel);
+				$d['datarabu'] = $this->model_kelompok->ambiljadwal('Rabu',$id_rombel);
+				$d['datakamis'] = $this->model_kelompok->ambiljadwal('Kamis',$id_rombel);
+				$d['datajumat'] = $this->model_kelompok->ambiljadwal('Jumat',$id_rombel);
+				$d['datasabtu'] = $this->model_kelompok->ambiljadwal('Sabtu',$id_rombel);
+				$d['dataminggu'] = $this->model_kelompok->ambiljadwal('Minggu',$id_rombel);
+
 				$this->load->view('home', $d);	
 			} else {
 				redirect('penempatan','refresh');
 			}
 		}
 	}
-
+	
+	public function tambahjadwal() {
+		$id_tahunakademik = $this->model_tahunakademik->tahunini();
+		$id_rombel = $this->input->post('id_rombel');
+		$kd_mapel =  $this->input->post('matapelajaran');
+		$id_instruktur =  $this->input->post('instruktur');
+		$hari =  $this->input->post('hari');
+		$jam =  $this->input->post('jam');
+		$kd_ruangan =  $this->input->post('ruangan');
+		$d = array(
+			'id_tahunakademik' => $id_tahunakademik->id_tahunakademik,
+			'id_rombel' => $id_rombel,
+			'kd_mapel' => $kd_mapel,
+			'id_instruktur' => $id_instruktur,
+			'hari' => $hari,
+			'jam' => $jam,
+			'kd_ruangan' => $kd_ruangan,
+		);
+		$this->model_kelompok->tambahjadwal($d);
+		redirect(site_url()."/kelompok/jadwal?as=".$id_rombel."&s=1");
+	}
+	public function hapusjadwal(){
+		$id_jadwal= $this->uri->segment(3);
+		$data = $this->model_kelompok->cekjadwal($id_jadwal);
+		if ($data->num_rows>0) {
+			$this->model_kelompok->hapusjadwal($id_jadwal);
+			$data = $data->row();
+			redirect("kelompok/jadwal?as=".$data->id_rombel."&s=2",'refresh');
+		} 
+	}
 
 }
