@@ -45,6 +45,12 @@ public function all2(){
 		$this->db->where("id_tahunakademik !=",$id);
 		$this->db->update("tahunakademik", $dt);
 	}
+
+	public function tahunini(){
+		 $this->db->where('status','Aktif');
+		 $data = $this->db->get('tahunakademik')->row();
+		 return $data;
+	}
 }
 
 ?>

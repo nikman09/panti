@@ -161,9 +161,9 @@
 								</a>
 							</li>
 							<li>
-								<a href="<?php echo base_url(); ?>index.php/jadwal">
+								<a href="<?php echo base_url(); ?>index.php/kelompok">
 									<i class="icon-double-angle-right"></i>
-									Jadwal Pelajaran
+									Kelompok Belajar
 								</a>
 							</li>
 

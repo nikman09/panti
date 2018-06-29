@@ -53,7 +53,14 @@
         <script src="<?php echo base_url();?>assets/js/jquery.gritter.min.js"></script>
 		<script src="<?php echo base_url();?>assets/js/ace-elements.min.js"></script>
 		<script src="<?php echo base_url();?>assets/js/ace.min.js"></script>
+<style>
+th, td {
+    padding: 5px;
+	font-size: 11px;
+	color : #707070;
+}
 
+</style>
 	</head>
 
 	<body>
