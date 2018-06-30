@@ -79,7 +79,14 @@ th, td {
 		</div>
 
 		<div class="main-container container-fluid">
-		<?php $this->load->view('menu'); ?>
+		<?php 
+			$level = $this->session->userdata('level');
+			if ($level=='instruktur'){
+				$this->load->view('menuinstruktur');
+			 } else {
+				$this->load->view('menu');
+			 } 
+		?>
 			<div class="main-content">
 				<div class="breadcrumbs" id="breadcrumbs">
 					<ul class="breadcrumb">
@@ -93,7 +100,7 @@ th, td {
 						</li>
 						<li class="active"><?php echo $judul; ?></li>
 					</ul><!--.breadcrumb-->
-					<div class="pull-right"> PANTI SOSIAL BINA NETRA FAJAR HARAPAN</div>
+					<div class="pull-right"> Panti Sosial Bina Netra Fajar Harapan</div>
 					
 				</div>
 

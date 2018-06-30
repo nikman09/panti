@@ -146,7 +146,7 @@
 							
 							
 
-							<div class="row-fluid">
+							<!-- <div class="row-fluid">
 								
 								<div class="span12">
 									<div class="widget-box ">
@@ -157,9 +157,9 @@
 											</h4>
 										</div>
 
-									</div><!--/widget-box-->
-								</div><!--/span-->
-							</div><!--/row-->
+									</div>
+								</div>
+							</div> -->
 
 							<!--PAGE CONTENT ENDS-->
 						</div><!--/.span-->

@@ -74,10 +74,10 @@
 											<div class="widget-main">
 												<h4 class="header blue lighter bigger">
 													<i class="icon-laptop green"></i>
-													Halaman Login
+													Halaman Login Instruktur
 												</h4>
 												<div class="space-6"></div>
-												<form method="post" action="<?php echo base_url();?>index.php/login" >
+												<form method="post" action="<?php echo base_url();?>index.php/logininstruktur" >
 													<fieldset>
 													<label>
 															<span class="block input-icon input-icon-right">
@@ -93,7 +93,7 @@
 														</label>
 														<div class="space"></div>
 														<div class="clearfix">
-														<a href="<?php echo site_url('logininstruktur') ?>">Login Instruktur</a>
+														<a href="<?php echo site_url('login') ?>">Login Admin</a>
 															<button type="submit" name="submit" class="width-35 pull-right btn btn-small btn-primary">
 																<i class="icon-key"></i>
 																Login

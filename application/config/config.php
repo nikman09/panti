@@ -27,8 +27,8 @@ str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 
 $config['nama_aplikasi'] = 'Aplikasi Pengelolaan Panti';
 $config['nama_pendek'] = 'PSBN FAJAR HARAPAN';
-$config['nama_instansi'] = 'PANTI SOSIAL BINA NETRA FAJAR HARAPAN';
-$config['provinsi'] = 'PROVINSI KALIMANTAN SELATAN';
+$config['nama_instansi'] = '<b>Panti Sosial Bina Netra Fajar Harapan</b>';
+$config['provinsi'] = 'Provinsi Kalimantan Selatan';
 $config['alamat_instansi'] = 'Jln. A. Yani Km.37,5 No. 8 Martapura';
 /*
 |--------------------------------------------------------------------------
