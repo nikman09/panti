@@ -41,8 +41,34 @@ class Model_nilai extends CI_Model {
 
     public function dataklien($id_rombel,$kd_mapel){
         $tahunini = $this->tahunini()->id_tahunakademik;
-        return $this->db->query("SELECT penentuan_rombel.id_klien, nilai.id_nilai, penentuan_rombel.id_rombel, rombel.rombel, klien.nama_klien, klien.nir, jadwalmapel.mapel, nilai.nilai FROM `penentuan_rombel` INNER JOIN rombel on rombel.id_rombel=penentuan_rombel.id_rombel INNER JOIN klien on klien.id_klien = penentuan_rombel.id_klien inner join (select kd_mapel, mapel, jadwal.id_rombel from jadwal inner join
-        mapel on mapel.kd_mp = jadwal.kd_mapel group by jadwal.id_rombel,  jadwal.kd_mapel) as jadwalmapel on jadwalmapel.id_rombel = penentuan_rombel.id_rombel left join (select * from nilai  where id_tahunakademik='$tahunini' ) as nilai on nilai.id_klien=penentuan_rombel.id_klien where penentuan_rombel.id_tahunakademik='$tahunini' and penentuan_rombel.id_rombel='$id_rombel' and jadwalmapel.kd_mapel='$kd_mapel' ");
+        return $this->db->query(
+            "SELECT 
+                    penentuan_rombel.id_klien,
+                    nilai.id_nilai, 
+                    penentuan_rombel.id_rombel, 
+                    rombel.rombel, 
+                    klien.nama_klien, 
+                    klien.nir, 
+                    jadwalmapel.mapel, 
+                    nilai.nilai 
+            FROM 
+                    `penentuan_rombel` 
+            INNER JOIN 
+                    rombel 
+                     on rombel.id_rombel=penentuan_rombel.id_rombel 
+            INNER JOIN 
+                     klien 
+                     on klien.id_klien = penentuan_rombel.id_klien 
+            
+            inner join 
+                    (select * from jadwal  inner join
+                    mapel on mapel.kd_mp = jadwal.kd_mapel where jadwal.`id_tahunakademik`='$tahunini' and jadwal.`id_rombel`='$id_rombel' and jadwal.`kd_mapel`='$kd_mapel' group by kd_mapel, id_rombel) as jadwalmapel 
+                     on jadwalmapel.id_rombel = penentuan_rombel.id_rombel 
+            left join 
+                    (select * from nilai  where id_tahunakademik='$tahunini' and kd_mp='$kd_mapel' ) as nilai 
+                     on nilai.id_klien=penentuan_rombel.id_klien 
+            where 
+                penentuan_rombel.id_tahunakademik='$tahunini' and penentuan_rombel.id_rombel='$id_rombel' and jadwalmapel.kd_mapel='$kd_mapel' ");
     }
 
     public function dataklienada($id_rombel,$kd_mapel){

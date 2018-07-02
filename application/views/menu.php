@@ -49,10 +49,12 @@
 				<div align="center">
 				<br/>
 					<img src="<?php echo base_url();?>assets/img/logo-kalsel.png" width="80" >
-					<h6><?php echo $this->config->item('nama_instansi'); ?>
+					<br/>
+					<br/>
+					<!-- <h6><?php echo $this->config->item('nama_instansi'); ?>
 						<?php echo $this->config->item('provinsi'); ?>
 						
-					</h6>
+					</h6> -->
 				</div>
 
 				<ul class="nav nav-list">
@@ -179,13 +181,19 @@
 									Nilai
 								</a>
 							</li>
-
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/transkrip">
+									<i class="icon-double-angle-right"></i>
+									Transkrip
+								</a>
+							</li>
 							<li>
 								<a href="<?php echo base_url(); ?>index.php/penyaluran">
 									<i class="icon-double-angle-right"></i>
 									Penyaluran Klien
 								</a>
 							</li>
+							
 						</ul>
 					</li>
 

@@ -23,18 +23,20 @@ class Nilai extends CI_Controller {
 
 	public function index()
 	{	
+		$level = $this->session->userdata('level');
 		$d['tgl_hari'] = hari_ini(date('w'));
 		$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
 		$d['class'] = 'transaksi'; 
 		$d['judul'] = 'Nilai Klien';
 		$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 		$d['content'] = 'nilai/nilai';
-		if ($level='instruktur'){
+		if ($level=='instruktur'){
 			$id_instruktur = $this->session->userdata('id_username');
 			$d['data'] = $this->model_nilai->datapelajaraninstruktur($id_instruktur);
 		} else {
 			$d['data'] = $this->model_nilai->datapelajaran();
 		}
+		
 		$d['tahun'] = $this->model_tahunakademik->tahunini()->tahunakademik;
 		$this->load->view('home', $d);
 	}

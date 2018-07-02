@@ -48,7 +48,7 @@ $(document).ready(function(){
 			?>
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
-				<td class="center span2"><img src="<?php echo base_url('assets/foto_klien');echo '/'.$dt->foto; ?>" width="200px"/></td>
+				<td class="center span2"><img src="<?php echo base_url('assets/foto_klien');echo '/'.$dt->foto; ?>" style="width:50px"/></td>
 				<td class="center span2"><?php echo $dt->nir; ?></td>
 				<td ><?php echo $dt->nama_klien; ?></td>
 				<td class="center"><?php echo $dt->sex; ?></td>
