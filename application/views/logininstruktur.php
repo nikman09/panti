@@ -57,7 +57,7 @@
 							<div class="row-fluid">
 								<div class="center">
 									<i class=""></i>
-									
+									<br/><br/>
 									<h4><span class="blue"><?php echo $this->config->item('nama_aplikasi');?></span></h4>
 									 <img src="<?php echo base_url();?>assets/img/logo-kalsel.png" width=50px>
 									<h2><span class="white"><?php echo $this->config->item('nama_pendek');?></span></h2>

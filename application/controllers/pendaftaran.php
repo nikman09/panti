@@ -27,6 +27,10 @@ class Pendaftaran extends CI_Controller {
 					'hp' => $this->input->post('hp'),
 					'alamat' => $this->input->post('alamat'),
 					'kota' => $this->input->post('kota'),
+					'nama_ayah' => $this->input->post('nama_ayah'),
+					'nama_ibu' => $this->input->post('nama_ibu'),
+					'alamat_ortu' =>  $this->input->post('alamat_ortu'),
+					'hp_ortu' => $this->input->post('hp_ortu'),
 					'peringatan' => "*NIK sudah pernah didaftarkan"
 				);
 				$d['data_agama'] = $this->model_data->agama();
@@ -43,6 +47,10 @@ class Pendaftaran extends CI_Controller {
 					'hp' => $this->input->post('hp'),
 					'alamat' => $this->input->post('alamat'),
 					'kota' => $this->input->post('kota'),
+					'nama_ayah' => $this->input->post('nama_ayah'),
+					'nama_ibu' => $this->input->post('nama_ibu'),
+					'alamat_ortu' =>  $this->input->post('alamat_ortu'),
+					'hp_ortu' => $this->input->post('hp_ortu'),
 					'status' =>'calon',
 					'status_daftar' => 'n',
 					'tgl_insert' => date('Y-m-d H:i:s'),
@@ -68,6 +76,7 @@ class Pendaftaran extends CI_Controller {
 					'tanggal_lahir' => '',
 					'hp' => '',
 					'alamat' => '',
+					
 					'kota' => '',
 					'peringatan' => '',
 			);

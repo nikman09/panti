@@ -30,5 +30,13 @@ class Home extends CI_Controller {
 		
 		}
 	}
+
+	public function laporan()
+	{
+		//var_dump($this->session->userdata("username"));
+		
+			$this->load->view('laporan/v_laporan');
+	
+	}
 	
 }

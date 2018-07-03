@@ -20,6 +20,10 @@ $(document).ready(function(){
 				$('#alamat').val(data.alamat);
 				$('#kota').val(data.kota);
 				$('#status_daftar').val(data.status_daftar);
+				$('#nama_ayah').val(data.nama_ayah);
+				$('#nama_ibu').val(data.nama_ibu);
+				$('#alamat_ortu').val(data.alamat_ortu);
+				$('#hp_ortu').val(data.hp_ortu);
 			
 			}
 		});
@@ -125,6 +129,9 @@ $(document).ready(function(){
 				<td class="td-actions">
 					<center>
 						<div class="hidden-phone visible-desktop action-buttons">
+						<a class="blue" href="<?php echo site_url(); ?>/penerimaan/printpenerimaan/<?php echo $dt->id_klien; ?>" 			target="_blank">
+								<i class="icon-print bigger-130"></i>
+							</a>
 							<a class="green edit" id="<?php echo $dt->id_klien  ?>" href="#modal-table" data-toggle="modal" >
 								<i class="icon-pencil bigger-130"></i>
 							</a>
@@ -217,6 +224,30 @@ $(document).ready(function(){
 					<label class="control-label" for="form-filed-1">Kota</label>
 					<div class="controls">
 						<input type="text" name="kota" id="kota" placeholder="Kota"  class="span6" readonly/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="form-filed-1">Nama Ayah</label>
+					<div class="controls">
+					<input type="text" name="nama_ayah" id="nama_ayah" placeholder="Nama Ayah"  class="span6" readonly/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="form-filed-1">Nama Ibu</label>
+					<div class="controls">
+					<input type="text" name="nama_ibu" id="nama_ibu" placeholder="Nama ibu"  class="span6" readonly/>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="form-filed-1">Alamat Orang Tua</label>
+					<div class="controls">
+					<textarea name="alamat_ortu" id="alamat_ortu" placeholder="Alamat Orang Tua"  class="span6" readonly></textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="form-filed-1">Telepon Orang Tua</label>
+					<div class="controls">
+					<input type="text" name="hp_ortu" id="hp_ortu" placeholder="Telepon Orang Tua"  class="span6" readonly/>
 					</div>
 				</div>
 				<div class="control-group">

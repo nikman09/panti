@@ -45,8 +45,8 @@
 	<body class="login-layout">
 		<div class="main-container container-fluid">
 			<div class="main-content">
-				<div class="row-fluid">
-					<div class="span12">
+				<div class="row-fluid" >
+					<div class="span12"
 						<div class=>
 							<div class="row-fluid">
 								<div class="center">
@@ -139,13 +139,13 @@
 														</label>
 														<label>
 															<span class="block input-icon input-icon-right">
-																<input type="text" id="alamat" name="alamat" class="span6" placeholder="Masukan Alamat yang Lengkap"  required="required" value="<?php echo $alamat; ?>"  />
+																<input type="text" id="alamat" name="alamat" class="span4" placeholder="Masukan Alamat yang Lengkap"  required="required" value="<?php echo $alamat; ?>"  />
 																
 															</span>
 														</label>
 														<label>
 															<span class="block input-icon input-icon-right">
-																<select name="kota" id="kota"  class="span5"  required="required" value="<?php echo $kota; ?>">
+																<select name="kota" id="kota"  class="span4"  required="required" value="<?php echo $kota; ?>">
 																	<option value="">--Pilih Asal Kota/Kabupaten--</option>
 																	<?php
 																		foreach ($data_kota as $dt ) {
@@ -157,12 +157,34 @@
 																</select>
 															</span>
 														</label>
-
+														<label>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="nama_ayah" id="nama_ayah" class="span4" placeholder="Nama Ayah"  required="required"  value="<?php echo $nama_ayah; ?>" />
+																
+															</span>
+														</label>
+														<label>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="nama_ibu" id="nama_ibu" class="span4" placeholder="Nama Ibu"  required="required" value="<?php echo $nama_ibu; ?>" />
+																
+															</span>
+														</label>
+														<label>
+															<span class="block input-icon input-icon-right">
+																<textarea name="alamat_ortu" id="alamat_ortu" class="span4" placeholder="Alamat Orang Tua"  required="required"  ><?php echo $alamat_ortu; ?>"</textarea>
+																
+															</span>
+														</label>
+														<label>
+															<span class="block input-icon input-icon-right">
+																<input type="text" name="hp_ortu" id="hp_ortu" class="span4" placeholder="Telepon Orang Tua"  required="required"  value="<?php echo $hp_ortu; ?>"/>
+																
+															</span>
+														</label>
 														<label>
 															<input type="checkbox"  required="required" />
 															<span class="lbl">
-																Saya Setuju dengan
-																<a href="#">Persyaratan</a>
+																Data yang saya inputkan adalah sebenar-benarnya
 															</span>
 														</label>
 

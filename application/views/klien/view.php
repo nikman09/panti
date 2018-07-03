@@ -58,6 +58,9 @@ $(document).ready(function(){
 				<td class="td-actions">
 					<center>
 						<div class="hidden-phone visible-desktop action-buttons">
+							<a class="blue" href="<?php echo site_url(); ?>/klien/printklien/<?php echo $dt->id_klien; ?>" 			target="_blank">
+								<i class="icon-print bigger-130"></i>
+							</a>
 							<a class="green" href="<?php echo site_url();?>/klien/edit/<?php echo $dt->id_klien;?>" data-toggle="modal" >
 								<i class="icon-pencil bigger-130"></i>
 							</a>

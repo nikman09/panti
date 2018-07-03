@@ -225,4 +225,15 @@ public function simpan(){
 		}	
 	}
 
+
+	public function printklien(){
+	
+		$id['id_klien'] = $this->uri->segment(3);
+		if ($this->model_klien->ada($id)){
+			$d['data'] = $this->model_klien->get_by_id_klien($id['id_klien']);
+		} 
+		$this->load->view('klien/v_laporan',$d);
+
+	}
+
 }

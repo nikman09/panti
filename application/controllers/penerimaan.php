@@ -48,6 +48,10 @@ class Penerimaan extends CI_Controller {
 				$d['kota'] =$data->kota;
 				$d['status_daftar'] = $data->status_daftar;
 				$d['status'] = $data->status;
+				$d['nama_ayah'] = $data->nama_ayah;
+				$d['nama_ibu'] =  $data->nama_ibu;
+				$d['alamat_ortu'] =   $data->alamat_ortu;
+				$d['hp_ortu'] =  $data->hp_ortu;
 			} 
 			echo json_encode($d);
 
@@ -67,4 +71,13 @@ class Penerimaan extends CI_Controller {
 		echo "Berhasil Memindahkan Data Klien ";
 	}
 
+	public function printpenerimaan(){
+	
+		$id['id_klien'] = $this->uri->segment(3);
+		if ($this->model_penerimaan->ada($id)){
+			$d['data'] = $this->model_penerimaan->ambilklien($id['id_klien']);
+		} 
+		$this->load->view('penerimaan/v_laporan',$d);
+
+	}
 }
