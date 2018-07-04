@@ -64,7 +64,7 @@ class Kelompok extends CI_Controller {
 				$d['data'] = $this->model_kelompok->dataklien($id_rombel);
 				$this->load->view('home', $d);	
 			} else {
-				redirect('penempatan','refresh');
+				redirect('kelompok','refresh');
 			}
 		}
 	}
@@ -175,4 +175,47 @@ class Kelompok extends CI_Controller {
 		} 
 	}
 
+	public function daftarhadir()
+	{
+		$id_rombel  = $this->uri->segment(3);
+		if ($this->model_kelompok->cekrombel($id_rombel)) {
+			$d['rombel'] = $this->model_kelompok->ambilrombel($id_rombel);
+			$d['data'] = $this->model_kelompok->dataklien($id_rombel);
+			$this->load->view('kelompok/v_daftarhadir',$d);
+		} else {
+			redirect('kelompok','refresh');
+		}
+	}
+
+	public function cetakjadwal()
+	{
+		$id_rombel  = $this->uri->segment(3);
+		if ($this->model_kelompok->cekrombel($id_rombel)) {
+			$d['rombel'] = $this->model_kelompok->ambilrombel($id_rombel);
+			$d['data'] = $this->model_kelompok->cetakjadwal($id_rombel);
+			$this->load->view('kelompok/v_cetakjadwal',$d);
+		} else {
+			redirect('kelompok','refresh');
+		}
+	}
+
+	public function cetakinstruktur()
+	{
+	
+		$id_rombel  = $this->uri->segment(3);
+		if ($this->model_kelompok->cekrombel($id_rombel)) {
+			$d['rombel'] = $this->model_kelompok->ambilrombel($id_rombel);
+			$d['senin'] = $this->model_kelompok->cetakabsensiinstruktur($id_rombel,'senin');
+			$d['selasa'] = $this->model_kelompok->cetakabsensiinstruktur($id_rombel,'selasa');
+			$d['rabu'] = $this->model_kelompok->cetakabsensiinstruktur($id_rombel,'rabu');
+			$d['kamis'] = $this->model_kelompok->cetakabsensiinstruktur($id_rombel,'kamis');
+			$d['jumat'] = $this->model_kelompok->cetakabsensiinstruktur($id_rombel,'jumat');
+			$d['sabtu'] = $this->model_kelompok->cetakabsensiinstruktur($id_rombel,'sabtu');
+			$d['minggu'] = $this->model_kelompok->cetakabsensiinstruktur($id_rombel,'minggu');
+			$this->load->view('kelompok/v_cetakinstruktur',$d);
+		} else {
+			redirect('kelompok','refresh');
+		}
+		
+	}
 }

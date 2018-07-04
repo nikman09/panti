@@ -1,6 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Model_klien extends CI_Model {
+
+	public function tahunini(){
+		$this->db->where('status','Aktif');
+		$data = $this->db->get('tahunakademik')->row();
+		return $data;
+   }
 	public function all(){
 		//mengambil smua data program
 		$this->db->where('status !=','calon');
@@ -28,6 +34,31 @@ class Model_klien extends CI_Model {
 		} else {
 			return null;
 		}
+	}
+
+	public function getperkabupaten($kota){
+		$tahunini = $this->tahunini()->id_tahunakademik;
+		$this->db->from('klien');
+		$this->db->join('(select * from penentuan_rombel where id_tahunakademik='.$tahunini.' ) as penentuan','penentuan.id_klien = klien.id_klien','left');
+		$this->db->join('rombel','rombel.id_rombel = penentuan.id_rombel','left');
+		$this->db->where('kota',$kota);
+		$this->db->where('status !=','calon');
+		$this->db->group_by('klien.id_klien');
+		$this->db->order_by('klien.id_klien');
+		$q = $this->db->get();
+		return $q->result();	
+	}
+
+	public function getall(){
+		$tahunini = $this->tahunini()->id_tahunakademik;
+		$this->db->from('klien');
+		$this->db->join('(select * from penentuan_rombel where id_tahunakademik='.$tahunini.' ) as penentuan','penentuan.id_klien = klien.id_klien','left');
+		$this->db->join('rombel','rombel.id_rombel = penentuan.id_rombel','left');
+		$this->db->where('status !=','calon');
+		$this->db->group_by('klien.id_klien');
+		$this->db->order_by('klien.id_klien');
+		$q = $this->db->get();
+		return $q->result();	
 	}
 
 

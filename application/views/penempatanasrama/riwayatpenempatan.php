@@ -46,7 +46,10 @@
 	</table>
 	<p align="right" style="margin-top:20px">
 	<a href="<?php echo site_url("penempatan") ?>" class="btn btn-success btn-small"> Kembali </a>
+	<a href="<?php echo site_url("penempatan/riwayatpenempatancetak") ?>" class="btn btn-success btn-small"><i class="icon icon-print"></i> Print </a>
 	</p>
+ </a>
+	
 </div>
 
 <div id="modal-table" class="modal hide fade " tabindex="-1">

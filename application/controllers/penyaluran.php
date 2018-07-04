@@ -79,5 +79,11 @@ class Penyaluran extends CI_Controller {
 		}
 		redirect(site_url()."/penyaluran?p=2");
 	}
-
+	public function laporanpenyaluran()
+	{
+		
+		$d['data'] = $this->model_penyaluran->datapenyaluran();
+		$this->load->view('penyaluran/v_laporanpenyaluran',$d);
+		
+	}
 }

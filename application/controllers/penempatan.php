@@ -322,4 +322,30 @@ class Penempatan extends CI_Controller {
 			redirect('penempatan/riwayatpenempatan?h=1','refresh');	
 	}
 
+	public function riwayatpenempatancetak()
+	{
+		$d['data'] = $this->model_penempatan->riwayat();// mengambil semua data program pembinaan
+		$this->load->view('penempatanasrama/v_laporanriwayat',$d);
+	
+	}
+	public function cetakdataklien()
+	{
+		$id['kd_asrama'] = $this->uri->segment(3);
+		$id_asrama = $id['kd_asrama'];
+		if ($this->model_asrama->ada($id)){
+			$d['asrama'] = $this->model_penempatan->ambilasrama($id_asrama);
+			$d['data'] = $this->model_penempatan->dataklien($id_asrama);;// mengambil semua data program pembinaan
+			$this->load->view('penempatanasrama/v_laporanklien',$d);
+		} else {
+			redirect(site_url('penempatanasrama'));
+		}
+	}
+
+	public function laporanasrama()
+	{
+		$d['data'] = $this->model_penempatan->all();
+		$this->load->view('penempatanasrama/v_laporanasrama',$d);
+		
+	}
+
 }

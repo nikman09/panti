@@ -61,9 +61,10 @@ $(document).ready(function(){
 				<th class="center">Kode</th>
 				<th class="center">Asrama</th>
 				<th class="center">Pengelola</th>
-				<th class="center">Kouta</th>
 				
+				<th class="center">Kouta</th>
 				<th class="center"> Penempatan Klien</th>
+				<th class="center">#</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -75,6 +76,7 @@ $(document).ready(function(){
 				<td class="center span1"><?php echo $i++; ?></td>
 				<td class="center span2"><?php echo $dt->kd_asrama; ?></td>
 				<td ><?php echo $dt->asrama; ?></td>
+				
 				<td class='center'><?php 
 						if ($dt->nama_pegawai=='') {
 							echo "<a class=\" edit \"  href=\"#modal-table\"  data-toggle='modal' id=\"".$dt->kd_asrama."\"><i class='icon-plus'></i> Tambah</a>";
@@ -89,7 +91,7 @@ $(document).ready(function(){
 						<a href="<?php site_url() ?>penempatan/klien?as=<?php echo $dt->kd_asrama; ?>" class="" ><i class="icon-user bigger-130"></i> <?php  echo $this->model_penempatan->jumlahklien($dt->kd_asrama);  ?></a>
 					</center>
 				</td> 
-				
+				<td class="center"><a target="_blank" href="<?php echo site_url('penempatan/cetakdataklien/'.$dt->kd_asrama.'') ?>"><i class="icon icon-print"></i> Print Data Klien</a></td>
 			</tr>
 			<?php
 			}
@@ -100,6 +102,7 @@ $(document).ready(function(){
 	<p align="right" style="margin-top:20px">
 	<a href="<?php echo site_url("penempatan/riwayatpenempatan") ?>" class="btn btn-success btn-small"> Riwayat Penempatan </a>
 	<a href="<?php echo site_url("penunjukan") ?>" class="btn btn-success btn-small"> Riwayat Penunjukan </a>
+	<a href="<?php echo site_url("penempatan/laporanasrama/") ?>" class="btn btn-success btn-small" target="_blank"><i class="icon icon-print"></i> Print Laporan </a>
 	</p>
 </div>
 

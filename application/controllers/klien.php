@@ -236,4 +236,32 @@ public function simpan(){
 
 	}
 
+	public function perkabupaten(){
+		$d['tgl_hari'] = hari_ini(date('w'));
+		$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
+		$d['class'] = 'master'; 
+		$d['judul'] = 'Klien';
+		$d['nama_klien'] = $this->session->userdata('nama_klien');
+		$d['content'] = 'klien/perkabupaten';
+		$d['data_kota'] = $this->model_data->kota();
+		$this->load->view('home', $d);	
+
+	}
+
+	public function cetakperkabupaten(){
+	
+		$id['kota'] = 	$this->input->get('kota');
+		$d['kota'] =$id['kota'];
+		$d['data'] = $this->model_klien->getperkabupaten($id['kota']);
+		$this->load->view('klien/v_laporanperkabupaten',$d);
+
+	}
+
+	public function cetakdata(){
+	
+		$d['data'] = $this->model_klien->getall();
+		$this->load->view('klien/v_laporandata',$d);
+
+	}
+
 }

@@ -132,6 +132,7 @@ class Model_penempatan extends CI_Model {
 	public function riwayat(){
 		return $this->db->get("riwayat_penempatan")->result();
 	}
+	
 	public function deleteriwayat($id){
 		$data = array(
 			'id' => $id

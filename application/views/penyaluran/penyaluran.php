@@ -90,6 +90,9 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 
 		</tbody>
 	</table>
+	<p align="right" style="margin-top:20px">
+		<a href="<?php echo site_url("penyaluran/laporanpenyaluran/") ?>" class="btn btn-success btn-small" target="_blank"><i class="icon icon-print"></i> Print Laporan </a>
+	</p>
 </div>
 
 <div id="modal-table" class="modal hide fade " tabindex="-1">

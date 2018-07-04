@@ -23,6 +23,9 @@ $(document).ready(function(){
 				<th class="center">Kelas</th>
 				<th class="center">Klien</th>
 				<th class="center">Jadwal</th>
+				<th class="center">Cetak Absensi</th>
+				<th class="center">bsensi Intruktur</th>
+				<th class="center">Cetak Jadwal</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -47,6 +50,10 @@ $(document).ready(function(){
 						<a href="<?php site_url() ?>kelompok/jadwal?as=<?php echo $dt->id_rombel; ?>" class="btn btn-info btn-small" ><i class="icon-list"></i> Jadwal </a>
 					</center>
 				</td> 
+				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/daftarhadir/'.$dt->id_rombel.'') ?>"><i class="icon icon-print"></i> Cetak Absensi</a></td>
+				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/cetakinstruktur/'.$dt->id_rombel.'') ?>"><i class="icon icon-print"></i> Absensi Intruktur</a></td>
+				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/cetakjadwal/'.$dt->id_rombel.'') ?>"><i class="icon icon-print"></i> Cetak Jadwal</a></td>
+
 				
 			</tr>
 			<?php

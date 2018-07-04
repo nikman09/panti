@@ -107,6 +107,24 @@ class Model_kelompok extends CI_Model {
 		return $this->db->delete('jadwal',$data);
 	}
 
+	public function cetakjadwal($id_rombel){
+		$tahunini = $this->tahunini()->id_tahunakademik;
+		return $this->db->query("SELECT jadwal.jam , ksenin.mapel as mpsenin, kselasa.mapel as mpselasa, krabu.mapel as mprabu, kkamis.mapel as mpkamis, kjumat.mapel as mpjumat, ksabtu.mapel as mpsabtu, kminggu.mapel as mpminggu FROM jadwal 
+			left join (select id_jadwal, kd_mapel, mapel   from jadwal inner join mapel on mapel.kd_mp = jadwal.kd_mapel where hari='senin') as ksenin on ksenin.id_jadwal = jadwal.id_jadwal  
+	 		left join (select id_jadwal, kd_mapel, mapel   from jadwal inner join mapel on mapel.kd_mp = jadwal.kd_mapel where hari='selasa') as kselasa on kselasa.id_jadwal = jadwal.id_jadwal  
+	 	 	left join (select id_jadwal, kd_mapel, mapel   from jadwal inner join mapel on mapel.kd_mp = jadwal.kd_mapel where hari='rabu') as krabu on krabu.id_jadwal = jadwal.id_jadwal  
+	  		left join (select id_jadwal, kd_mapel, mapel   from jadwal inner join mapel on mapel.kd_mp = jadwal.kd_mapel where hari='kamis') as kkamis on kkamis.id_jadwal = jadwal.id_jadwal  
+	  		left join (select id_jadwal, kd_mapel, mapel   from jadwal inner join mapel on mapel.kd_mp = jadwal.kd_mapel where hari='jumat') as kjumat on kjumat.id_jadwal = jadwal.id_jadwal 
+			left join (select id_jadwal, kd_mapel, mapel   from jadwal inner join mapel on mapel.kd_mp = jadwal.kd_mapel where hari='sabtu') as ksabtu on ksabtu.id_jadwal = jadwal.id_jadwal 
+			left join (select id_jadwal, kd_mapel, mapel   from jadwal inner join mapel on mapel.kd_mp = jadwal.kd_mapel where hari='minggu') as kminggu on kminggu.id_jadwal = jadwal.id_jadwal 
+		where id_rombel='$id_rombel' and id_tahunakademik='$tahunini' group by jam");
+	}
+
+	public function cetakabsensiinstruktur($id_rombel,$hari){
+		$tahunini = $this->tahunini()->id_tahunakademik;
+		return $this->db->query("SELECT pegawai.nama_pegawai, mapel.mapel, jadwal.jam  FROM `jadwal` inner join mapel on mapel.kd_mp = jadwal.kd_mapel inner join instruktur on instruktur.id_instruktur = jadwal.id_instruktur inner join pegawai on pegawai.id_pegawai = instruktur.id_pegawai   WHERE jadwal.id_rombel ='$id_rombel' and jadwal.id_tahunakademik='$tahunini' and hari='$hari'");
+	}
+
 }
 
 ?>

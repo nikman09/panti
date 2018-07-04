@@ -77,4 +77,8 @@ $(document).ready(function(){
 
 		</tbody>
 	</table>
+	<p align="right" style="margin-top:20px">
+	<a href="<?php echo site_url("klien/perkabupaten") ?>" class="btn btn-success btn-small"><i class="icon icon-print"></i> Laporan Perkabupaten</a>
+	<a href="<?php echo site_url("klien/cetakdata") ?>" class="btn btn-success btn-small"><i class="icon icon-print"></i> Print Data Klien </a>
+	</p>
 </div>

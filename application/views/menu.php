@@ -196,7 +196,12 @@
 						</a>
 
 						<ul class="submenu">
-
+						<li>
+								<a href="<?php echo base_url(); ?>index.php/klien">
+									<i class="icon-double-angle-right"></i>
+									Klien
+								</a>
+							</li>
 							<li>
 								<a href="<?php echo base_url(); ?>index.php/pegawai">
 									<i class="icon-double-angle-right"></i>
@@ -219,12 +224,7 @@
 								</a>
 							</li>
 
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/klien">
-									<i class="icon-double-angle-right"></i>
-									Klien
-								</a>
-							</li>
+						
 
 							<li>
 								<a href="<?php echo base_url(); ?>index.php/probi">
