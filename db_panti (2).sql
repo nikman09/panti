@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2018 at 04:32 PM
+-- Generation Time: Jul 04, 2018 at 04:34 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -67,6 +67,28 @@ INSERT INTO `asrama` (`kd_asrama`, `asrama`, `kouta`, `id_pegawai`) VALUES
 (3, 'Intan', '17', '4'),
 (4, 'Berlian', '15', ''),
 (5, 'Mutiara', '15', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
+--
+
+CREATE TABLE `berita` (
+  `id_berita` int(11) NOT NULL,
+  `judul` varchar(225) NOT NULL,
+  `keterangan` varchar(225) NOT NULL,
+  `isi` text NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `berita`
+--
+
+INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `isi`, `tanggal`) VALUES
+(3, 'SARANA DAN PRASARANA', 'Fasilitas', 'Dalam upaya memberikan pelayanan rehabilitasi sosial yang prima, PSBN Fajar Harapan didukung dengan berbagai sarana dan prasarana seperti :Kantor dan peralatannya, mobil opersional, Asrama, ruang makan /dapur, ruang belajar, ruang praktek keterampilan tangan, ruang praktek pijat, ruang & lapangan olahraga, lab. Komputer Braille, laboratorium komputer bicara, poliklinik, ruang musik/band, perpustakaan braille, mushalla dll.', '2018-07-02'),
+(4, 'DUKUNGAN PENDIDIKAN FORMAL', 'Pendidikan', 'Bagi klien yang masih mempunyai kesempatan untuk menempuh pedidikan formal, PSBN Fajar Harapan memberikan dukungan dengan cara bekerja sama dengan Dinas Pendidikan dan SLB-A Fajar Harapan dari tingkat SDLB, SMPLB, dan SMALB Martapura, serta Pendidikan Inklusi di SMA 4 Banjarbaru (Pendidikan Inklusi= penyandang cacat/anak berkebutuhan khusus bersekolah di sekolah umum).', '2018-07-02');
 
 -- --------------------------------------------------------
 
@@ -156,9 +178,11 @@ CREATE TABLE `klien` (
 --
 
 INSERT INTO `klien` (`id_klien`, `nir`, `nik`, `nama_klien`, `sex`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kota`, `hp`, `email`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `hp_ortu`, `foto`, `status`, `status_daftar`, `tgl_insert`, `tgl_update`) VALUES
-(1, 8988, '689876567876', 'Razuburrahman', 'L', 'Islam', 'Martapura', '2018-06-12', ' Jalan Kecubung', 'Banjar', ' 0876567876', 'razib@gmil.com', 'razib', 'zibah', 'kecubung', '087663334343', 'IMG_3519.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 8988, '689876567876', 'Razuburrahman', 'L', 'Islam', 'Martapura', '1985-07-18', ' Jalan Kecubung  ', 'Banjar', ' 0876567876  ', 'razib@gmil.com  ', 'razib', 'zibah', 'kecubung  ', '087663334343  ', 'IMG_3519.jpg', 'aktif', '0', '0000-00-00 00:00:00', '2018-07-04 01:12:57'),
 (2, 867876, '6786567876678', 'Dinda', 'P', 'Islam', 'Banjarmasin', '1996-07-11', ' Jalan Sesat   ', 'Barito Kuala', ' 08822828   ', 'dinda@outlook.com   ', 'dondo', 'dindah', 'pasay   ', '0987378933   ', 'mengganti-warna-background-pas-foto.jpg', 'aktif', '0', '0000-00-00 00:00:00', '2018-06-30 03:31:39'),
-(3, 897678, '67654567876', 'Rahmah', 'P', 'Islam', 'Banjarbaru', '2018-06-13', ' Jalan Kecubung ', 'Banjar', ' 08789222 ', ' rahmah@gmail.com ', 'Ayah', 'Ibu', 'Alamat ', '09876567890 ', 'Pas_Foto_3_x_4.jpg', 'aktif', '0', '0000-00-00 00:00:00', '2018-06-28 10:33:16');
+(3, 897678, '67654567876', 'Rahmah', 'P', 'Islam', 'Banjarbaru', '2018-06-13', ' Jalan Kecubung ', 'Banjar', ' 08789222 ', ' rahmah@gmail.com ', 'Ayah', 'Ibu', 'Alamat ', '09876567890 ', 'Pas_Foto_3_x_4.jpg', 'aktif', '0', '0000-00-00 00:00:00', '2018-06-28 10:33:16'),
+(4, 0, '111', '111', 'L', 'Islam', '11', '2018-07-04', '11', 'Hulu Sungai Selatan', '11', '', '', '', '', '', '', 'calon', 'y', '2018-07-02 15:56:29', '2018-07-02 15:56:29'),
+(5, 0, '11123', '1', 'P', 'Islam', '11', '2018-07-12', '11', 'Tanah Bumbu', '11', '', '11', '1', '11\"\"', '11', '', 'calon', 'y', '2018-07-03 09:56:25', '2018-07-03 09:56:25');
 
 -- --------------------------------------------------------
 
@@ -200,8 +224,11 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_rombel`, `kd_mp`, `id_klien`, `nilai`, `id_tahunakademik`) VALUES
-(10, 'BD1', 'BID', 3, 1, 2),
-(11, 'BD1', 'BID', 2, 12, 2);
+(12, 'BD1', 'BID', 2, 123, 2),
+(13, 'BD1', 'BING', 2, 1211, 2),
+(15, 'BD1', 'BING', 3, 12, 2),
+(16, 'BD1', 'BJ', 2, 12, 2),
+(17, 'BD1', 'BJ', 3, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -258,10 +285,9 @@ CREATE TABLE `penempatan` (
 --
 
 INSERT INTO `penempatan` (`id_penempatan`, `id_klien`, `kd_asrama`, `tgl_insert`) VALUES
-(16, 1, '2', '2018-06-22 15:34:16'),
-(17, 4, '1', '2018-06-23 12:20:30'),
-(20, 2, '2', '2018-06-29 11:54:00'),
-(21, 3, '1', '2018-06-29 11:54:28');
+(23, 2, '1', '2018-07-02 15:33:20'),
+(24, 3, '1', '2018-07-02 15:33:23'),
+(25, 1, '2', '2018-07-04 14:13:13');
 
 -- --------------------------------------------------------
 
@@ -282,7 +308,6 @@ CREATE TABLE `penentuan_rombel` (
 
 INSERT INTO `penentuan_rombel` (`id_penentuan`, `id_rombel`, `id_tahunakademik`, `id_klien`) VALUES
 (11, 'BD1', 2, 3),
-(12, 'BD2', 2, 1),
 (13, 'BD2', 2, 2),
 (14, 'BD1', 2, 2);
 
@@ -307,8 +332,7 @@ CREATE TABLE `penunjukan` (
 --
 
 INSERT INTO `penunjukan` (`id_penunjukan`, `id_pegawai`, `nama_pegawai`, `kd_asrama`, `sk`, `tmt`, `tgl_sk`) VALUES
-(8, 1, 'Muhammad Ifan Mashudi', 2, '', '', NULL),
-(13, 1, 'Muhammad Ifan Mashudi', 1, '123', '12', '2018-06-13');
+(14, 4, 'Harunu Rasyid', 3, '123', '123', '2018-07-10');
 
 -- --------------------------------------------------------
 
@@ -323,6 +347,13 @@ CREATE TABLE `penyaluran` (
   `nilai` int(11) NOT NULL,
   `acc_pembinaan` enum('Y','T') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `penyaluran`
+--
+
+INSERT INTO `penyaluran` (`id_penyaluran`, `tgl_disalurkan`, `id_klien`, `nilai`, `acc_pembinaan`) VALUES
+(11, '2018-06-09', 1, 2, 'Y');
 
 -- --------------------------------------------------------
 
@@ -370,14 +401,9 @@ CREATE TABLE `riwayat_penempatan` (
 --
 
 INSERT INTO `riwayat_penempatan` (`id`, `id_penempatan`, `id_klien`, `nama_klien`, `kd_asrama_asal`, `asrama_asal`, `kd_asrama_akhir`, `asrama_akhir`, `ket`, `tanggal`) VALUES
-(6, 16, 1, '2', '1', 'Merah Siam', '2', 'Kecubung', 'pindah', '2018-06-22 07:34:16'),
-(7, 17, 4, '44', '', '', '1', 'Merah Siam', 'tambah', '2018-06-23 04:20:30'),
-(8, 18, 2, 'Dinda', '', '', '2', 'Kecubung', 'tambah', '2018-06-29 03:43:04'),
-(9, 19, 3, 'Rahmah', '', '', '2', 'Kecubung', 'tambah', '2018-06-29 03:43:10'),
-(10, 19, 3, 'Rahmah', '2', 'Kecubung', '', '', 'hapus', '2018-06-29 03:53:52'),
-(11, 18, 2, 'Dinda', '2', 'Kecubung', '', '', 'hapus', '2018-06-29 03:53:55'),
-(12, 20, 2, 'Dinda', '', '', '2', 'Kecubung', 'tambah', '2018-06-29 03:54:00'),
-(13, 21, 3, 'Rahmah', '', '', '1', 'Merah Siam', 'tambah', '2018-06-29 03:54:28');
+(18, 23, 2, 'Dinda', '', '', '1', 'Merah Siam', 'tambah', '2018-07-02 07:33:20'),
+(19, 24, 3, 'Rahmah', '', '', '1', 'Merah Siam', 'tambah', '2018-07-02 07:33:23'),
+(20, 25, 1, 'Razuburrahman', '', '', '2', 'Kecubung', 'tambah', '2018-07-04 06:13:13');
 
 -- --------------------------------------------------------
 
@@ -458,6 +484,12 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `asrama`
   ADD PRIMARY KEY (`kd_asrama`);
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id_berita`);
 
 --
 -- Indexes for table `instruktur`
@@ -564,6 +596,11 @@ ALTER TABLE `admins`
 ALTER TABLE `asrama`
   MODIFY `kd_asrama` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `instruktur`
 --
 ALTER TABLE `instruktur`
@@ -577,12 +614,12 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `klien`
 --
 ALTER TABLE `klien`
-  MODIFY `id_klien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_klien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
@@ -592,7 +629,7 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `penempatan`
 --
 ALTER TABLE `penempatan`
-  MODIFY `id_penempatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_penempatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `penentuan_rombel`
 --
@@ -602,17 +639,17 @@ ALTER TABLE `penentuan_rombel`
 -- AUTO_INCREMENT for table `penunjukan`
 --
 ALTER TABLE `penunjukan`
-  MODIFY `id_penunjukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_penunjukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `penyaluran`
 --
 ALTER TABLE `penyaluran`
-  MODIFY `id_penyaluran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_penyaluran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `riwayat_penempatan`
 --
 ALTER TABLE `riwayat_penempatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `tahunakademik`
 --

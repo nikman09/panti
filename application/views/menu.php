@@ -77,116 +77,6 @@
 					</li>
 
 					
-					
-					<li <?php echo $transaksi; ?> ><!-- Transaksi -->
-						<a href="#" class="dropdown-toggle">
-							<i class="icon-edit"></i>
-							<span class="menu-text"> Transaksi </span>
-
-							<b class="arrow icon-angle-down"></b>
-						</a>
-
-						<ul class="submenu">
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/penerimaan">
-									<i class="icon-double-angle-right"></i>
-									Penerimaan Klien
-								</a>
-							</li>
-
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/penempatan">
-									<i class="icon-double-angle-right"></i>
-									Penempatan Asrama
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/kelompok">
-									<i class="icon-double-angle-right"></i>
-									Kelompok Belajar
-								</a>
-							</li>
-
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/nilai">
-									<i class="icon-double-angle-right"></i>
-									Nilai
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/transkrip">
-									<i class="icon-double-angle-right"></i>
-									Transkrip
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/penyaluran">
-									<i class="icon-double-angle-right"></i>
-									Penyaluran Klien
-								</a>
-							</li>
-							
-						</ul>
-					</li>
-
-					<li <?php echo $website; ?> ><!-- Transaksi -->
-						<a href="#" class="dropdown-toggle">
-							<i class="icon-star"></i>
-							<span class="menu-text"> Web </span>
-
-							<b class="arrow icon-angle-down"></b>
-						</a>
-
-						<ul class="submenu">
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/daftarberita">
-									<i class="icon-double-angle-right"></i>
-									Berita
-								</a>
-							</li>
-
-						
-						</ul>
-					</li>
-					<!-- <li <?php echo $laporan; ?> >
-						<a href="#" class="dropdown-toggle">
-							<i class="icon-print"></i>
-							<span class="menu-text"> laporan </span>
-
-							<b class="arrow icon-angle-down"></b>
-						</a>
-
-						<ul class="submenu">
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/asrama/cetak">
-									<i class="icon-double-angle-right"></i>
-									Asrama
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/klien/cetak">
-									<i class="icon-double-angle-right"></i>
-									Data Klien
-								</a>
-							</li>
-							
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/penyaluran/cetak">
-									<i class="icon-double-angle-right"></i>
-									Penyaluran
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url(); ?>index.php/rombel/cetak">
-									<i class="icon-double-angle-right"></i>
-									Rombel
-								</a>
-							</li>
-
-						
-						</ul>
-					</li> -->
-					
 					<li <?php echo $master; ?> ><!-- MAster -->
 						<a href="#" class="dropdown-toggle">
 							<i class="icon-desktop"></i>
@@ -267,6 +157,145 @@
 						</ul>
 					</li>
 
+					
+					<li <?php echo $transaksi; ?> ><!-- Transaksi -->
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-edit"></i>
+							<span class="menu-text"> Transaksi </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penerimaan">
+									<i class="icon-double-angle-right"></i>
+									Penerimaan Klien
+								</a>
+							</li>
+
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penempatan">
+									<i class="icon-double-angle-right"></i>
+									Penempatan Asrama
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/kelompok">
+									<i class="icon-double-angle-right"></i>
+									Kelompok Belajar
+								</a>
+							</li>
+
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/nilai">
+									<i class="icon-double-angle-right"></i>
+									Nilai
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/transkrip">
+									<i class="icon-double-angle-right"></i>
+									Transkrip
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penyaluran">
+									<i class="icon-double-angle-right"></i>
+									Penyaluran Klien
+								</a>
+							</li>
+							
+						</ul>
+					</li>
+
+					<li <?php echo $website; ?> ><!-- Transaksi -->
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-star"></i>
+							<span class="menu-text"> Web </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/daftarberita">
+									<i class="icon-double-angle-right"></i>
+									Berita
+								</a>
+							</li>
+
+						
+						</ul>
+					</li>
+					<li <?php echo $laporan; ?> >
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-print"></i>
+							<span class="menu-text"> laporan </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penerimaan" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Calon Klien
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penerimaan" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Data Per Klien
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/klien/perkabupaten" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Klien Perkabupaten
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/klien/cetakdata" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Data Klien
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penempatan" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Klien perasrama
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penempatan/laporanasrama" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Kondisi Asrama
+								</a>
+							</li>
+							
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penempatan/riwayatpenempatancetak" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Riwayat Penempatan Asrama
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/kelompok" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Jadwal, Absensi Klien, Absensi Instruktur
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/penyaluran/laporanpenyaluran" target="_blank">
+									<i class="icon-double-angle-right"></i>
+									Cetak Penyaluran
+								</a>
+							</li>
+							
+						</ul>
+					</li>
+					
 
 
 					<li>
