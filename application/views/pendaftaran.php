@@ -171,7 +171,7 @@
 														</label>
 														<label>
 															<span class="block input-icon input-icon-right">
-																<textarea name="alamat_ortu" id="alamat_ortu" class="span4" placeholder="Alamat Orang Tua"  required="required"  ><?php echo $alamat_ortu; ?>"</textarea>
+																<textarea name="alamat_ortu" id="alamat_ortu" class="span4" placeholder="Alamat Orang Tua"  required="required"  ><?php echo $alamat_ortu; ?></textarea>
 																
 															</span>
 														</label>

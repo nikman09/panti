@@ -76,7 +76,10 @@ class Pendaftaran extends CI_Controller {
 					'tanggal_lahir' => '',
 					'hp' => '',
 					'alamat' => '',
-					
+					'nama_ayah' => '',
+					'nama_ibu' => '',
+					'alamat_ortu' => '',
+					'hp_ortu' =>'',
 					'kota' => '',
 					'peringatan' => '',
 			);

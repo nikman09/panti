@@ -8,7 +8,8 @@ class Penerimaan extends CI_Controller {
 	    parent::__construct();
 
 	    $this->load->model('model_data');
-	    $this->load->model('model_penerimaan');
+		$this->load->model('model_penerimaan');
+		$this->load->library('pdf_report');
 	}
 
 	public function index()
@@ -78,6 +79,12 @@ class Penerimaan extends CI_Controller {
 			$d['data'] = $this->model_penerimaan->ambilklien($id['id_klien']);
 		} 
 		$this->load->view('penerimaan/v_laporan',$d);
+
+	}
+	public function contoh(){
+	
+		
+		$this->load->view('penerimaan/v_contoh');
 
 	}
 }

@@ -244,7 +244,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="<?php echo base_url(); ?>index.php/penerimaan" target="_blank">
+								<a href="<?php echo base_url(); ?>index.php/klien" target="_blank">
 									<i class="icon-double-angle-right"></i>
 									Cetak Data Per Klien
 								</a>
