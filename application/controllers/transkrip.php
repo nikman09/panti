@@ -89,4 +89,17 @@ class Transkrip extends CI_Controller {
 	}
 
 
+	public function cetaknilai(){
+		$id = $this->uri->segment(3);
+		$data = $this->model_transkrip->cekklien($id);
+		if ($data->num_rows()>0) {
+			$data = $data->row();
+			$d['data'] =$data ;
+			$d['datanilai'] =$this->model_transkrip->datanilai($id);
+			$this->load->view('transkrip/v_cetaknilai',$d);
+		}  else {
+		redirect('transkrip','refresh');	
+		}
+	}
+
 }
