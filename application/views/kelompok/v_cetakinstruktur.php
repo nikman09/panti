@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan Mashudi');
+$pdf->SetTitle('Daftar Hadir Instruktur');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -67,10 +67,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P', 'F4');
 
 
 // set cell padding
@@ -84,17 +84,18 @@ $pdf->SetFillColor(255, 255, 127);
 
 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopad
 
-$title = '<h4>Daftar Hadir Instruktur </h4>Kelompok Belajar '.$rombel->rombel.' ';
+$title = '<h4>DAFTAR HADIR INSTRUKTUR<br/>KELOMPOK BELAJAR '.$rombel->rombel.'</h4> ';
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 $table ='
 <table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="700px">
 			<tr>
-				<th width="30px">No</th>
-				<th>Hari</th>
-				<th>Nama Instruktur</th>
-				<th>Mata Pelajaran</th>
-				<th>Waktu</th>
-				<th>Tanda Tangan</th>
+				
+				<th width="35px"><b>NO</b></th>
+				<th align="c" width="70px" ><b>HARI</b></th>
+				<th align="c" width="200px" ><b>NAMA INSTRUKTUR</b></th>
+				<th align="c"><b>MATA PELAJARAN</b></th>
+				<th align="c" width="90px"><b>WAKTU</b></th>
+				<th align="c"><b>TANDA TANGAN</b></th>
 			</tr>';
 	
 			$i=0;
@@ -103,13 +104,13 @@ $table ='
 				 $i++;
 		
 			$table .= '<tr>
-				<td >'.$i.'</td>';
-				 if($i==1){  	$table .= '<td rowspan="'.$jumlah.'">Senin</td>'; }
+				<td align="c"	>'.$i.'</td>';
+				 if($i==1){  	$table .= '<td align="c" rowspan="'.$jumlah.'">Senin</td>'; }
 
 				$table .= ' <td>'.$dt->nama_pegawai.'</td>
-				<td>'.$dt->mapel.'</td>
-				<td>'.$dt->jam.'</td>
-				<td></td>
+				<td align="c">'.$dt->mapel.'</td>
+				<td align="c">'.$dt->jam.'</td>
+				<td height="50px"></td>
 			</tr>';
 			
 			}
@@ -122,13 +123,13 @@ $table ='
 				 $i++;
 		
 			$table .= '<tr>
-				<td >'.$i.'</td>';
-				 if($i==1){  	$table .= '<td rowspan="'.$jumlah.'">Selasa</td>'; }
+				<td align="c">'.$i.'</td>';
+				 if($i==1){  	$table .= '<td align="c" rowspan="'.$jumlah.'">Selasa</td>'; }
 
 				$table .= ' <td>'.$dt->nama_pegawai.'</td>
 				<td>'.$dt->mapel.'</td>
 				<td>'.$dt->jam.'</td>
-				<td></td>
+				<td height="50px"></td>
 			</tr>';
 			
 			}
@@ -140,13 +141,13 @@ $table ='
 				 $i++;
 		
 			$table .= '<tr>
-				<td >'.$i.'</td>';
-				 if($i==1){  	$table .= '<td rowspan="'.$jumlah.'">Rabu</td>'; }
+				<td align="c" >'.$i.'</td>';
+				 if($i==1){  	$table .= '<td align="c" rowspan="'.$jumlah.'">Rabu</td>'; }
 
 				$table .= ' <td>'.$dt->nama_pegawai.'</td>
 				<td>'.$dt->mapel.'</td>
 				<td>'.$dt->jam.'</td>
-				<td></td>
+				<td height="50px"></td>
 			</tr>';
 			
 			}
@@ -157,13 +158,13 @@ $table ='
 				 $i++;
 		
 			$table .= '<tr>
-				<td >'.$i.'</td>';
-				 if($i==1){  	$table .= '<td rowspan="'.$jumlah.'">Kamis</td>'; }
+				<td align="c">'.$i.'</td>';
+				 if($i==1){  	$table .= '<td align="c" rowspan="'.$jumlah.'">Kamis</td>'; }
 
 				$table .= ' <td>'.$dt->nama_pegawai.'</td>
 				<td>'.$dt->mapel.'</td>
 				<td>'.$dt->jam.'</td>
-				<td></td>
+				<td height="50px"></td>
 			</tr>';
 			
 			}
@@ -174,13 +175,13 @@ $table ='
 				 $i++;
 		
 			$table .= '<tr>
-				<td >'.$i.'</td>';
-				 if($i==1){  	$table .= '<td rowspan="'.$jumlah.'">Jumat</td>'; }
+				<td align="c">'.$i.'</td>';
+				 if($i==1){  	$table .= '<td align="c" rowspan="'.$jumlah.'">Jumat</td>'; }
 
 				$table .= ' <td>'.$dt->nama_pegawai.'</td>
 				<td>'.$dt->mapel.'</td>
 				<td>'.$dt->jam.'</td>
-				<td></td>
+				<td height="50px"></td>
 			</tr>';
 			
 			}
@@ -190,13 +191,13 @@ $table ='
 				 $i++;
 		
 			$table .= '<tr>
-				<td >'.$i.'</td>';
-				 if($i==1){  	$table .= '<td rowspan="'.$sabtu.'">Kamis</td>'; }
+				<td align="c">'.$i.'</td>';
+				 if($i==1){  	$table .= '<td align="c" rowspan="'.$sabtu.'">Kamis</td>'; }
 
 				$table .= ' <td>'.$dt->nama_pegawai.'</td>
 				<td>'.$dt->mapel.'</td>
 				<td>'.$dt->jam.'</td>
-				<td></td>
+				<td height="50px"></td>
 			</tr>';
 			
 			}
@@ -207,13 +208,13 @@ $table ='
 				 $i++;
 		
 			$table .= '<tr>
-				<td >'.$i.'</td>';
-				 if($i==1){  	$table .= '<td rowspan="'.$minggu.'">Kamis</td>'; }
+				<td align="c">'.$i.'</td>';
+				 if($i==1){  	$table .= '<td align="c" rowspan="'.$minggu.'">Kamis</td>'; }
 
 				$table .= ' <td>'.$dt->nama_pegawai.'</td>
 				<td>'.$dt->mapel.'</td>
 				<td>'.$dt->jam.'</td>
-				<td></td>
+				<td height="50px"></td>
 			</tr>';
 			
 			}
@@ -223,16 +224,17 @@ $table ='
 			
 			$pdf->WriteHTMLCell(0, 0, '', '', $table, 0, 1, 0, true, 'L', true);
 			$bawah = '
-			<br/><br/><br/><br/><br/>
+			<br/>
 			<table>
 			<tr>
-			<td width="400px">
+			<td width="340px">
 			</td>
 				<td>
-			<p align="center"> Martapura, '.date('d-M-Y').'
-			<br/> Kasi Pembinaan dan Resosialisasi <br/><br/><br/><br/>
-			<b>Dra. Nurul Helyati</b> <br/>
-			Pembina Tk I <br/>
+			<p align="center"> Martapura, '.date('d M Y').'
+			<br/>KEPALA SEKSI 
+			<br/>PEMBINAAN DAN REOSIALISASI<br/><br/><br/><br/>
+			<b>Dra. NURUL HELYATI</b> <br/>
+			Penata Tk I <br/>
 			NIP. 19600721 198203 2 003
 			</p>
 			</td>

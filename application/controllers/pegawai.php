@@ -19,7 +19,7 @@ class Pegawai extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'master'; 
+			$d['class'] = 'Master'; 
 			$d['judul'] = 'Pegawai';
 
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
@@ -36,9 +36,9 @@ class Pegawai extends CI_Controller {
 		$cek = $this->session->userdata('logged_in');
 		$level = $this->session->userdata('level');
 		if (!empty($cek) && $level=='admin'){
-			$id['id_pegawai'] = $this->input->post('id');
+			$id['nip'] = $this->input->post('nip');
 
-			$dt['id_pegawai'] = $this->input->post('id');
+			// $dt['id_pegawai'] = $this->input->post('id');
 			$dt['nip'] = $this->input->post('nip');
 			$dt['nama_pegawai'] = $this->input->post('nama');
 			$dt['sex'] = $this->input->post('sex');
@@ -93,20 +93,7 @@ class Pegawai extends CI_Controller {
 		$level = $this->session->userdata('level');
 		if (!empty($cek) && $level=='admin'){
 			$id['nip'] = $this->uri->segment(3);
-			/*
-			$('#tambah').click(function(){
-		$('#nip').val('');
-		$('#nama').val('');
-		$('#sex').val('');
-		$('#tempat').val('');
-		$('#tanggal').val('');
-		$('#alamat').val('');
-		$('#hp').val('');
-		$('#jabatan').val('');
-		$('#pendidikan').val('');
-		$('#jurusan').val('');
-		$('#status').val('');
-		*/
+			
 			if ($this->model_pegawai->ada($id)){
 				$dt = $this->model_pegawai->get($id);
 

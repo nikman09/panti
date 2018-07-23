@@ -3,11 +3,13 @@ $(document).ready(function(){
 	$('#simpan').click(function(){
 		var id = $('#id').val();
 		var rombel = $('#rombel').val();
+		var kelas = $('#kelas').val();
+		var probi = $('#probi').val();
 		var string = $('#my-form').serialize(); 
 
-		if(id.length == 0){
-			alert('Maaf, id Tidak boleh kosong');
-			$('#id').focus();
+		if(kelas.length == 0){
+			alert('Maaf, Kelas Tidak boleh kosong');
+			$('#kelas').focus();
 			return false;
 		}
 		
@@ -16,6 +18,13 @@ $(document).ready(function(){
 			$('#rombel').focus();
 			return false;
 		}
+
+		if(probi.length == 0){
+			alert('Maaf, Silahkan Pilih Program Pembinaan');
+			$('#probi').focus();
+			return false;
+		}
+
 		$.ajax({
 			type	: 'POST',
 			url		: "<?php echo site_url(); ?>/rombel/simpan",
@@ -43,6 +52,7 @@ function editData(id){
 		dataType: "json",
 		success: function(data){
 			$('#id').val(data.id);
+			$('#id').attr('readonly', 'true');
 			$('#rombel').val(data.rombel);
 			$('#kelas').val(data.kelas);
 			$('#probi').val(data.probi);
@@ -68,11 +78,9 @@ function editData(id){
 		<thead>
 			<tr>
 				<th class="center">No</th>
-				<th class="center">ID</th>
-				<th class="center">Nama Kelompok Belajar</th>
-				<th class="center">Program Pembinaan</th>
-				<th class="center">Kelas</th>
-				<th class="center">Aksi</th>
+				<th class="center">KELOMPOK BELAJAR</th>
+				<th class="center">KELAS</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -83,10 +91,8 @@ function editData(id){
 			?>
 			<tr>
 				<td class="center"><?php echo $i++; ?></td>
-				<td class="center span3"><?php echo $dt->id_rombel; ?></td>
 				<td ><?php echo $dt->rombel; ?></td>
-				<td ><?php echo $prob?></td>
-				<td ><?php echo $dt->kelas; ?></td>
+				<td class="center"><?php echo $dt->kelas; ?></td>
 				<td class="td-actions">
 					<center>
 						<div class="hidden-phone visible-desktop action-buttons">
@@ -119,23 +125,23 @@ function editData(id){
 	<div class="modal-body no-padding">
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
-			<br/>
+					<br/>
 				<div class="control-group">
-					<label class="control-label" for="form-filed-1">ID</label>
+					<label class="control-label" for="form-filed-1">Id </label>
 					<div class="controls">
-						<input type="text" name="id" id="id" placeholder="ID" class="span4"/>
+						<input type="text" name="id" id="id" placeholder="Id" class="span8" />
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Nama Kelompok Belajar</label>
+					<label class="control-label" for="form-filed-1">Kelompok Belajar</label>
 					<div class="controls">
-						<input type="text" name="rombel" id="rombel" placeholder="Nama Kelompok Belajar" class="span8" />
+						<input type="text" name="rombel" id="rombel" placeholder="Kelompok Belajar" class="span8" />
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Kelas</label>
 					<div class="controls">
-						<input type="text" name="kelas" id="kelas" placeholder="kelas" class="span4" />
+						<input type="text" name="kelas" id="kelas" placeholder="Kelas" class="span4" />
 					</div>
 				</div>
 				<div class="control-group">

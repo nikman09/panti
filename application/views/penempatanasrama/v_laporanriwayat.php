@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan mashudi');
+$pdf->SetTitle('Laporan Riwayat Penempatan Asrama');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -67,10 +67,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P', 'F4');
 
 
 // set cell padding
@@ -84,17 +84,17 @@ $pdf->SetFillColor(255, 255, 127);
 
 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopad
 
-$title = '<h4>RIWAYAT PENEMPATAN KLIEN ASRAMA</h4>';
+$title = '<h3>RIWAYAT PENEMPATAN KLIEN ASRAMA</h3>';
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 $table ='
 <table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="750px">
 			<tr>
-				<th  width="30px">No</th>
-                <th>Tanggal</th>
-				<th>Nama Klien</th>
-				<th>Dari Asrama</th>
-				<th>Ke Asrama</th>
-				<th>Keterangan</th>
+				<th align="c" width="35px"><b><h4>NO</h4></b></th>
+                <th align="c" width="85px"><b><h4>TANGGAL</h4></b></th>
+				<th align="c" width="175px"><b><h4>NAMA KLIEN</h4></b></th>
+				<th align="c" width="120px"><b><h4>DARI ASRAMA</h4></b></th>
+				<th align="c" width="120px"><b><h4>KE ASRAMA</h4></b></th>
+				<th align="c" width="118px"><b><h4>KETERANGAN</h4></b></th>
 			</tr>
 	';
 			
@@ -102,13 +102,13 @@ $table ='
 			foreach ($data as $dt ) {
 			$table .= '
 			<tr>
-				<td>'.$i++.'</td>
-                <td>'.date('d-m-Y',strtotime($dt->tanggal)).'</td>
+				<td align="c">'.$i++.'</td>
+                <td align="c">'.date('d-m-Y',strtotime($dt->tanggal)).'</td>
 				<td>'.$dt->nama_klien.'</td>
-				<td >'.($dt->asrama_asal==''? "-":$dt->asrama_asal).'</td>
-				<td>'.$dt->asrama_akhir.'</td>
-				<td>';
-				 if($dt->ket=="tambah") {$table .= "Penempatan"; } else if($dt->ket=="edit") {  $table .=  "Pemindahan"; } else if($dt->ket=="hapus") { $table .= "Keluar"; };
+				<td align="c">'.($dt->asrama_asal==''? "-":$dt->asrama_asal).'</td>
+				<td align="c">'.$dt->asrama_akhir.'</td>
+				<td >';
+				 if($dt->ket=="tambah") {$table .= "Penempatan"; } else if($dt->ket=="pindah" || $dt->ket=="edit") {  $table .=  "Pemindahan"; } else if($dt->ket=="hapus") { $table .= "Keluar"; };
 				 $table .= '</td>
 				
 			</tr>';
@@ -119,12 +119,12 @@ $table ='
 			<br/><br/><br/><br/><br/>
 			<table>
 			<tr>
-			<td width="400px">
+			<td width="300px">
 			</td>
 				<td>
-			<p align="center"> Martapura, '.date('d-M-Y').'
-			<br/> Kepala Panti Sosial <br/><br/><br/><br/>
-			<b>Drs. H. M. Masir, M.Ap</b> <br/>
+			<p align="center"> Martapura, '.date('d M Y').'
+			<br/> KEPALA PANTI SOSIAL <br/><br/><br/><br/>
+			<b>Drs. H. M. Masir, MAP</b> <br/>
 			Pembina Tk I <br/>
 			NIP. 19640611 199103 1 009
 			</p>
@@ -140,7 +140,7 @@ $table ='
 			
 			//Close and output PDF document
 			ob_clean();
-			$pdf->Output('Laporan_PDN.pdf', 'I');
+			$pdf->Output('Laporan Penempatan Klien.pdf', 'I');
 			
 			//============================================================+
 			// END OF FILE

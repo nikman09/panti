@@ -22,7 +22,7 @@ class Transkrip extends CI_Controller {
 		
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
+			$d['class'] = 'Pembinaan'; 
 			$d['judul'] = 'Transkrip';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'transkrip/klien';
@@ -38,8 +38,8 @@ class Transkrip extends CI_Controller {
 			$data = $data->row();
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Transkrip Nilai "'.$data->nama_klien.' | '.$data->nir.'"';
+			$d['class'] = 'Pembinaan'; 
+			$d['judul'] = 'Transkrip Nilai '.$data->nama_klien.' | '.$data->nir.'';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'transkrip/nilai';
 			$d['data'] =$data ;
@@ -57,8 +57,8 @@ class Transkrip extends CI_Controller {
 			$data = $data->row();
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Riwayat Asrama "'.$data->nama_klien.' | '.$data->nir.'"';
+			$d['class'] = 'Pelayanan'; 
+			$d['judul'] = 'Transkrip Asrama '.$data->nama_klien.' | '.$data->nir.'';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'transkrip/asrama';
 			$d['data'] =$data ;
@@ -76,8 +76,8 @@ class Transkrip extends CI_Controller {
 			$data = $data->row();
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Kelompok Belajar "'.$data->nama_klien.' | '.$data->nir.'"';
+			$d['class'] = 'Pembinaan'; 
+			$d['judul'] = 'Transkrip Kelompok Belajar '.$data->nama_klien.' | '.$data->nir.'';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'transkrip/rombel';
 			$d['data'] =$data ;

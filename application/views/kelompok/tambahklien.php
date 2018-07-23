@@ -30,7 +30,7 @@
 					<div style="margin-left:127px">
 						<button type="submit" name="simpan" id="simpan" class="btn btn-small btn-success pull-left" >
 						<i class="icon-save"></i>
-						Simpan
+						Tambah
 						</button> &nbsp <a href="<?php echo site_url() ?>/kelompok/klien?as=<?php echo $rombel->id_rombel ?>" class="btn btn-small btn-default">Kembali</a>
 					</div>
 					</form>

@@ -70,7 +70,7 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 $pdf->SetFont('times', '', 10);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P', 'F4');
 
 
 // set cell padding
@@ -84,7 +84,7 @@ $pdf->SetFillColor(255, 255, 127);
 
 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopad
 
-$title = '<h4> DATA PENYALURAN KLIEN  PANTI SOSIAL BINA NETRA "FAJAR HARAPAN"</h4>';
+$title = '<h4> DATA PENYALURAN KLIEN </h4>';
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 $table ='
 <table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="700px">
@@ -96,7 +96,6 @@ $table ='
 				<th>NIR</th>
 				<th>Jenis Kelamin</th>
 				<th>Nilai</th>
-				<th>ACC Pembinaan</th>
 			</tr>';
 
 			$i=1;
@@ -110,7 +109,6 @@ $table ='
 				<td >'.$dt->sex.'</td>
 				<td >'.$dt->nilai.'</td>';
 
-				$dt->acc_pembinaan=="Y"?$table.='<td>ACC</td>':'<td>Tidak ACC</td>';
 				
 			$table.='</tr>';
 		

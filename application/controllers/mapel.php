@@ -20,7 +20,7 @@ class Mapel extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'master'; 
+			$d['class'] = 'Master'; 
 			$d['judul'] = 'Mata Pelajaran';
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 			$d['content'] = 'mapel/view';

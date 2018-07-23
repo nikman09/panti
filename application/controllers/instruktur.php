@@ -23,7 +23,7 @@ class Instruktur extends CI_Controller {
 	{
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'master'; 
+			$d['class'] = 'Pembinaan'; 
 			$d['judul'] = 'Instruktur';
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 			$d['content'] = 'instuktur/view';
@@ -53,7 +53,7 @@ class Instruktur extends CI_Controller {
 	public function editinstruktur(){
 
 		$id['id_instruktur'] = $this->input->post('id_instruktur2');
-		$dt['password'] = md5($this->input->post('password2'));
+		$dt['password'] = md5($this->input->post('password'));
 		$this->model_instruktur->update($id,$dt);
 		redirect(site_url('instruktur?a=3'));
 

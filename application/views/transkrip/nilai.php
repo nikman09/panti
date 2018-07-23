@@ -13,12 +13,11 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<!-- <th class="center">Foto</th> -->
-				<th class="center">Kelompok Belajar</th>
-				<th class="center">Tahun</th>
-				<th class="center">Mata Pelajaran</th>
-				<th class="center">Nilai</th>
+				<th class="center">NO</th>
+				<th class="center">KELOMPOK BELAJAR</th>
+				<th class="center">TAHUN</th>
+				<th class="center">MATA PELAJARAN</th>
+				<th class="center">NILAI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,7 +30,7 @@ $(document).ready(function(){
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
 				<td class="center span2"><?php echo $dt->rombel; ?></td>
-				<td ><?php echo $dt->tahunakademik; ?></td>
+				<td class="center"><?php echo $dt->tahunakademik; ?></td>
 				<td class="center"><?php echo $dt->mapel; ?></td>
 
 				<td class="center"><?php echo $dt->nilai; ?></td>

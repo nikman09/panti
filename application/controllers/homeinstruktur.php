@@ -19,7 +19,7 @@ class Homeinstruktur extends CI_Controller {
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
 			$d['class'] = 'home'; 
-			$d['judul'] = 'Dashboard';
+			$d['judul'] = '';
 			$d['content'] = 'isiinstruktur';
 
 

@@ -13,21 +13,22 @@
 
 				$('#nama_lengkap').focus();
 				return false;
-			}
+			} else {
 
-			$.ajax({
-				type: 'POST',
-				url: "<?php echo site_url(); ?>/profil/simpan_profil",
-				data: string,
-				cache: false,
-				success: function(data){
-					$.gritter.add({
-						title: 'Info !',
-						text: data,
-						class_name: 'gritter-info'
-					});
-				}
-			})
+				$.ajax({
+					type: 'POST',
+					url: "<?php echo site_url(); ?>/profil/simpan_profil",
+					data: string,
+					cache: false,
+					success: function(data){
+						$.gritter.add({
+							title: 'Info !',
+							text: data,
+							class_name: 'gritter-info'
+						});
+					}
+				})
+			}
 		});
 	});
 
@@ -43,7 +44,7 @@
 					<div class="profile-info-row">
 						<div class="profile-info-name"> Nama Lengkap</div>
 						<div class="profile-info-value">
-							<input type="text" name="nama_lengkap" id="nama_lengkap" value="<?php echo$nama_lengkap; ?>" >
+							<input type="text" name="nama_lengkap" id="nama_lengkap" value="<?php echo $nama_lengkap; ?>" >
 						</div>
 					</div>
 			</fieldset>

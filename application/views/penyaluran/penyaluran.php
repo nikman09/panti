@@ -20,15 +20,6 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 
 
 <div class="row-fluid">
-	<div class="table-header">
-		<?php echo $judul; ?>
-		<div class="widget-toolbar no-border pull-right">
-		<a href="#modal-table" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah" > 
-			&nbsp <i class="icon-plus"></i>
-			Penyaluran Klien &nbsp 
-		</a>	
-		</div>	
-	</div>
 	<?php 
 		if($this->input->get('p')) {	
 			$s = $this->input->get('p');
@@ -43,20 +34,30 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 		
 		}
 	?>
+	<div class="table-header">
+		<?php echo $judul; ?>
+		<div class="widget-toolbar no-border pull-right">
+		<a href="#modal-table" class="btn btn-small btn-info" role="button" data-toggle="modal" name="tambah" id="tambah" > 
+			&nbsp <i class="icon-edit"></i>
+			Tambah Data &nbsp 
+		</a>	
+		</div>	
+	</div>
+	
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Tanggal Disalurkan</th>
-				<th class="center">Nama Klien</th>
+				<th class="center">NO</th>
+				<th class="center">TANGGAL</th>
+				<th class="center">NAMA</th>
 				<th class="center">NIR</th>
-				<th class="center">Jenis Kelamin</th>
-				<th class="center">Nilai</th>
-				<th class="center">ACC Pembinaan</th>
-				<th class="center">#</th>
+				<th class="center">JENIS KELAMIN</th>
+				<th class="center">NILAI</th>
+				<th class="center">STATUS</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody>	
 			<?php
 			$i=1;
 			foreach ($data->result() as $dt ) {			
@@ -64,12 +65,12 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 			<tr>
 				<td class="center"><?php echo $i++; ?></td>
 				<!-- 	 -->
-				<td ><?php echo tgl_indo($dt->tgl_disalurkan) ?></td>
+				<td class="center"><?php echo tgl_indo($dt->tgl_disalurkan) ?></td>
 				<td ><?php echo $dt->nama_klien; ?></td>
-				<td ><?php echo $dt->nir; ?></td>
-				<td ><?php echo $dt->sex; ?></td>
-				<td ><?php echo $dt->nilai; ?></td>
-				<td ><?php echo $dt->acc_pembinaan=="Y"?"<a style='color:green'>ACC</a>":"<a style='color:red'>TIDAK ACC</a>" ?></td>
+				<td class="center"><?php echo $dt->nir; ?></td>
+				<td class="center"><?php echo $dt->sex; ?></td>
+				<td class="center"><?php echo $dt->nilai; ?></td>
+				<td class="center"><?php echo $dt->acc_pembinaan=="Y"?"<a style='color:green'>ACC</a>":"<a style='color:red'>TIDAK ACC</a>" ?></td>
 				<td class="td-actions">
 					<center>
 							<div class="hidden-phone visible-desktop action-buttons">
@@ -110,13 +111,17 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Tanggal Penyaluran</label>
 					<div class="controls">
-						<input type="text" name="tanggal" id="tanggal" class="span5 date-picker" data-date-format="dd-mm-yyyy" required="required" readonly/>
+					<div class="input-append">
+						<input type="text" name="tanggal" id="tanggal" class="span6 date-picker" data-date-format="dd-mm-yyyy" required="required"/>
+						<span class="add-on">
+						<i class="icon-calendar"> </i>
+					</div>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Nama Klien</label>
 					<div class="controls">
-						<select class="span10" name="id_klien" id="id_klien"  required="required">
+						<select class="span8" name="id_klien" id="id_klien"  required="required">
 							<option value=''>.:Pilih Nama Klien:.</option>
 							<?php 
 								foreach($dataklien->result() as $row) {
@@ -129,14 +134,21 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Nilai</label>
 					<div class="controls">
-						<input type="number" name="nilai" id="nilai"  value="" class="span6"  required numeric/>
+						<select name="nilai" id="nilai" class="span6" required="required">
+							<option value="">.::Tentukan Nilai::.</option>
+							<option value="Sangat Baik">Sangat Baik</option>
+							<option value="Baik">Baik</option>
+							<option value="Cukup Baik">Cukup Baik</option>
+							<option value="Kurang Baik">Kurang Baik</option>
+						</select>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="form-filed-1">ACC Pembinaan</label>
+					<label class="control-label" for="form-filed-1">Status</label>
 					<div class="controls">
-						<select name="acc" id="acc" class="span6">
-							<option value="T">Tidak ACC</option>
+						<select name="acc" id="acc" class="span6" required="required">
+							<option value="">.::Tentukan Status::.</option>
+							<option value="T">Belum ACC</option>
 							<option value="Y">ACC</option>
 						</select>
 					</div>
@@ -177,7 +189,11 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Tanggal Penyaluran</label>
 					<div class="controls">
-						<input type="text" name="tanggal2" id="tanggal2" class="span5 date-picker" data-date-format="dd-mm-yyyy" required="required" />
+					<div class="input-append">
+						<input type="text" name="tanggal2" id="tanggal2" class="span6 date-picker" data-date-format="dd-mm-yyyy" required="required" readonly/>
+						<span class="add-on">
+						<i class="icon-calendar"> </i>
+					</div>
 					</div>
 				</div>
 				<div class="control-group">
@@ -190,14 +206,21 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Nilai</label>
 					<div class="controls">
-						<input type="number" name="nilai2" id="nilai2"  value="" class="span6"  required numeric/>
+						<select name="nilai2" id="nilai2" class="span6" required="required">
+							<option value="">.::Tentukan Nilai::.</option>
+							<option value="Sangat Baik">Sangat Baik</option>
+							<option value="Baik">Baik</option>
+							<option value="Cukup Baik">Cukup Baik</option>
+							<option value="Kurang Baik">Kurang Baik</option>
+						</select>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">ACC Pembinaan</label>
 					<div class="controls">
-						<select name="acc2" id="acc2" class="span6">
-							<option value="T">Tidak ACC</option>
+						<select name="acc2" id="acc2" class="span6" re>
+							<option value="">.::Tentukan Status::.</option>
+							<option value="T">Belum ACC</option>
 							<option value="Y">ACC</option>
 						</select>
 					</div>

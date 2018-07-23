@@ -13,7 +13,7 @@ class Profil extends CI_Controller {
 	{
 		$d['tgl_hari'] = hari_ini(date('w'));
 		$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-		$d['class'] = 'home'; 
+		$d['class'] = 'Dashboard'; 
 		$d['judul'] = 'Edit Profile';
 
 		$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
@@ -22,29 +22,22 @@ class Profil extends CI_Controller {
 	}
 
 	public function simpan_profil(){
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
-			$dt['nama_lengkap'] = $this->input->post('nama_lengkap');
-			$id['username'] = $this->session->userdata('username');
-			$q = $this->db->get_where('admins', $id);
-			if ($q->num_rows() > 0) {
-				$this->db->update('admins', $dt, $id);
-				echo "Nama lengkap berhasil diubah";
-			}
 
-		} else {
-			redirect('login', 'refresh');
+		$dt['nama_lengkap'] = $this->input->post('nama_lengkap');
+		$id['username'] = $this->session->userdata('username');
+		$q = $this->db->get_where('admins', $id);
+		if ($q->num_rows() > 0) {
+			$a = $this->db->update('admins', $dt, $id);
+			if ($a) echo "Nama lengkap berhasil diubah";
+			$sess_data['id_username'] 	= $row->id_username;
+			$this->session->set_userdata($dt);
 		}
 	}
 
 	public function simpan_foto(){
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
 			$key = $this->session->userdata('id_username');
 
-			$config['upload_path'] = './assets/avatars';
+			$config['upload_path'] = './assets/avatar';
 			$config['allowed_types'] = "bmp|gif|jpg|jpeg|png";
 			$config['overwrite'] = true;
 			$config['file_name'] = $key;
@@ -60,7 +53,7 @@ class Profil extends CI_Controller {
 					$d['foto'] = $filename;
 
 					$config['image_library'] = 'gd2';
-					$config['source_image'] = './assets/avatars/'.$filename;
+					$config['source_image'] = './assets/avatar/'.$filename;
 					$config['create_thumb'] = false;
 					$config['maintain_ratio'] = true;
 					$config['width'] = 300;
@@ -86,9 +79,7 @@ class Profil extends CI_Controller {
 				}
 				
 			}
-		}else {
-			redirect('login','refresh' );
-		}	
+	
 	}
 
 	public function simpan_pwd()

@@ -67,11 +67,10 @@ function editData(id){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center span2">No</th>
-				<th class="center span3">ID</th>
-				<th class="center">Tahun Akademik</th>
-				<th class="center">Status</th>
-				<th class="center">Aksi</th>
+				<th class="center span2">NO</th>
+				<th class="center">TAHUN AKADEMIK</th>
+				<th class="center">STATUS</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -81,7 +80,6 @@ function editData(id){
 			?>
 			<tr>
 				<td class="center"><?php echo $i++; ?></td>
-				<td class="center span3"><?php echo $dt->id_tahunakademik; ?></td>
 				<td ><?php echo $dt->tahunakademik; ?></td>
 				<td ><?php echo $dt->status; ?></td>
 				<td class="td-actions">

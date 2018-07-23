@@ -41,13 +41,13 @@ function editData(id_nilai, nama_klien, nilai){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
+				<th class="center">NO</th>
 				<!-- <th class="center">Foto</th> -->
 				<th class="center">NIR</th>
-				<th class="center">Nama Klien</th>
-				<th class="center">Mata Pelajaran</th>
-				<th class="center">Nilai</th>
-				<th class="center">#</th>
+				<th class="center">NAMA KLIEN</th>
+				<th class="center">MATA PELAJARAN</th>
+				<th class="center">NILAI</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -57,7 +57,7 @@ function editData(id_nilai, nama_klien, nilai){
 			foreach ($data->result() as $dt ) {
 			
 			?>
-			<tr>
+			<tr>	
 				<td class="center span1"><?php echo $i++; ?></td>
 				<td class="center span2"><?php echo $dt->nir; ?></td>
 				<td ><?php echo $dt->nama_klien; ?></td>

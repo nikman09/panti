@@ -22,8 +22,8 @@ class Penunjukan extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Riwayat Penunjukan';
+			$d['class'] = 'Pelayanan'; 
+			$d['judul'] = 'Riwayat Penunjukan Pengelola Asrama';
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 			$d['content'] = 'penunjukanasrama/penunjukan';
 			$d['data'] = $this->model_penunjukan->all();// mengambil semua data program pembinaan

@@ -23,11 +23,11 @@ class Model_data extends CI_Model {
 	}
 
 	public function status_klien(){
-		return array('aktif','keluar','lulus','meninggal');
+		return array('Calon','Aktif','Keluar','Lulus');
 	}
 
 	public function status_pendaftaran(){
-		return array('diterima','ditolak');
+		return array('Diterima','Ditolak');
 	}
 
 	public function kelas(){
@@ -39,7 +39,7 @@ class Model_data extends CI_Model {
 	}
 
 	public function kota(){
-		return array('Balangan','Banjar','Barito Kuala','Hulu Sungai Selatan','Hulu Sungai Tengah','Hulu Sungai Utara','Kotabaru','Tabalong','Tanah Bumbu','Tanah Laut','Tapin','Banjarbaru','Banjarmasin');
+		return array('BALANGAN','BANJAR','BARITO KUALA','HULU SUNGAI SELATAN','HULU SUNGAI TENGAH','HULU SUNGAI UTARA','KOTABARU','TABALONG','TANAH BUMBU','TANAH LAUT','TAPIN','BANJARBARU','BANJARMASIN');
 	}
 }
 

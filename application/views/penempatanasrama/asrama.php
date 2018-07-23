@@ -57,14 +57,13 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Kode</th>
-				<th class="center">Asrama</th>
-				<th class="center">Pengelola</th>
+				<th class="center">NO</th>
+				<th class="center">ASRAMA</th>
+				<th class="center">PENGELOLA</th>
 				
-				<th class="center">Kouta</th>
-				<th class="center"> Penempatan Klien</th>
-				<th class="center">#</th>
+				<th class="center">KOUTA</th>
+				<th class="center">PENEMPATAN KLIEN</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -74,9 +73,7 @@ $(document).ready(function(){
 			?>
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
-				<td class="center span2"><?php echo $dt->kd_asrama; ?></td>
 				<td ><?php echo $dt->asrama; ?></td>
-				
 				<td class='center'><?php 
 						if ($dt->nama_pegawai=='') {
 							echo "<a class=\" edit \"  href=\"#modal-table\"  data-toggle='modal' id=\"".$dt->kd_asrama."\"><i class='icon-plus'></i> Tambah</a>";
@@ -85,13 +82,13 @@ $(document).ready(function(){
 						}
 					?>
 					</td>
-				<td class="center"><?php echo $dt->kouta; ?></td>
+				<td class="center"><?php echo $dt->kouta; ?> Orang</td>
 				<td class="td-actions">
 					<center>
-						<a href="<?php site_url() ?>penempatan/klien?as=<?php echo $dt->kd_asrama; ?>" class="" ><i class="icon-user bigger-130"></i> <?php  echo $this->model_penempatan->jumlahklien($dt->kd_asrama);  ?></a>
+						<a href="<?php site_url() ?>penempatan/klien?as=<?php echo $dt->kd_asrama; ?>" class="" ><i class="icon-user bigger-130"></i> <?php  echo $this->model_penempatan->jumlahklien($dt->kd_asrama);  ?> Orang</a> 
 					</center>
 				</td> 
-				<td class="center"><a target="_blank" href="<?php echo site_url('penempatan/cetakdataklien/'.$dt->kd_asrama.'') ?>"><i class="icon icon-print"></i> Print Data Klien</a></td>
+				<td class="center"><a target="_blank" href="<?php echo site_url('penempatan/cetakdataklien/'.$dt->kd_asrama.'') ?>"><i class="icon icon-print bigger-160"></i> </a></td>
 			</tr>
 			<?php
 			}
@@ -110,7 +107,7 @@ $(document).ready(function(){
 	<div class="modal-header no-padding">
 		<div class="table-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			Data Asrama
+			Tambah Data Pengelola Asrama
 		</div>
 	</div>
 
@@ -122,7 +119,7 @@ $(document).ready(function(){
 					<label class="control-label" for="form-filed-1">Nama Pegawai</label>
 					<div class="controls">
 					<select class="span6" name="pegawai" id="pegawai">
-						<option value=''>.:Pilih pegawai:.</option>
+						<option value='' selected="selected">.:Pilih pegawai:.</option>
 						<?php
 							foreach($datapegawai as $row) {
 								echo "<option value='".$row->id_pegawai."'>".$row->nama_pegawai."</option>";
@@ -141,14 +138,20 @@ $(document).ready(function(){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">TMT</label>
 					<div class="controls">
-						<input type="text" name="tmt" id="tmt" placeholder="TMT" class="span6"/>
+					<div class="input-append">
+						<input type="text" name="tmt" id="tmt" value=""  class="span10 date-picker" data-date-format="dd-mm-yyyy" />
+							<span class="add-on">
+								<i class="icon-calendar"> </i>
+							</span>
+					</div>
 					</div>
 				</div>
+
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Tanggal SK</label>
 					<div class="controls">
 					<div class="input-append">
-							<input type="text" name="tanggal_sk" id="tanggal_sk" value=""  class="span6 date-picker" data-date-format="dd-mm-yyyy" />
+							<input type="text" name="tanggal_sk" id="tanggal_sk" value=""  class="span10 date-picker" data-date-format="dd-mm-yyyy" />
 							<span class="add-on">
 								<i class="icon-calendar"> </i>
 							</span>

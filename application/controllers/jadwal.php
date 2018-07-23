@@ -10,6 +10,8 @@ class Jadwal extends CI_Controller {
 	    $this->load->model('model_data');
 	    $this->load->model('model_probi');
 	    $this->load->model('model_pegawai');
+	    $this->load->model('model_rombel');
+	    $this->load->model('model_tahunakademik');
 	}
 
 
@@ -20,7 +22,7 @@ class Jadwal extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
+			$d['class'] = 'Pembinaan'; 
 			$d['judul'] = 'Jadwal Program Pembinaan';
 
 			$this->db->group_by("kd_probi");
@@ -41,7 +43,7 @@ class Jadwal extends CI_Controller {
 		$level = $this->session->userdata('level');
 		if (!empty($cek) && $level=='admin'){
 			$d['judul'] = "Jadwal Program Pembinaan";
-			$d['class'] = "transaksi";
+			$d['class'] = "Pembinaan";
 			$d['probi'] = $this->model_probi->data_probi();
 
 			$d['pegawai'] = $this->model_pegawai->all();
@@ -59,80 +61,9 @@ class Jadwal extends CI_Controller {
 		}
 		
 	}
-/*	public function simpan(){
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
-			$id['kd_probi'] = $this->input->post('kode');
 
-			$dt['kd_probi'] = $this->input->post('kode');
-			$dt['probi'] = $this->input->post('probi');
-			$dt['singkat'] = $this->input->post('singkat');
-			$dt['wali_probi'] = $this->input->post('wali');
-			$dt['nip'] = $this->input->post('nip');
+	
 
-
-
-			if ($this->model_probi->ada($id)) {
-				
-				$this->model_probi->update($id, $dt);
-				echo "Data Sukses Disimpan";
-			} else {
-				$this->model_probi->insert($id,$dt);
-				echo "Data Sukses Disimpan";
-
-			}
-		} else {
-			redirect('login','refresh');
-		}
-	}
-
-	public function hapus(){
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
-			$id['kd_probi'] = $this->uri->segment(3);
-
-			if ($this->model_probi->ada($id)) {
-				
-				$this->model_probi->delete($id);
-			} 
-			redirect('probi','refresh');
-		} else {
-			redirect('login','refresh');
-		}	
-	}
-
-	public function cari(){
-
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin'){
-			$id['kd_probi'] = $this->uri->segment(3);
-
-			if ($this->model_probi->ada($id)){
-				$dt = $this->model_probi->get($id);
-
-				$d['kode'] = $dt->kd_probi;
-				$d['probi'] = $dt->probi;
-				$d['singkat'] = $dt->singkat;
-				$d['wali'] = $dt->wali_probi;
-				$d['nip'] = $dt->nip;
-
-				
-			} else {
-				$d['kode'] = "";
-				$d['probi'] = "";
-				$d['singkat'] = "";
-				$d['wali'] = "";
-				$d['nip'] = "";
-			}
-
-			echo json_encode($d);
-		} else {
-			redirect('login', 'refresh');
-		}
-
-	}*/
+	
 
 }

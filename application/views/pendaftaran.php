@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/ace.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/ace-responsive.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/datepicker.css" />
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
@@ -31,15 +32,21 @@
  window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
 </script>
 <![endif]-->
-	
+<script type="text/javascript" src="<?php echo base_url();?>assets/tanggal/formden.js"></script>
+
+<!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="<?php echo base_url();?>assets/tanggal/bootstrap-iso.css" />
+
+<!--Font Awesome (added because you use icons in your prepend/append)-->
+<link rel="stylesheet" href="<?php echo base_url();?>assets/tanggal/font-awesome.min.css" />
 		<script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
         <!--page specific plugin scripts-->
 		<!--ace scripts-->
 		<script src="<?php echo base_url();?>assets/js/ace-elements.min.js"></script>
 		<script src="<?php echo base_url();?>assets/js/ace.min.js"></script>
-        
+		<script src="<?php echo base_url();?>assets/js/date-time/bootstrap-datepicker.min.js"></script>
 		<!--inline scripts related to this page-->
-        
+           
 	</head>
 	
 	<body class="login-layout">
@@ -117,18 +124,19 @@
 															</select>
 															</span>
 														</label>														
-														
 														<label>
 															<span class="block input-icon input-icon-right">
 															<input type="text" name="tempat_lahir" id="tempat_lahir" value="<?php echo $tempat_lahir; ?>"  class="span2" placeholder="Masukan Tempat Lahir"   required="required"  /> 
 																<span class="input-append">
-																	<input type="date" name="tanggal_lahir"  id="tanggal_lahir" value="<?php echo $tanggal_lahir; ?>"  class="span9 date-picker" data-date-format="dd-mm-yyyy"  required="required" />
+																<input class="span9 date-picker" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir " type="text" required readonly/>
 																	<span class="add-on">
 																		<i class="icon-calendar"> </i>
 																	</span>
 																</span>
 															</span>
 														</label>
+													
+													
 														
 	
 														<label>
@@ -220,8 +228,25 @@
 
 
 
-		
-		
+	
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="<?php echo base_url();?>assets/tanggal/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="<?php echo base_url();?>assets/tanggal/bootstrap-datepicker3.css"/>
+
+<script>
+	$(document).ready(function(){
+		var date_input=$('input[name="tanggal_lahir"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'dd/mm/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+</script>
 
 	</body>
 

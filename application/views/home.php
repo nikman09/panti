@@ -70,10 +70,17 @@ th, td {
 					<a href="#" class="brand">
 						<small>
 							<!--<i class="icon-leaf"></i>-->
-							<?php echo $this->config->item('nama_aplikasi');?>
+							<b><?php echo $this->config->item('nama_aplikasi');?></b>
 						</small>
 					</a><!--/.brand-->
-					<?php $this->load->view('notifikasi');	?>
+					<?php 
+					$level = $this->session->userdata('level');
+					if ($level=='instruktur'){
+					$this->load->view('notifikasiinstruktur');
+					} else {
+					$this->load->view('notifikasi');
+					} 	
+			 		?>
 				</div><!--/.container-fluid-->
 			</div><!--/.navbar-inner-->
 		</div>
@@ -90,10 +97,7 @@ th, td {
 			<div class="main-content">
 				<div class="breadcrumbs" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li>
-							<i class="icon-home home-icon"></i>
-							<a href="#">Home</a>
-
+						<li class="active"><?php echo $class; ?></li>
 							<span class="divider">
 								<i class="icon-angle-right arrow-icon"></i>
 							</span>

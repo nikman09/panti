@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan mashudi');
+$pdf->SetTitle('Laporan Klien Asrama');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -58,6 +58,7 @@ $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
+
 // set some language-dependent strings (optional)
 if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 	require_once(dirname(__FILE__).'/lang/eng.php');
@@ -70,7 +71,7 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 $pdf->SetFont('times', '', 10);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P', 'F4');
 
 
 // set cell padding
@@ -94,7 +95,7 @@ $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 			<tr>
 				<th width="40px">No</th>
                 <th width="100px">NIR</th>
-				<th  width="200px">Nama Klien</th>
+				<th width="200px">Nama Klien</th>
 				<th width="150px">Tempat/Tanggal Lahir</th>
 				<th>Foto</th>
 			</tr>
@@ -127,9 +128,9 @@ $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 		<td width="400px">
 		</td>
 			<td>
-		<p align="center"> Martapura, '.date('d-M-Y').'
-		<br/> Kepala Panti Sosial <br/><br/><br/><br/>
-		<b>Drs. H. M. Masir, M.Ap</b> <br/>
+		<p align="center"> Martapura, '.date('d M Y').'
+		<br/>KEPALA PANTI SOSIAL<br/><br/><br/><br/>
+		<b>Drs. H. M. NASIR, MAP</b> <br/>
 		Pembina Tk I <br/>
 		NIP. 19640611 199103 1 009
 		</p>
@@ -145,7 +146,7 @@ $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 		
 		//Close and output PDF document
 		ob_clean();
-		$pdf->Output('Laporan_PDN.pdf', 'I');
+		$pdf->Output('Laporan Klien Asrama '.$asrama->asrama.'.pdf', 'I');
 		
 		//============================================================+
 		// END OF FILE

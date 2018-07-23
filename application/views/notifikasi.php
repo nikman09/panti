@@ -3,9 +3,9 @@
 
 						<li class="" style="background:#438eb9">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="<?php echo base_url();?>assets/avatar/<?php echo $this->model_data->cari_foto_username($this->session->userdata('username')) ?>" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="<?php echo base_url();?>assets/avatar/<?php echo $this->model_data->cari_foto_username($this->session->userdata('username')) ?>" alt="Admin Photo" />
 								<span class="user-info">
-									<small>Welcome,</small>
+									<small>Selamat Datang</small>
 									<?php echo $this->session->userdata('nama_lengkap'); ?>
 								</span>
 

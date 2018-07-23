@@ -51,14 +51,14 @@ class Pendaftaran extends CI_Controller {
 					'nama_ibu' => $this->input->post('nama_ibu'),
 					'alamat_ortu' =>  $this->input->post('alamat_ortu'),
 					'hp_ortu' => $this->input->post('hp_ortu'),
-					'status' =>'calon',
+					'status' =>'Calon',
 					'status_daftar' => 'n',
 					'tgl_insert' => date('Y-m-d H:i:s'),
 					'tgl_update' =>date('Y-m-d H:i:s')
 				);
 				$exec=$this->model_klien->daftar($d);
 				if ($exec) {
-					echo "Berhasil Mendaftar";
+					echo "Terimakasih, Anda Telah Berhasil Melakukan Pendaftaran";
 				}
 				$id = $this->db->insert_id();
 				redirect(base_url("index.php/pendaftaran/pendaftaransukses?id=$id"));

@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan mashudi');
+$pdf->SetTitle('Laporan Klien Daerah Asal ');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -67,10 +67,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P', 'F4');
 
 
 // set cell padding
@@ -86,25 +86,25 @@ $pdf->SetFillColor(255, 255, 127);
 
 $title = '<h4>DATA PENYANDANG DISABILITAS NETRA
 <br/>PESERTA PROGRAM PELAYANAN REHABILITASI SOSIAL
-<br/> BERDASARKAN DAERAH HASIL PENGIRIMAN</b> <br/>
-Kabupaten '.$kota.'</h4>';
+<br/> BERDASARKAN DAERAH ASAL</b> <br/>
+KABUPATEN/KOTA '.$kota.'</h4>';
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 $table ='
-        <table border="1px" cellspacing="0" border-color="#000">
+        <table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="1000px">
   
-            <tr>
-                <td>No</td>
-                <td>Nama</td>
-                <td>Umur/TTL</td>
-                <td>Alamat</td>
-                <td>Program</td>
+            <tr height="100px">
+                <td width="40px">NO</td>
+                <td width="180px">NAMA</td>
+                <td width="95px">UMUR/ TTL</td>
+                <td width="200px">ALAMAT</td>
+                <td width="115">PROGRAM</td>
             </tr>
     
          ';
            $i=0;
            foreach ($data as $row) {
                 $i++;
-              $table.= "<tr><td>".$i."</td>";
+              	$table.= "<tr><td>".$i."</td>";
                 $table.= "<td>".$row->nama_klien."</td>";
                 $biday = new DateTime($row->tanggal_lahir);
                 $today = new DateTime();
@@ -124,9 +124,9 @@ $table ='
 		<td width="400px">
 		</td>
 			<td>
-		<p align="center"> Martapura, '.date('d-M-Y').'
-		<br/> Kepala Panti Sosial <br/><br/><br/><br/>
-		<b>Drs. H. M. Masir, M.Ap</b> <br/>
+		<p align="center">Martapura, '.date('d M Y').'
+		<br/>Kepala Panti Sosial <br/><br/><br/><br/>
+		<b>Drs. H. M. NASIR, M.AP</b> <br/>
 		Pembina Tk I <br/>
 		NIP. 19640611 199103 1 009
 		</p>
@@ -142,7 +142,7 @@ $table ='
 		
 		//Close and output PDF document
 		ob_clean();
-		$pdf->Output('Laporan_PDN.pdf', 'I');
+		$pdf->Output('Laporan Klien Daerah '.$kota.'.pdf', 'I');
 		
 		//============================================================+
 		// END OF FILE

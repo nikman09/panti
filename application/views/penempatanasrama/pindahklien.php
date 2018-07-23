@@ -30,13 +30,7 @@
 							<input type="hidden" name="nir" id="nir" value="<?php echo $data->nir?>" />
 						</div>
 					</div>
-					<div class="profile-info-row">
-						<div class="profile-info-name">NIK</div>
-						<div class="profile-info-value">
-							<?php	echo $data->nik; ?>
-							<input type="hidden" name="nik" id="nik" value="<?php echo $data->nik?>" />
-						</div>
-					</div>
+
 					<div class="profile-info-row">
 						<div class="profile-info-name">Asrama Saat ini</div>
 						<div class="profile-info-value">
@@ -63,7 +57,7 @@
 						</button> &nbsp <a href="<?php echo site_url() ?>/penempatan/klien?as=<?php echo $asrama->kd_asrama ?>" class="btn btn-small btn-default">Kembali</a>
 					</div>
 					</form>
-
+					
 			</div>
 		</div>
 	</div>

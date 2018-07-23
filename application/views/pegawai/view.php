@@ -61,6 +61,7 @@ function editData(id){
 		success: function(data){
 			$('#id').attr('readonly', 'true');
 			$('#nip').val(data.nip);
+			$('#nip').attr('readonly', 'true');
 			$('#nama').val(data.nama);
 			$('#sex').val(data.sex);
 			$('#tempat').val(data.tempat);
@@ -91,15 +92,15 @@ function editData(id){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
+				<th class="center">NO</th>
 			
 				<th class="center">NIP/NIK</th>
-				<th class="center">Nama Pegawai</th>
+				<th class="center">NAMA PEGAWAI</th>
 				<th class="center">L/P</th>
-				<th class="center">Jabatan</th>
-				<th class="center">Pendidikan</th>
-				<th class="center">Status</th>
-				<th class="center">Aksi</th>
+				<th class="center">JABATAN</th>
+				<th class="center">PENDIDIKAN</th>
+				<th class="center">STATUS</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -160,7 +161,7 @@ function editData(id){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Nama Pegawai</label>
 					<div class="controls">
-						<input type="text" name="nama" id="nama" placeholder="Nama Pegawai" class="span6"/>
+						<input type="text" name="nama" id="nama" placeholder="Nama Pegawai" class="span8"/>
 					</div>
 				</div>
 				<div class="control-group">
@@ -182,7 +183,12 @@ function editData(id){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Tanggal Lahir</label>
 					<div class="controls">
-						<input type="text" name="tanggal" id="tanggal" class="span5 date-picker" data-date-format="dd-mm-yyyy" />
+					<div class="input-append">
+						<input type="text" name="tanggal" id="tanggal" class="span6 date-picker" data-date-format="dd-mm-yyyy" />
+						<span class="add-on">
+								<i class="icon-calendar"> </i>
+						</span>
+					</div>
 					</div>
 				</div>
 				<div class="control-group">

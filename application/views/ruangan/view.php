@@ -41,6 +41,7 @@ function editData(id){
 		dataType: "json",
 		success: function(data){
 			$('#kode').val(data.kode);
+			$('#kode').attr('readonly', 'true');
 			$('#ruangan').val(data.ruangan);
 		}
 	});
@@ -63,10 +64,10 @@ function editData(id){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center span2">No</th>
-				<th class="center span3">Kode Ruangan</th>
-				<th class="center">Nama Ruangan</th>
-				<th class="center">Aksi</th>
+				<th class="center span2">NO</th>
+				<th class="center span3">KODE</th>
+				<th class="center">RUANGAN</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>

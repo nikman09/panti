@@ -29,8 +29,8 @@ class Kelompok extends CI_Controller {
 	{
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Kelompok Belajar';
+			$d['class'] = 'Pembinaan'; 
+			$d['judul'] = 'Kondisi Kelompok Belajar';
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 			$d['content'] = 'kelompok/kelompok';
 			$d['data'] = $this->model_rombel->all();
@@ -58,8 +58,8 @@ class Kelompok extends CI_Controller {
 				$d['rombel'] = $this->model_kelompok->ambilrombel($id_rombel);
 				$d['tgl_hari'] = hari_ini(date('w'));
 				$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-				$d['class'] = 'transaksi'; 
-				$d['judul'] = 'Penempatan Klien Kelompok Belajar "'.$d['rombel']->rombel.'"';
+				$d['class'] = 'Pembinaan'; 
+				$d['judul'] = 'Penempatan Kelompok Belajar "'.$d['rombel']->rombel.'"';
 				$d['content'] = 'kelompok/klien';
 				$d['data'] = $this->model_kelompok->dataklien($id_rombel);
 				$this->load->view('home', $d);	
@@ -91,7 +91,7 @@ class Kelompok extends CI_Controller {
 					$d['rombel'] = $this->model_kelompok->ambilrombel($id_rombel);
 					$d['tgl_hari'] = hari_ini(date('w'));
 					$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-					$d['class'] = 'transaksi'; 
+					$d['class'] = 'Pembinaan'; 
 					$d['judul'] = 'Penempatan Kelompok Belajar "'.$d['rombel']->rombel.'"';
 					$d['content'] = 'kelompok/tambahklien';
 					$d['data'] = $this->model_kelompok->daftarklien();
@@ -122,7 +122,7 @@ class Kelompok extends CI_Controller {
 				$d['rombel'] = $this->model_kelompok->ambilrombel($id_rombel);
 				$d['tgl_hari'] = hari_ini(date('w'));
 				$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-				$d['class'] = 'transaksi'; 
+				$d['class'] = 'Pembinaan'; 
 				$d['judul'] = 'Jadwal "'.$d['rombel']->rombel.'"';
 				$d['content'] = 'kelompok/jadwal';
 				

@@ -66,10 +66,10 @@ function editData(id){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Kode</th>
-				<th class="center">Program Pembinaan</th>
-				<th class="center">Aksi</th>
+				<th class="center">NO</th>
+				<th class="center">KODE</th>
+				<th class="center">PROGRAM PEMBINAAN</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>

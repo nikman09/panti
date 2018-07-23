@@ -6,7 +6,7 @@
     <!-- Basic -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>PSBN</title>
+    <title>PSBN Fajar Harapan</title>
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Responsive HTML5 Template" />
     <meta name="author" content="okler.net" />
@@ -72,26 +72,7 @@
                 </div>
               </div>
               <div class="header-column justify-content-end">
-                <div class="header-row pt-3">
-                  <nav class="header-nav-top">
-                    <ul class="nav nav-pills">
-                      <li class="nav-item d-none d-sm-block">
-                        <a class="nav-link" href="<?php echo site_url('login') ?>">Login</a>
-                      </li>
-                    
-                      <li class="nav-item">
-                        <span class="ws-nowrap">(0511) 4772375</span>
-                      </li>
-                    </ul>
-                  </nav>
-                  <div class="header-search d-none d-md-block">
-                    <form id="searchForm" action="page-search-results.html" method="get">
-                      <div class="input-group">
-                        <input type="text" class="form-control" name="q" id="q" placeholder="Search..." required="" />
-                      </div>
-                    </form>
-                  </div>
-                </div>
+                
                 <!-- DISINI -->
                 <?php $this->load->view('template/menu'); ?>
               </div>

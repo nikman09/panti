@@ -11,7 +11,7 @@ $(document).ready(function(){
 		<div class="widget-toolbar no-border pull-right">
 	
 			<a href="<?php echo site_url(); ?>/kelompok/tambahklien?kd=<?php echo $rombel->id_rombel ?>" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah" > 
-				<i class="icon-plus"></i>
+				<i class="icon-check"></i>
 				Tambah Klien
 			</a>
 		
@@ -21,13 +21,12 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<!-- <th class="center">Foto</th> -->
+				<th class="center">NO</th>
 				<th class="center">NIR</th>
-				<th class="center">Nama Klien</th>
+				<th class="center">NAMA</th>
 				<th class="center">L/P</th>
-				<th class="center">Asal Kota/Kabupaten</th>
-				<th class="center">#</th>
+				<th class="center">ASAL KOTA/KABUPATEN</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -50,7 +49,7 @@ $(document).ready(function(){
 					<center>
 						<div class="hidden-phone visible-desktop action-buttons">
 							<a class="red" href="<?php echo site_url(); ?>/kelompok/hapus/<?php echo $dt->id_penentuan; ?>" onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-								<i class="icon-trash bigger-130"></i>
+								<i class="icon-trash bigger-160"></i>
 							</a>
 						</div>
 					</center>

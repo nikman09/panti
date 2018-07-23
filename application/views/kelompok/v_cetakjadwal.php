@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan Mashudi');
+$pdf->SetTitle('Jadwal Klien');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -67,10 +67,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('L', 'F4');
 
 
 // set cell padding
@@ -84,21 +84,21 @@ $pdf->SetFillColor(255, 255, 127);
 
 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopad
 
-$title = '<h4>JADWAL PELAJARAN </h4>Kelompok Belajar '.$rombel->rombel.' ';
+$title = '<h3>JADWAL PELAJARAN <br/>KELOMPOK BELAJAR '.$rombel->rombel.'</h3> ';
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 $table ='
-<table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="700px">
+<table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="1180px">
 
 			<tr>
-				<th width="30px">No</th>
-				<th width="40px">Jam</th>
-				<th>Senin</th>
-				<th>Selasa</th>
-				<th>Rabu</th>
-				<th>Kamis</th>
-				<th>Jumat</th>
-				<th>Sabtu</th>
-				<th>Minggu</th>
+				<th align="c" width="35px"><b><h4>NO</h4></b></th>
+				<th align="c" width="100px"><b><h4>JAM</h4></b></th>
+				<th align="c" ><b><h4>SENIN</h4></b></th>
+				<th align="c" ><b><h4>SELASA</h4></b></th>
+				<th align="c" ><b><h4>RABU</h4></b></th>
+				<th align="c" ><b><h4>KAMIS</h4></b></th>
+				<th align="c" ><b><h4>JUMAT</h4></b></th>
+				<th align="c" ><b><h4>SABTU</h4></b></th>
+				<th align="c" ><b><h4>MINGGU</h4></b></th>
 			</tr>
 	';
 			
@@ -106,15 +106,15 @@ $table ='
 			foreach ($data->result() as $dt ) {
 				$table .= '
 			<tr>
-				<td>'.$i++.'</td>
-				<td>'.$dt->jam.'</td>
-				<td>'.$dt->mpsenin.'</td>
-				<td>'.$dt->mpselasa.'</td>
-				<td>'.$dt->mprabu.'</td>
-				<td>'.$dt->mpkamis.'</td>
-				<td>'.$dt->mpjumat.'</td>
-				<td>'.$dt->mpsabtu.'</td>
-				<td>'.$dt->mpminggu.'</td>
+				<td align="c" >'.$i++.'</td>
+				<td align="c" >'.$dt->jam.'</td>
+				<td align="c">'.$dt->mpsenin.'</td>
+				<td align="c">'.$dt->mpselasa.'</td>
+				<td align="c">'.$dt->mprabu.'</td>
+				<td align="c">'.$dt->mpkamis.'</td>
+				<td align="c">'.$dt->mpjumat.'</td>
+				<td align="c">'.$dt->mpsabtu.'</td>
+				<td align="c">'.$dt->mpminggu.'</td>
 			</tr>';
 		
 			}
@@ -124,13 +124,14 @@ $table ='
 			<br/><br/><br/><br/><br/>
 			<table>
 			<tr>
-			<td width="400px">
+			<td width="600px">
 			</td>
 				<td>
-			<p align="center"> Martapura, '.date('d-M-Y').'
-			<br/> Kasi Pembinaan dan Resosialisasi <br/><br/><br/><br/>
-			<b>Dra. Nurul Helyati</b> <br/>
-			Pembina Tk I <br/>
+			<p align="center"> Martapura, '.date('d M Y').'
+			<br/>KEPALA SEKSI 
+			<br/>PEMBINAAN DAN REOSIALISASI<br/><br/><br/><br/>
+			<b>Dra. NURUL HELYATI</b> <br/>
+			Penata Tk I <br/>
 			NIP. 19600721 198203 2 003
 			</p>
 			</td>
@@ -145,7 +146,7 @@ $table ='
 			
 			//Close and output PDF document
 			ob_clean();
-			$pdf->Output('Laporan_PDN.pdf', 'I');
+			$pdf->Output('Jadwal Kelompok '.$rombel->rombel.'.pdf', 'I');
 			
 			//============================================================+
 			// END OF FILE

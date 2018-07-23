@@ -23,7 +23,7 @@ class Penyaluran extends CI_Controller {
 	{	
 		$d['tgl_hari'] = hari_ini(date('w'));
 		$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-		$d['class'] = 'transaksi'; 
+		$d['class'] = 'Pembinaan'; 
 		$d['judul'] = 'Penyaluran';
 		$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 		$d['content'] = 'penyaluran/penyaluran';

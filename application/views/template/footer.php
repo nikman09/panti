@@ -3,12 +3,13 @@
 		<div class="row">
 
 			<div class="footer-ribbon">
-				<span>KALSEL</span>
+				<span>PSBN FH KALSEL</span>
 			</div>
 			<div class="col-lg-6">
 				<div class="newsletter">
-				<h4>PSBN Fajar Harapan</h4>
-					<p>Jl. Jend. A. Yani Km. 37,5 No. 8 
+				<h4>Panti Sosial Bina Netra Fajar Harapan</h4>
+				<h4>Provinsi Kalimantan Selatan</h4>
+					<p>Jln. Jend. A. Yani Km. 37,5 No. 8 
 					Sungai Paring Martapura <br/>
 					Kodepos 70613 </p>
 
@@ -29,9 +30,14 @@
 						</li>
 						<li>
 							<p>
+								<i class="fa fa-fax"></i>
+								<strong>fax:</strong> (0511) 4772375</p>
+						</li>
+						<li>
+							<p>
 								<i class="fa fa-envelope"></i>
 								<strong>Email:</strong>
-								<a href="mailto:mail@example.com">psbn.kalsel@gmail.com</a>
+								<a href="https://mail.google.com/mail/u/0/#inbox?compose=1648da55e81d3d80">psbn.kalsel@gmail.com</a>
 							</p>
 						</li>
 					</ul>
@@ -41,18 +47,18 @@
 				
 				<ul class="social-icons">
 					<li class="social-icons-facebook">
-						<a href="http://www.facebook.com/" target="_blank" title="Facebook">
+						<a href="https://www.facebook.com/psbn.fajarharapan/" target="_blank" title="Facebook PSBN Fajar Harapan">
 							<i class="fa fa-facebook"></i>
 						</a>
 					</li>
 					<li class="social-icons-twitter">
-						<a href="http://www.twitter.com/" target="_blank" title="Twitter">
+						<a href="https://twitter.com/PSBNFH" target="_blank" title="Twitter PSBN Fajar Harapan">
 							<i class="fa fa-twitter"></i>
 						</a>
 					</li>
-					<li class="social-icons-linkedin">
-						<a href="http://www.linkedin.com/" target="_blank" title="Linkedin">
-							<i class="fa fa-linkedin"></i>
+					<li class="social-icons-youtube">
+						<a href="https://www.youtube.com/channel/UCMMtHUsK7olaprw81hCuYlQ" target="_blank" title="Youtube PSBN Fajar Harapan">
+							<i class="fa fa-youtube"></i>
 						</a>
 					</li>
 				</ul>

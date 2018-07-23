@@ -21,7 +21,7 @@ class Tahunakademik extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'master'; 
+			$d['class'] = 'Master'; 
 			$d['judul'] = 'Tahun Akademik';
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 			$d['content'] = 'tahunakademik/view';

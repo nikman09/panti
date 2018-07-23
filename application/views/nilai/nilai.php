@@ -17,12 +17,11 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Nama Kelompok Belajar</th>
-				<th class="center">Program Pembinaan</th>
-				<th class="center">Kelas</th>
-				<th class="center">Mata Pelajaran</th>
-				<th class="center">Nilai</th>
+				<th class="center">NO</th>
+				<th class="center">MATA PELAJARAN</th>
+				<th class="center">KELOMPOK BELAJAR</th>
+				<th class="center">KELAS</th>
+				<th class="center">NILAI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,13 +32,13 @@ $(document).ready(function(){
 			<tr>
 				<td class="center"><?php echo $i++; ?></td>
 				<!-- 	 -->
-				<td ><?php echo $dt->rombel; ?></td>
-				<td ><?php echo $dt->probi; ?></td>
-				<td ><?php echo $dt->kelas; ?></td>
 				<td ><?php echo $dt->mapel; ?></td>
+				<td ><?php echo $dt->rombel; ?></td>
+				<td class="center"><?php echo $dt->kelas; ?></td>
+				
 				<td class="td-actions">
 					<center>
-						<a href="<?php echo site_url() ?>/nilai/inputnilai?id=<?php echo $dt->id_rombel; ?>&mp=<?php echo $dt->kd_mapel; ?>" class="btn btn-info btn-mini" ><i class="icon-user bigger-130"></i> Input Nilai</a>
+						<a href="<?php echo site_url() ?>/nilai/inputnilai?id=<?php echo $dt->id_rombel; ?>&mp=<?php echo $dt->kd_mapel; ?>" class="btn btn-info btn-mini" ><i class="icon-book bigger-130"></i> Input Nilai</a>
 					</center>
 				</td> 
 				

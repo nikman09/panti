@@ -13,7 +13,7 @@
 	<div class="tab-content">
 		<div id="profil" class="tab-pane in active">
 			<div>
-				<form method="get" action="<?php echo site_url() ?>/klien/cetakperkabupaten" >
+				
 					<div class="profile-info-row">
 						<div class="profile-info-name">Klien</div>
 						<div class="profile-info-value">
@@ -35,9 +35,16 @@
 						Simpan
 						</button> &nbsp <a href="<?php echo site_url() ?>/klien" class="btn btn-small btn-default">Kembali</a>
 					</div>
-					</form>
+					
 
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+	$('#simpan').click(function(){
+		var kota = $('#kota').val();
+		window.open('<?php echo site_url() ?>/klien/cetakperkabupaten?kota='+kota, '_blank');
+	});
+</script>

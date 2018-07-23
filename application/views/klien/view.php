@@ -29,14 +29,15 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Foto</th>
+				<th class="center">NO</th>
+				<th class="center">FOTO</th>
 				<th class="center">NIR</th>
-				<th class="center">Nama Klien</th>
+				<th class="center">Nama </th>
 				<th class="center">L/P</th>
-				<th class="center">Asal Kota/Kabupaten</th>
-				<th class="center">Status</th>
-				<th class="center">Aksi</th>
+				<th class="center">Alamat</th>
+				<th class="center">ASAL KOTA/KABUPATEN</th>
+				<th class="center">STATUS</th>
+				<th class="center span2">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -49,23 +50,23 @@ $(document).ready(function(){
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
 				<td class="center span2"><img src="<?php echo base_url('assets/foto_klien');echo '/'.$dt->foto; ?>" style="width:50px"/></td>
-				<td class="center span2"><?php echo $dt->nir; ?></td>
+				<td class="center span1"><?php echo $dt->nir; ?></td>
 				<td ><?php echo $dt->nama_klien; ?></td>
 				<td class="center"><?php echo $dt->sex; ?></td>
-
+				<td class=""><?php echo $dt->alamat; ?></td>
 				<td class="center"><?php echo $dt->kota; ?></td>
-				<td ><?php echo $dt->status; ?></td>
+				<td class="center"><?php echo $dt->status; ?></td>
 				<td class="td-actions">
 					<center>
 						<div class="hidden-phone visible-desktop action-buttons">
 							<a class="blue" href="<?php echo site_url(); ?>/klien/printklien/<?php echo $dt->id_klien; ?>" 			target="_blank">
-								<i class="icon-print bigger-130"></i>
+								<i class="icon-print bigger-150"></i>
 							</a>
 							<a class="green" href="<?php echo site_url();?>/klien/edit/<?php echo $dt->id_klien;?>" data-toggle="modal" >
-								<i class="icon-pencil bigger-130"></i>
+								<i class="icon-pencil bigger-150"></i>
 							</a>
 							<a class="red" href="<?php echo site_url(); ?>/klien/hapus/<?php echo $dt->id_klien; ?>" onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-								<i class="icon-trash bigger-130"></i>
+								<i class="icon-trash bigger-150"></i>
 							</a>
 						</div>
 					</center>
@@ -77,8 +78,4 @@ $(document).ready(function(){
 
 		</tbody>
 	</table>
-	<p align="right" style="margin-top:20px">
-	<a href="<?php echo site_url("klien/perkabupaten") ?>" class="btn btn-success btn-small"><i class="icon icon-print"></i> Laporan Perkabupaten</a>
-	<a href="<?php echo site_url("klien/cetakdata") ?>" class="btn btn-success btn-small"><i class="icon icon-print"></i> Print Data Klien </a>
-	</p>
 </div>

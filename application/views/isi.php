@@ -10,7 +10,7 @@
 
 								<i class="icon-ok green"></i>
 
-								Selamat Datang di <strong class="green"> Aplikasi Pengelolaan Panti </strong>, PANTI SOSIAL BINA NETRA FAJAR HARAPAN 
+								Selamat Datang di <strong class="green"> Aplikasi Pengelolaan Panti </strong>, PANTI SOSIAL BINA NETRA FAJAR HARAPAN PROVINSI KALIMANTAN SELATAN
 								
 							</div>
 
@@ -21,7 +21,7 @@
 								<div class="span12 infobox-container">
 									<div class="infobox infobox-blue  ">
 										<div class="infobox-icon">
-											<i class="icon-group"></i>
+											<i class="icon-user"></i>
 										</div>
 
 										<div class="infobox-data">
@@ -31,9 +31,9 @@
 							
 									</div>
 
-									<div class="infobox infobox-pink  ">
+									<div class="infobox infobox-orange">
 										<div class="infobox-icon">
-											<i class="icon-briefcase"></i>
+											<i class="icon-group"></i>
 										</div>
 
 										<div class="infobox-data">
@@ -42,7 +42,7 @@
 										</div>
 										
 									</div>
-										<div class="infobox infobox-orange	">
+										<div class="infobox infobox-brown">
 										<div class="infobox-icon">
 											<i class="icon-home"></i>
 										</div>
@@ -55,7 +55,7 @@
 
 									<div class="infobox infobox-green  ">
 										<div class="infobox-icon">
-											<i class="icon-eye-open"></i>
+											<i class="icon-eye-close"></i>
 										</div>
 
 										<div class="infobox-data">
@@ -68,7 +68,7 @@
 
 									<div class="infobox infobox-brown  ">
 										<div class="infobox-icon">
-											<i class="icon-coffee"></i>
+											<i class="icon-book"></i>
 										</div>
 
 										<div class="infobox-data">
@@ -77,7 +77,18 @@
 										</div>
 									</div>
 
-									<div class="infobox infobox-grey  ">
+									<div class="infobox infobox-green  ">
+										<div class="infobox-icon">
+											<i class="icon-group"></i>
+										</div>
+
+										<div class="infobox-data">
+											<span class="infobox-data-number"><?php echo $this->model_data->jml_data('instruktur'). " Data" ;?></span>
+											<div class="infobox-content">Instruktur</div>
+										</div>
+									</div>
+
+									<div class="infobox infobox-green  ">
 										<div class="infobox-icon">
 											<i class="icon-home"></i>
 										</div>
@@ -139,28 +150,7 @@
 								<div class="vspace"></div>
 
 								
-							</div><!--/row-->
-
-							
-
-							
-							
-
-							<!-- <div class="row-fluid">
-								
-								<div class="span12">
-									<div class="widget-box ">
-										<div class="widget-header">
-											<h4 class="lighter smaller">
-												<i class="icon-exclamation-sign red"></i>
-												Perhatian !! <small> ????</small>
-											</h4>
-										</div>
-
-									</div>
-								</div>
-							</div> -->
-
+							</div>
 							<!--PAGE CONTENT ENDS-->
 						</div><!--/.span-->
 					</div><!--/.row-fluid-->

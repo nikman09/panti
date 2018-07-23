@@ -19,8 +19,8 @@ class Penerimaan extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Klien';
+			$d['class'] = 'Pelayanan'; 
+			$d['judul'] = 'Calon Klien';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'penerimaan/view';
 			$d['data'] = $this->model_penerimaan->all();
@@ -72,6 +72,26 @@ class Penerimaan extends CI_Controller {
 		echo "Berhasil Memindahkan Data Klien ";
 	}
 
+	public function dafcaklien()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if (!empty($cek) && $level=='admin'){
+			$d['tgl_hari'] = hari_ini(date('w'));
+			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
+			$d['class'] = 'Laporan'; 
+			$d['judul'] = 'Biodata Calon Klien';
+			$d['nama_klien'] = $this->session->userdata('nama_klien');
+			$d['content'] = 'penerimaan/viewdaftarcalon';
+			$d['data'] = $this->model_penerimaan->all();
+			$d['data_status'] = $this->model_data->status_klien();
+			$d['all_klien'] = $this->model_penerimaan->all();
+			$this->load->view('home', $d);	
+		} else {
+			redirect('login','refresh');
+		}
+	}
+
 	public function printpenerimaan(){
 	
 		$id['id_klien'] = $this->uri->segment(3);
@@ -79,12 +99,6 @@ class Penerimaan extends CI_Controller {
 			$d['data'] = $this->model_penerimaan->ambilklien($id['id_klien']);
 		} 
 		$this->load->view('penerimaan/v_laporan',$d);
-
-	}
-	public function contoh(){
-	
-		
-		$this->load->view('penerimaan/v_contoh');
 
 	}
 }

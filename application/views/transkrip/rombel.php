@@ -13,12 +13,11 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<!-- <th class="center">Foto</th> -->
-				<th class="center">Kelompok Belajar</th>
-				<th class="center">Program Pembinaan</th>
-				<th class="center">Kelas
-				<th class="center">Tahun</th></th>
+				<th class="center">NO</th>
+				<th class="center">KELOMPOK BELAJAR</th>
+				<th class="center">PROGRAM PEMBINAAN</th>
+				<th class="center">KELAS
+				<th class="center">TAHUN</th></th>
 			</tr>
 		</thead>
 		<tbody>

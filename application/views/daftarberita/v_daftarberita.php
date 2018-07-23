@@ -25,11 +25,11 @@
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Judul</th>
-				<th class="center">Keterangan</th>
-				<th class="center">Tanggal</th>
-				<th class="center">Aksi</th>
+				<th class="center">NO</th>
+				<th class="center">JUDUL</th>
+				<th class="center">KETERANGAN</th>
+				<th class="center">TANGGAL</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>

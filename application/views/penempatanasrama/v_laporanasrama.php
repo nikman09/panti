@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan Mashudi');
+$pdf->SetTitle('Laporan Kondisi Asrama');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -67,10 +67,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P', 'F4');
 
 
 // set cell padding
@@ -84,18 +84,17 @@ $pdf->SetFillColor(255, 255, 127);
 
 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopad
 
-$title = '<h4>ASRAMA</h4>';
+$title = '<h3>LAPORAN KONDISI ASRAMA</h3>';
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 $table ='
 <table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="750px">
 
 			<tr>
-				<th width="30px">No</th>
-				<th >Asrama</th>
-				<th>Pengelola Asrama</th>
-				
-				<th>Daya Tampung Klien</th>
-				<th> Jumlah Klien</th>
+				<th align="c" width="35px"><b><h4>NO</h4></b></th>
+				<th align="c" width="200px"><b><h4>ASRAMA</h4></b></th>
+				<th align="c" width="200px"><b><h4>PENGELOLA</h4></b></th>
+				<th align="c" width="90px"><b><h4>DAYA TAMPUNG</h4></b></th>
+				<th align="c" width="90px"><b><h4>JUMLAH KLIEN</h4></b></th>
 			</tr>';
 	
 			$i=1;
@@ -106,8 +105,8 @@ $table ='
 				<td>'.$i++.'</td>
 				<td>'.$dt->asrama.'</td>
 				<td>'.$dt->nama_pegawai.'</td>
-				<td>'.$dt->kouta.'</td>
-				<td>'.$this->model_penempatan->jumlahklien($dt->kd_asrama).'
+				<td align="c">'.$dt->kouta.'</td>
+				<td align="c">'.$this->model_penempatan->jumlahklien($dt->kd_asrama).'
 				</td> 
 				
 			</tr>';
@@ -119,12 +118,12 @@ $table ='
 			<br/><br/><br/><br/><br/>
 			<table>
 			<tr>
-			<td width="400px">
+			<td width="300px">
 			</td>
 				<td>
-			<p align="center"> Martapura, '.date('d-M-Y').'
-			<br/> Kepala Panti Sosial <br/><br/><br/><br/>
-			<b>Drs. H. M. Masir, M.Ap</b> <br/>
+			<p align="center"> Martapura, '.date('d M Y').'
+			<br/> KEPALA PANTI SOSIAL <br/><br/><br/><br/>
+			<b>Drs. H. M. NASIR, MAP</b> <br/>
 			Pembina Tk I <br/>
 			NIP. 19640611 199103 1 009
 			</p>
@@ -140,7 +139,7 @@ $table ='
 			
 			//Close and output PDF document
 			ob_clean();
-			$pdf->Output('Laporan_PDN.pdf', 'I');
+			$pdf->Output('Laporan_Kondisi_Asrama.pdf', 'I');
 			
 			//============================================================+
 			// END OF FILE

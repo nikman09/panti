@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan mashudi');
+$pdf->SetTitle('Biodata Klien');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -66,55 +66,27 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 
 // ---------------------------------------------------------
 
-// set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
-// add a page
 $pdf->AddPage('P', 'A4');
 
 
-// set cell padding
 $pdf->setCellPaddings(1, 1, 1, 1);
-
-// set cell margins
-$pdf->setCellMargins(1, 1, 1, 1);
-
-// set color for background
+$pdf->setCellMargins(2, 2, 2, 2);
 $pdf->SetFillColor(255, 255, 127);
 
-// MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)
-
 $title = <<<OED
-<h3>Biodata Klien<h/3>
+<h2>BIODATA KLIEN</h2>
 OED;
 
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
-// $table = '<table style="border:1px solid #000; padding:6px;">';
-// $table.= '<tr>
-// 				<th style="border:1px solid #000;">No</th>
-// 				<th style="border:1px solid #000;">Kode Asrama</th>
-// 				<th style="border:1px solid #000;">Nama Asrama</th>
-// 				<th style="border:1px solid #000;">Pengelola Asrama</th>
-// 				<th style="border:1px solid #000;">Daya Tampung</th>
-// 			</tr>';
-// $no = 1;
-// // foreach ($data->result() as $row) {
-// // $table .= '<tr>
-// // 			<td style="border:1px solid #000;">'.$no++.'</td>
-// // 			<td style="border:1px solid #000;">'.$row->kd_asrama.'</td>
-// // 			<td style="border:1px solid #000;">'.$row->asrama.'</td>
-// // 			<td style="border:1px solid #000;">'.$pegawai.'</td>
-// // 			<td style="border:1px solid #000;">'.$row->tampung.'</td>
-// // 			</tr>';
-// // }
-// $table.= '</table>';
 
-$table =' <p><b> I. Data Calon Klien</b></p>
+$table =' <p><b> I. DATA KLIEN</b></p>
 <table>
     <tr>
-         <td width="200px">Nama Calon Klien</td>
-         <td width="10px">:</td>
-         <td width="500px">'.$data->nama_klien.'</td>
+         <td width="250px">Nama</td>
+         <td width="20px">:</td>
+         <td width="500px" >'.$data->nama_klien.'</td>
     </tr>
     <tr>
          <td>NIK</td>
@@ -122,7 +94,7 @@ $table =' <p><b> I. Data Calon Klien</b></p>
          <td>'.$data->nik.'</td>
     </tr>
     <tr>
-         <td>Tempat / Tanggal Lahir</td>
+         <td>Tempat/Tanggal Lahir</td>
          <td>:</td>
          <td>'.$data->tempat_lahir.' / '.tgl_indo("$data->tanggal_lahir").'</td>
     </tr>
@@ -152,7 +124,7 @@ $table =' <p><b> I. Data Calon Klien</b></p>
     </tr>
 </table>
 <br/>
-<p><b> I. Data Orang Tua Calon Klien</b></p>
+<p><b> II. DATA ORANG TUA KLIEN</b></p>
 <table >
     <tr>
          <td  width="200px">Nama Ayah</td>
@@ -175,7 +147,7 @@ $table =' <p><b> I. Data Calon Klien</b></p>
        
     </tr>
     <tr>
-         <td>Telepon Orang Tua</td>
+         <td>Telepen Orang Tua</td>
          <td>:</td>
          <td>'.$data->hp_ortu.'</td>
     </tr>
@@ -187,12 +159,12 @@ $bawah = '
 <br/><br/><br/><br/><br/>
 <table>
 <tr>
-<td width="400px">
+<td width="350px">
 </td>
     <td>
-<p align="center"> Martapura, '.date('d-M-Y').'
+<p align="center"> Martapura, '.date('d M Y').'
     <br/> Calon Klien <br/><br/><br/><br/>
-   <b> '.$data->nama_klien.'</b>
+   <b>'.$data->nama_klien.'</b>
 </p>
 </td>
 
@@ -206,7 +178,7 @@ $pdf->lastPage();
 
 //Close and output PDF document
 ob_clean();
-$pdf->Output('Laporan_PDN.pdf', 'I');
+$pdf->Output('BiodataKlien.pdf', 'I');
 
 //============================================================+
 // END OF FILE

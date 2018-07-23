@@ -5,7 +5,7 @@
 			<div class="profile-info-row">
 				<div class="profile-info-name"> Upload File Foto </div>
 				<div class="profile-info-value">
-					<input type="file" name="gambar" id="gambar" />
+					<input type="file" name="gambar" id="gambar" required/>
 				</div>
 			</div>
 			<div class="form-actions center">

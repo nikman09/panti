@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M.Ifan Mashudi');
+$pdf->SetTitle('Biodata Calon Klien');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -67,10 +67,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
 // add a page
-$pdf->AddPage('P', 'A4');
+$pdf->AddPage('P', 'F4');
 
 
 // set cell padding
@@ -85,7 +85,7 @@ $pdf->SetFillColor(255, 255, 127);
 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)
 
 $title = <<<OED
-<h3>Biodata Calon Klien<h/3>
+<h3>BIODATA CALON KLIEN<h/3>
 OED;
 
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
@@ -109,7 +109,7 @@ $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 // // }
 // $table.= '</table>';
 
-$table =' <p><b> I. Data Calon Klien</b></p>
+$table =' <p><b> I. DATA CALON KLIEN</b></p>
 <table>
     <tr>
          <td width="200px">Nama Calon Klien</td>
@@ -137,9 +137,14 @@ $table =' <p><b> I. Data Calon Klien</b></p>
          <td>'.$data->agama.'</td>
     </tr>
     <tr>
+         <td>No.Handphone</td>
+         <td>:</td>
+         <td>'.$data->hp.'</td>
+    </tr>
+    <tr>
          <td>Alamat</td>
          <td>:</td>
-         <td rowspan="2">'.$data->alamat.'</td>
+         <td width="500px">'.$data->alamat.'</td>
     </tr>
     <tr>
          <td></td>
@@ -152,7 +157,7 @@ $table =' <p><b> I. Data Calon Klien</b></p>
     </tr>
 </table>
 <br/>
-<p><b> I. Data Orang Tua Calon Klien</b></p>
+<p><b> I. DATA ORANG TUA CALON KLIEN</b></p>
 <table >
     <tr>
          <td  width="200px">Nama Ayah</td>
@@ -190,8 +195,8 @@ $bawah = '
 <td width="400px">
 </td>
     <td>
-<p align="center"> Martapura, '.date('d-M-Y').'
-    <br/> Calon Klien <br/><br/><br/><br/>
+<p align="center"> Martapura, '.date('d M Y').'
+    <br/> CALON KLIEN <br/><br/><br/><br/>
    <b> '.$data->nama_klien.'</b>
 </p>
 </td>
@@ -206,7 +211,7 @@ $pdf->lastPage();
 
 //Close and output PDF document
 ob_clean();
-$pdf->Output('Laporan_PDN.pdf', 'I');
+$pdf->Output('BiodataCalonKlien.pdf', 'I');
 
 //============================================================+
 // END OF FILE

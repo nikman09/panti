@@ -22,7 +22,7 @@ class Daftarberita extends CI_Controller {
 		
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'website'; 
+			$d['class'] = 'Website'; 
 			$d['judul'] = 'Berita';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'daftarberita/v_daftarberita';
@@ -50,7 +50,7 @@ class Daftarberita extends CI_Controller {
 		
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'website'; 
+			$d['class'] = 'Website'; 
 			$d['judul'] = 'Berita';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'daftarberita/v_tambahberita';
@@ -89,7 +89,7 @@ class Daftarberita extends CI_Controller {
 			$id_berita = $this->uri->segment(3);
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'website'; 
+			$d['class'] = 'Website'; 
 			$d['judul'] = 'Berita';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['data'] = $this->model_daftarberita->cariberita($id_berita)->row();

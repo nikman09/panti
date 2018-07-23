@@ -30,7 +30,7 @@ function editData(id){
 			} else if ($s=='2') {
 				echo  "<div class='alert alert-danger' style='margin-top:10px;margin-bottom:10px;font-size:12px'>Berhasil Menghapus Data</div>";
 			} else if ($s=='3') {
-				echo  "<div class='alert alert-danger' style='margin-top:10px;margin-bottom:10px;font-size:12px'>Berhasil Mengubah Password</div>";
+				echo  "<div class='alert alert-success' style='margin-top:10px;margin-bottom:10px;font-size:12px'>Berhasil Mengubah Password</div>";
 			}
 		} else {
 			echo "";
@@ -39,16 +39,15 @@ function editData(id){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Username</th>
+				<th class="center">NO</th>
+				<th class="center">USERNAME</th>
 				<th class="center">NIP/NIK</th>
-				<th class="center">Nama instuktur</th>
-				
+				<th class="center">NAMA INSTRUKTUR</th>
 				<th class="center">L/P</th>
-				<th class="center">Status</th>
-				<th class="center">Aksi</th>
+				<th class="center">STATUS</th>
+				<th class="center">AKSI</th>
 			</tr>
-		</thead>
+		</thead> 
 		<tbody>
 			<?php
 			$i=1;
@@ -59,6 +58,7 @@ function editData(id){
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
 				<td class="span3"><?php echo $dt->username; ?></td>
+
 				<td class="span3"><?php echo $dt->nip; ?></td>
 				<td ><?php echo $dt->nama_pegawai; ?></td>
 				<td class="center"><?php echo $dt->sex; ?></td>
@@ -123,7 +123,7 @@ function editData(id){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Password</label>
 					<div class="controls">
-						<input type="password" name="password" id="password" class="span6" required/>
+						<input type="password" name="password" id="password" placeholder="Password" class="span6" required/>
 					</div>
 				</div>
 			
@@ -166,7 +166,7 @@ function editData(id){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Password</label>
 					<div class="controls">
-						<input type="password" name="password2" id="password2" class="span6" required/>
+						<input type="password" name="password" id="password" placeholder="Password Baru" class="span6" required/>
 					</div>
 				</div>
 			

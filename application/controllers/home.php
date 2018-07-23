@@ -18,8 +18,8 @@ class Home extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'home'; 
-			$d['judul'] = 'Dashboard';
+			$d['class'] = 'Dashboard'; 
+			$d['judul'] = '';
 			$d['content'] = 'isi';
 
 

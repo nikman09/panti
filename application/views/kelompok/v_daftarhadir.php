@@ -31,9 +31,9 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Ifan  mashudi');
-$pdf->SetTitle('Laporan');
-$pdf->SetSubject('Skripsi');
+$pdf->SetAuthor('M. Ifan Mashudi');
+$pdf->SetTitle('Daftar Hadir Klien');
+$pdf->SetSubject('Aplikasi Pengelolaan Panti');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
@@ -67,10 +67,10 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 // ---------------------------------------------------------
 
 // set font
-$pdf->SetFont('times', '', 10);
+$pdf->SetFont('times', '', 12);
 
 // add a page
-$pdf->AddPage('L', 'A4');
+$pdf->AddPage('L', 'F4');
 
 
 // set cell padding
@@ -84,57 +84,56 @@ $pdf->SetFillColor(255, 255, 127);
 
 // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopad
 
-$title = '<h4>DAFTAR HADIR PESERTA PEMBINAAN </h4>Kelompok Belajar '.$rombel->rombel.' ';
+$title = '<h3>DAFTAR HADIR PESERTA PEMBINAAN <br/>KELOMPOK BELAJAR '.$rombel->rombel.'</h3> ';
 $pdf->WriteHTMLCell(0, 0, '', '',$title, 0, 1, 0, true, 'C', true);
 $title2 = '<p>Bulan : </p>';
 $pdf->WriteHTMLCell(0, 0, '', '',$title2, 0, 1, 0, true, 'L', true);
 $table ='
-<table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="800px">
+<table border="1px" cellspacing="0" border-color="#000" cellpadding="4" width="920px">
 			<tr>
-				<th rowspan="2" width="30px">No</th>
-				<th rowspan="2" width="150px">Nama</th>
-				<th colspan="31" align="center">Tanggal</th>
+				<th rowspan="2" width="35px" align="center"><b><h4>NO</h4></b></th>
+				<th rowspan="2" width="150px" align="center"><b><h4>NAMA</h4></b></th>
+				<th colspan="31" align="center"><b>TANGGAL</b></th>
 			</tr>
 			<tr>
-				<th>1</th>
-				<th>2</th>
-				<th>3</th>
-				<th>4</th>
-				<th>5</th>
-				<th>6</th>
-				<th>7</th>
-				<th>8</th>
-				<th>9</th>
-				<th>10</th>
-				<th>11</th>
-				<th>12</th>
-				<th>13</th>
-				<th>14</th>
-				<th>15</th>
-				<th>16</th>
-				<th>17</th>
-				<th>18</th>
-				<th>19</th>
-				<th>20</th>
-				<th>21</th>
-				<th>22</th>
-				<th>23</th>
-				<th>24</th>
-				<th>25</th>
-				<th>26</th>
-				<th>27</th>
-				<th>28</th>
-				<th>29</th>
-				<th>30</th>
-				<th>31</th>
-
+				<th align="center"><b>1</b></th>
+				<th align="center"><b>2</b></th>
+				<th align="center"><b>3</b></th>
+				<th align="center"><b>4</b></th>
+				<th align="center"><b>5</b></th>
+				<th align="center"><b>6</b></th>
+				<th align="center"><b>7</b></th>
+				<th align="center"><b>8</b></th>
+				<th align="center"><b>9</b></th>
+				<th align="center"><b>10</b></th>
+				<th align="center"><b>11</b></th>
+				<th align="center"><b>12</b></th>
+				<th align="center"><b>13</b></th>
+				<th align="center"><b>14</b></th>
+				<th align="center"><b>15</b></th>
+				<th align="center"><b>16</b></th>
+				<th align="center"><b>17</b></th>
+				<th align="center"><b>18</b></th>
+				<th align="center"><b>19</b></th>
+				<th align="center"><b>20</b></th>
+				<th align="center"><b>21</b></th>
+				<th align="center"><b>22</b></th>
+				<th align="center"><b>23</b></th>
+				<th align="center"><b>24</b></th>
+				<th align="center"><b>25</b></th>
+				<th align="center"><b>26</b></th>
+				<th align="center"><b>27</b></th>
+				<th align="center"><b>28</b></th>
+				<th align="center"><b>29</b></th>
+				<th align="center"><b>30</b></th>
+				<th align="center"><b>31</b></th>
 			</tr>';
 
 			$i=1;
 			foreach ($data->result() as $dt ) {
 				$table .= '
 			<tr>
-				<td >'.$i++.'</td>
+				<td align="center">'.$i++.'</td>
 				<td>'.$dt->nama_klien.'</td>
 				<th></th>
 				<th></th>
@@ -173,16 +172,17 @@ $table ='
 			$table.='</table>';
 			$pdf->WriteHTMLCell(0, 0, '', '', $table, 0, 1, 0, true, 'L', true);
 			$bawah = '
-			<br/><br/><br/><br/><br/>
+			<br/>
 			<table>
 			<tr>
 			<td width="600px">
 			</td>
 				<td>
-			<p align="center"> Martapura, '.date('d-M-Y').'
-			<br/> Kasi Pembinaan dan Resosialisasi <br/><br/><br/><br/>
-			<b>Dra. Nurul Helyati</b> <br/>
-			Pembina Tk I <br/>
+			<p align="center"> Martapura, '.date('d M Y').'
+			<br/>KEPALA SEKSI 
+			<br/>PEMBINAAN DAN REOSIALISASI<br/><br/><br/><br/>
+			<b>Dra. NURUL HELYATI</b> <br/>
+			Penata Tk I <br/>
 			NIP. 19600721 198203 2 003
 			</p>
 			</td>

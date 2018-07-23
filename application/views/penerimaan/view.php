@@ -12,18 +12,10 @@ $(document).ready(function(){
 				$('#id_klien').val(data.id_klien);
 				$('#nama_klien').val(data.nama_klien);
 				$('#ktp').val(data.ktp);
-				$('#jk').val(data.jk);
-				$('#agama').val(data.agama);
-				$('#tempat_lahir').val(data.tempat_lahir);
-				$('#tanggal_lahir').val(data.tanggal_lahir);
 				$('#hp').val(data.hp);
 				$('#alamat').val(data.alamat);
 				$('#kota').val(data.kota);
 				$('#status_daftar').val(data.status_daftar);
-				$('#nama_ayah').val(data.nama_ayah);
-				$('#nama_ibu').val(data.nama_ibu);
-				$('#alamat_ortu').val(data.alamat_ortu);
-				$('#hp_ortu').val(data.hp_ortu);
 			
 			}
 		});
@@ -90,14 +82,14 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">ID Pendaftaran</th>
-				<th class="center">Nama Klien</th>
+				<th class="center">NO</th>
+				<th class="center">NO PENDAFTARAN</th>
+				<th class="center">NAMA</th>
 				<th class="center">L/P</th>
-				<th class="center">Asal Kota/Kabupaten</th>
-				<th class="center">Status</th>
-				<th class="center">Status Daftar</th>
-				<th class="center">Aksi</th>
+				<th class="center">ASAL KABUPATEN/KOTA</th>
+				<th class="center">STATUS</th>
+				<th class="center">STATUS DAFTAR</th>
+				<th class="center span2">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -109,8 +101,8 @@ $(document).ready(function(){
 			?>
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
-				<td class="center span2"><?php echo $dt->id_klien; ?></td>
-				<td ><?php echo $dt->nama_klien; ?></td>
+				<td class="center  "><?php echo $dt->id_klien; ?></td>
+				<td class="span5"><?php echo $dt->nama_klien; ?></td>
 				<td class="center"><?php echo $dt->sex; ?></td>
 
 				<td class="center"><?php echo $dt->kota; ?></td>
@@ -123,20 +115,21 @@ $(document).ready(function(){
 				<td >
 				<?php 
 					if ($dt->status_daftar=='n') { echo "<span style='color:black'>Belum Diperiksa</span>"; }
-					else if ($dt->status_daftar=='y')  { echo "<span style='color:green'>Di Terima</span>"; }
-					else if ($dt->status_daftar=='t')  { echo "<span style='color:red'>Di Tolak</span>"; }
+					else if ($dt->status_daftar=='y')  { echo "<span style='color:green'>Diterima</span>"; }
+					else if ($dt->status_daftar=='t')  { echo "<span style='color:red'>Ditolak</span>"; }
 				?></td>
 				<td class="td-actions">
 					<center>
 						<div class="hidden-phone visible-desktop action-buttons">
-						<a class="blue" href="<?php echo site_url(); ?>/penerimaan/printpenerimaan/<?php echo $dt->id_klien; ?>" 			target="_blank">
-								<i class="icon-print bigger-130"></i>
-							</a>
+						
 							<a class="green edit" id="<?php echo $dt->id_klien  ?>" href="#modal-table" data-toggle="modal" >
-								<i class="icon-pencil bigger-130"></i>
+								<i class="icon-check bigger-150"></i>
+							</a>
+							<a class="blue" href="<?php echo site_url(); ?>/penerimaan/printpenerimaan/<?php echo $dt->id_klien; ?>" 			target="_blank">
+									<i class="icon-print bigger-150"></i>
 							</a>
 							<a class="red" href="<?php echo site_url(); ?>/penerimaan/hapus/<?php echo $dt->id_klien; ?>" onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-								<i class="icon-trash bigger-130"></i>
+								<i class="icon-trash bigger-150"></i>
 							</a>
 						</div>
 					</center>
@@ -155,7 +148,7 @@ $(document).ready(function(){
 	<div class="modal-header no-padding">
 		<div class="table-header">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			Data Klien
+			Data Calon Klien
 		</div>
 	</div>
 
@@ -172,91 +165,40 @@ $(document).ready(function(){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Nama Lengkap</label>
 					<div class="controls">
-					<input type="text" name="nama_klien" id="nama_klien" placeholder="Nama Lengkap"  class="span6" readonly/>
+					<input type="text" name="nama_klien" id="nama_klien" placeholder="Nama Lengkap"  class="span11" readonly/>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">No KTP</label>
 					<div class="controls">
-					<input type="text" name="ktp" id="ktp" placeholder="KTP"  class="span6" readonly/>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Jenis Kelamin</label>
-					<div class="controls">
-						<select  name="jk" id="jk" placeholder="Jenis Kelamin" class="span6" readonly disabled>
-							<option value="L">Laki-laki</option>
-							<option value="P">Perempuan</option>
-						</select>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Agama</label>
-					<div class="controls">
-					<input type="text" name="agama" id="agama" placeholder="Agama"  class="span6" readonly/>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Tempat Lahir</label>
-					<div class="controls">
-					<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir"  class="span6" readonly/>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Tanggal Lahir</label>
-					<div class="controls">
-					<input type="text" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir"  class="span6" readonly/>
+					<input type="text" name="ktp" id="ktp" placeholder="KTP"  class="span11" readonly/>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">No. Handphone</label>
 					<div class="controls">
-					<input type="text" name="hp" id="hp" placeholder="No. Handphone"  class="span6" readonly/>
-					</div>
+					<input type="text" name="hp" id="hp" placeholder="No. Handphone"  class="span11" readonly/>
+					</div>	
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Alamat</label>
 					<div class="controls">
-					<input type="text" name="alamat" id="alamat" placeholder="Alamat"  class="span6" readonly/>
+					<textarea type="text" name="alamat" id="alamat" placeholder="Alamat"  class="span11" readonly/></textarea>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Kota</label>
 					<div class="controls">
-						<input type="text" name="kota" id="kota" placeholder="Kota"  class="span6" readonly/>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Nama Ayah</label>
-					<div class="controls">
-					<input type="text" name="nama_ayah" id="nama_ayah" placeholder="Nama Ayah"  class="span6" readonly/>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Nama Ibu</label>
-					<div class="controls">
-					<input type="text" name="nama_ibu" id="nama_ibu" placeholder="Nama ibu"  class="span6" readonly/>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Alamat Orang Tua</label>
-					<div class="controls">
-					<textarea name="alamat_ortu" id="alamat_ortu" placeholder="Alamat Orang Tua"  class="span6" readonly></textarea>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Telepon Orang Tua</label>
-					<div class="controls">
-					<input type="text" name="hp_ortu" id="hp_ortu" placeholder="Telepon Orang Tua"  class="span6" readonly/>
+						<input type="text" name="kota" id="kota" placeholder="Kota"  class="span11" readonly/>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Status Pendaftaran</label>
 					<div class="controls">
-						<select  name="status_daftar" id="status_daftar" class="span6">
+						<select  name="status_daftar" id="status_daftar" class="span11">
 							<option value="n">Belum Diperiksa</option>
-							<option value="y">Di Terima</option>
-							<option value="t">Di Tolak</option>
+							<option value="y">Diterima</option>
+							<option value="t">Ditolak</option>
 						</select>
 					</div>
 				</div>
@@ -302,8 +244,8 @@ $(document).ready(function(){
 					<label class="control-label" for="form-filed-1">Status</label>
 					<div class="controls">
 						<select  name="status2" id="status2" class="span6">
-							<option value="aktif">Aktif</option>
-							<option value="calon">Calon</option>
+							<option value="Aktif">Aktif</option>
+							<option value="Calon">Calon</option>
 						</select>
 					</div>
 				</div>

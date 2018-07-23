@@ -17,15 +17,13 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Nama Kelompok Belajar</th>
-				<th class="center">Program Pembinaan</th>
-				<th class="center">Kelas</th>
-				<th class="center">Klien</th>
-				<th class="center">Jadwal</th>
-				<th class="center">Cetak Absensi</th>
-				<th class="center">bsensi Intruktur</th>
-				<th class="center">Cetak Jadwal</th>
+				<th class="center">NO</th>
+				<th class="center">KELOMPOK BELAJAR</th>
+				<th class="center">KLIEN</th>
+				<th class="center">JADWAL</th>
+				<th class="center">DAFTAR HADIR KLIEN</th>
+				<th class="center">DAFTAR HADIR INSTRUKTUR</th>
+				<th class="center">JADWAL</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,11 +36,9 @@ $(document).ready(function(){
 				<td class="center"><?php echo $i++; ?></td>
 				<!-- 	 -->
 				<td ><?php echo $dt->rombel; ?></td>
-				<td ><?php echo $prob?></td>
-				<td ><?php echo $dt->kelas; ?></td>
 				<td class="td-actions">
 					<center>
-						<a href="<?php site_url() ?>kelompok/klien?as=<?php echo $dt->id_rombel; ?>" class="" ><i class="icon-user bigger-130"></i> <?php  echo $this->model_kelompok->jumlahklien($dt->id_rombel);  ?></a>
+						<a href="<?php site_url() ?>kelompok/klien?as=<?php echo $dt->id_rombel; ?>" class="" ><i class="icon-user bigger-130"></i> <?php  echo $this->model_kelompok->jumlahklien($dt->id_rombel);  ?> Orang</a> 
 					</center>
 				</td> 
 				<td class="td-actions">
@@ -50,9 +46,9 @@ $(document).ready(function(){
 						<a href="<?php site_url() ?>kelompok/jadwal?as=<?php echo $dt->id_rombel; ?>" class="btn btn-info btn-small" ><i class="icon-list"></i> Jadwal </a>
 					</center>
 				</td> 
-				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/daftarhadir/'.$dt->id_rombel.'') ?>"><i class="icon icon-print"></i> Cetak Absensi</a></td>
-				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/cetakinstruktur/'.$dt->id_rombel.'') ?>"><i class="icon icon-print"></i> Absensi Intruktur</a></td>
-				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/cetakjadwal/'.$dt->id_rombel.'') ?>"><i class="icon icon-print"></i> Cetak Jadwal</a></td>
+				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/daftarhadir/'.$dt->id_rombel.'') ?>"><i class="icon icon-print bigger-160"></i></a></td>
+				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/cetakinstruktur/'.$dt->id_rombel.'') ?>"><i class="icon icon-print bigger-160"></i></a></td>
+				<td class="center"><a target="_blank" href="<?php echo site_url('kelompok/cetakjadwal/'.$dt->id_rombel.'') ?>"><i class="icon icon-print bigger-160"></i></a></td>
 
 				
 			</tr>

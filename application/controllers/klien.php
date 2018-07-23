@@ -21,7 +21,7 @@ class Klien extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'master'; 
+			$d['class'] = 'Pelayanan'; 
 			$d['judul'] = 'Klien';
 			$d['nama_klien'] = $this->session->userdata('nama_klien');
 			$d['content'] = 'klien/view';
@@ -120,9 +120,9 @@ public function simpan(){
 			
            
 			$d = array(
-						'judul' => 'Klien',
+						'judul' => 'Tambah Klien',
 						'a' => 'tambah',
-						'class' => 'master',
+						'class' => 'Pelayanan',
 						'id_klien' => '',
 						'nir' => '' ,
 						'nik' => '' ,
@@ -142,6 +142,8 @@ public function simpan(){
 						'hp_ortu'	=> '',
 						'foto'	=> '',
 						'kategori'	=> '',
+						'tgl_masuk' => '',
+						'tgl_daftar' => '',
 						'all_klien' => $this->model_klien->data_all_klien(),
 						'content'	=> 'klien/form_klien',
 						'tgl_hari' => hari_ini(date('w')),
@@ -169,14 +171,13 @@ public function simpan(){
            $id_klien = $this->uri->segment(3);
            $dt = $this->model_klien->get_by_id_klien($id_klien);
 			$d = array(
-						'judul' => 'Klien',
-						'class' => 'master',
+						'judul' => 'Edit Klien',
+						'class' => 'Pelayanan',
 						'a' => 'edit',
 						'id_klien' => $id_klien ,
 						'nik' => $dt->nik ,
 						'nir' => $dt->nir ,
 						'nama_klien' => $dt->nama_klien,
-						'status'	=> $dt->status,
 						'tempat_lahir'	=> $dt->tempat_lahir,
 						'tanggal_lahir'	=> tgl_str($dt->tanggal_lahir),
 						'sex'	=> $dt->sex,
@@ -185,9 +186,10 @@ public function simpan(){
 						'kota'	=> $dt->kota,
 						'hp'	=> $dt->hp,
 						'email'	=> $dt->email,
+						'status'	=> $dt->status,
 						'nama_ayah'	=> $dt->nama_ayah,
 						'nama_ibu'	=> $dt->nama_ibu,
-						'alamat_ortu'	=> $dt->alamat_ortu,
+						'alamat_ortu'=> $dt->alamat_ortu,
 						'hp_ortu'	=> $dt->hp_ortu,
 						'all_klien' => $this->model_klien->data_all_klien(),
 						'content'	=> 'klien/form_klien',
@@ -225,6 +227,25 @@ public function simpan(){
 		}	
 	}
 
+	public function daftarklien()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if (!empty($cek) && $level=='admin'){
+			$d['tgl_hari'] = hari_ini(date('w'));
+			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
+			$d['class'] = 'Laporan'; 
+			$d['judul'] = 'Daftar Klien';
+			$d['nama_klien'] = $this->session->userdata('nama_klien');
+			$d['content'] = 'klien/viewdaftarklien';
+			$d['data'] = $this->model_klien->all();
+			$d['data_status'] = $this->model_data->status_klien();
+			$d['all_klien'] = $this->model_klien->all();
+			$this->load->view('home', $d);	
+		} else {
+			redirect('login','refresh');
+		}
+	}
 
 	public function printklien(){
 	
@@ -239,8 +260,8 @@ public function simpan(){
 	public function perkabupaten(){
 		$d['tgl_hari'] = hari_ini(date('w'));
 		$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-		$d['class'] = 'master'; 
-		$d['judul'] = 'Klien';
+		$d['class'] = 'Laporan'; 
+		$d['judul'] = 'Daftar Klien Daerah Asal';
 		$d['nama_klien'] = $this->session->userdata('nama_klien');
 		$d['content'] = 'klien/perkabupaten';
 		$d['data_kota'] = $this->model_data->kota();
@@ -257,10 +278,10 @@ public function simpan(){
 
 	}
 
-	public function cetakdata(){
+	public function cetakdaftarklien(){
 	
 		$d['data'] = $this->model_klien->getall();
-		$this->load->view('klien/v_laporandata',$d);
+		$this->load->view('klien/v_laporandaftarklien',$d);
 
 	}
 

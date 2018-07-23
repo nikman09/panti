@@ -28,12 +28,12 @@ $(document).ready(function(){
 	</a>
 </div>
 <br/>
-<div class="row-fluid" style="min-height:400px;width:80%;margin:auto">
+<div class="row-fluid" style="min-height:400px;width:100%;margin:auto">
 	<div class="span6">
 		<table border="1px" style="padding:10px;width:100%; border:1px solid #d1d1d1;">
 			<thead>
 			<tr>
-					<th colspan="6"><h5 align="center" style="color:#467187"><strong>Senin</strong></h5></th>
+					<th colspan="7"><h5 align="center" style="color:#467187"><strong>Senin</strong></h5></th>
 				</tr>
 				<tr>
 					<th>Aksi</th>
@@ -110,7 +110,7 @@ $(document).ready(function(){
 		</table>
 	</div>
 </div>
-<div class="row-fluid" style="min-height:400px;width:80%;margin:auto">
+<div class="row-fluid" style="min-height:400px;width:100%;margin:auto">
 <div class="span6">
 		<table border="1px" style="padding:10px;width:100%; border:1px solid #d1d1d1;">
 			<thead>
@@ -193,7 +193,7 @@ $(document).ready(function(){
 	</div>
 	
 </div>
-<div class="row-fluid" style="min-height:400px;width:80%;margin:auto">
+<div class="row-fluid" style="min-height:400px;width:100%;margin:auto">
 <div class="span6">
 		<table border="1px" style="padding:10px;width:100%; border:1px solid #d1d1d1;">
 			<thead>
@@ -276,7 +276,7 @@ $(document).ready(function(){
 	</div>
 	
 </div>
-<div class="row-fluid" style="height:400px;width:80%;margin:auto">
+<div class="row-fluid" style="height:400px;width:100%;margin:auto">
 <div class="span6">
 		<table border="1px" style="padding:10px;width:100%; border:1px solid #d1d1d1;">
 			<thead>
@@ -353,7 +353,17 @@ $(document).ready(function(){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Jam</label>
 					<div class="controls">
-						<input type="text" name="jam" id="jam" placeholder="00:00" class="span6"  required="required"/>
+						<select class="span6" name="jam" id="jam"  required="required">
+						<option value=''>.:Pilih Jam:.</option>
+						<option value='08:00-08:45'>08:00-08:45</option>
+						<option value='08:45-09:30'>08:45-09:30</option>
+						<option value='09:30-10:15'>09:30-10:15</option>
+						<option value='11:00-11:45'>11:00-11:45</option>
+						<option value='16:00-16:45'>16:00-16:45</option>
+						<option value='16:45-17:30'>16:45-17:30</option>
+						<option value='20:00-20:45'>20:00-20:45</option>
+						<option value='20:45-21:30'>20:45-21:30</option>
+					</select>
 					</div>
 				</div>
 				<div class="control-group">
@@ -389,7 +399,7 @@ $(document).ready(function(){
 							<option value=''>.:Pilih Ruangan:.</option>
 							<?php 
 								foreach($dataruangan->result() as $row) {
-									echo "<option value='".$row->kd_ruangan."'>".$row->nama_ruangan." (".$row->nip.")</option>";
+									echo "<option value='".$row->kd_ruangan."'>".$row->nama_ruangan."</option>";
 								}
 							?>
 						</select>

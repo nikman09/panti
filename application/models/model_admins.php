@@ -24,7 +24,7 @@ class Model_admins extends CI_Model {
 		} else {
 
 
-				$this->session->set_flashdata('result_login', '<br> Username / NIP / NIR atau password yang anda masukkan salah');
+				$this->session->set_flashdata('result_login', '<br> Username atau password yang anda masukan salah');
 				header('location:'. base_url(). 'index.php/login');
 			}
 		

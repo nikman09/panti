@@ -81,13 +81,13 @@
 													<fieldset>
 													<label>
 															<span class="block input-icon input-icon-right">
-															<input type="text" class="span12" id="username" name="username" placeholder="Username" />
+															<input type="text" class="span12" id="username" name="username" placeholder="Username" required="required" />
 																<i class="icon-user"></i>
 															</span>
 														</label>
 														<label>
 															<span class="block input-icon input-icon-right">
-																<input type="password" id="password" name="password" class="span12" placeholder="Password" />
+																<input type="password" id="password" name="password" class="span12" placeholder="Password" required="required" />
 																<i class="icon-lock"></i>
 															</span>
 														</label>

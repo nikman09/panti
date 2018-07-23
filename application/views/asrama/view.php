@@ -64,11 +64,10 @@ function editData(id){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Kode</th>
-				<th class="center">Asrama</th>
-				<th class="center">Kouta</th>
-				<th class="center">Aksi</th>
+				<th class="center">NO</th>
+				<th class="center">ASRAMA</th>
+				<th class="center">KOUTA</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -78,17 +77,16 @@ function editData(id){
 			?>
 			<tr>
 				<td class="center span1"><?php echo $i++; ?></td>
-				<td class="center span2"><?php echo $dt->kd_asrama; ?></td>
 				<td ><?php echo $dt->asrama; ?></td>
 				<td class="center"><?php echo $dt->kouta; ?></td>
 				<td class="td-actions">
 					<center>
 						<div class="hidden-phone visible-desktop action-buttons">
 							<a class="green" href="#modal-table" onclick="javascript:editData('<?php echo $dt->kd_asrama;?>')" data-toggle="modal" >
-								<i class="icon-pencil bigger-130"></i>
+								<i class="icon-pencil bigger-160"></i>
 							</a>
 							<a class="red" href="<?php echo site_url(); ?>/asrama/hapus/<?php echo $dt->kd_asrama; ?>" onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-								<i class="icon-trash bigger-130"></i>
+								<i class="icon-trash bigger-160"></i>
 							</a>
 						</div>
 					</center>
@@ -124,7 +122,7 @@ function editData(id){
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Daya Tampung</label>
 					<div class="controls">
-						<input type="text" name="kouta" id="kouta" placeholder="daya tampung" class="span5"/>
+						<input type="text" name="kouta" id="kouta" placeholder="Kouta" class="span2"/>
 					</div>
 				</div>
 			</form>

@@ -11,13 +11,13 @@
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<th class="center">Nama Klien</th>
-				<th class="center">Dari Asrama</th>
-				<th class="center">Ke Asrama</th>
-				<th class="center">Keterangan</th>
-				<th class="center">Waktu</th>
-				<td>#</td>
+				<th class="center">NO</th>
+				<th class="center">NAMA</th>
+				<th class="center">DARI ASRAMA</th>
+				<th class="center">KE ASRAMA</th>
+				<th class="center">KETERANGAN</th>
+				<th class="center">WAKTU</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,7 +32,7 @@
 				<td class="center"><?php echo $dt->asrama_akhir; ?></td>
 				<td class="center"><?php echo $dt->ket; ?></td>
 				<td class="center"><?php echo $dt->tanggal; ?></td>
-				<td>
+				<td class="center">
 				<a class="red" href="<?php echo site_url(); ?>/penempatan/hapusriwayat/<?php echo $dt->id; ?>" onClick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
 								<i class="icon-trash bigger-130"></i>
 							</a>

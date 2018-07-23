@@ -21,12 +21,12 @@ $(document).ready(function(){
 		<div class="widget-toolbar no-border pull-right">
 		<?php if ($this->model_penempatan->jumlahklien($asrama->kd_asrama)<$asrama->kouta) {  ?>
 			<a href="<?php echo site_url(); ?>/penempatan/tambahklien?kd=<?php echo $asrama->kd_asrama ?>" class="btn btn-small btn-success" role="button" data-toggle="modal" name="tambah" id="tambah" > 
-				<i class="icon-plus"></i>
+				<i class="icon-check"></i>
 				Penempatan Klien
 			</a>
 		<?php } else { ?>
 			<a href="" class="btn btn-small btn-success" disabled > 
-				<i class="icon-plus"></i>
+				<i class="icon-off"></i>
 				Kuota Sudah Penuh
 			</a>
 		
@@ -37,14 +37,13 @@ $(document).ready(function(){
 	<table class="table fpTable lncp table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="center">No</th>
-				<!-- <th class="center">Foto</th> -->
+				<th class="center">NO</th>
 				<th class="center">NIR</th>
-				<th class="center">Nama Klien</th>
+				<th class="center">NAMA</th>
 				<th class="center">L/P</th>
 				<th class="center">Asal Kota/Kabupaten</th>
-				<th class="center">#</th>
-				<th class="center">#</th>
+				<th class="center">AKSI</th>
+				<th class="center">AKSI</th>
 			</tr>
 		</thead>
 		<tbody>

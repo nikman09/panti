@@ -22,8 +22,8 @@ class Penempatan extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
-			$d['judul'] = 'Asrama';
+			$d['class'] = 'Pelayanan'; 
+			$d['judul'] = 'Kondisi Asrama';
 
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 			$d['content'] = 'penempatanasrama/asrama';
@@ -56,7 +56,7 @@ class Penempatan extends CI_Controller {
 					$d['asrama'] = $this->model_penempatan->ambilasrama($id_asrama);
 					$d['tgl_hari'] = hari_ini(date('w'));
 					$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-					$d['class'] = 'transaksi'; 
+					$d['class'] = 'Pelayanan'; 
 					$d['judul'] = 'Penempatan Klien Asrama "'.$d['asrama']->asrama.'"';
 					$d['content'] = 'penempatanasrama/klien';
 					$d['data'] = $this->model_penempatan->dataklien($id_asrama);
@@ -115,7 +115,7 @@ class Penempatan extends CI_Controller {
 						$d['asrama'] = $this->model_penempatan->ambilasrama($id_asrama);
 						$d['tgl_hari'] = hari_ini(date('w'));
 						$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-						$d['class'] = 'transaksi'; 
+						$d['class'] = 'Pelayanan'; 
 						$d['judul'] = 'Penempatan Klien Asrama "'.$d['asrama']->asrama.'"';
 						$d['content'] = 'penempatanasrama/tambahklien';
 						$d['data'] = $this->model_penempatan->daftarklien();
@@ -210,7 +210,7 @@ class Penempatan extends CI_Controller {
 						$d['asrama'] = $this->model_penempatan->ambilasrama($data->kd_asrama);
 						$d['tgl_hari'] = hari_ini(date('w'));
 						$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-						$d['class'] = 'transaksi'; 
+						$d['class'] = 'Pelayanan'; 
 						$d['judul'] = 'Penempatan Klien Asrama "'.$d['asrama']->asrama.'"';
 						$d['content'] = 'penempatanasrama/pindahklien';
 						$d['data'] = $data;
@@ -302,7 +302,7 @@ class Penempatan extends CI_Controller {
 		if (!empty($cek) && $level=='admin'){
 			$d['tgl_hari'] = hari_ini(date('w'));
 			$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-			$d['class'] = 'transaksi'; 
+			$d['class'] = 'Pelayanan'; 
 			$d['judul'] = 'Riwayat Penempatan';
 			$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 			$d['content'] = 'penempatanasrama/riwayatpenempatan';

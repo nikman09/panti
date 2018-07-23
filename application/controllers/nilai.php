@@ -6,18 +6,19 @@ class Nilai extends CI_Controller {
 	public function __construct()
 	{
 	    parent::__construct();
-
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if (!empty($cek) && ($level=='admin' || $level='instruktur')){
+			
+		} else {
+			redirect('login','refresh');
+		}
 	    $this->load->model('model_data');
 		$this->load->model('model_nilai');
 		$this->load->model('model_rombel');
 		$this->load->model('model_kelompok');
 		$this->load->model('model_tahunakademik');
-		$cek = $this->session->userdata('logged_in');
-		$level = $this->session->userdata('level');
-		if (!empty($cek) && $level=='admin' || $level='instruktur'){
-		} else {
-			redirect('login','refresh');
-		}
+	
 	}
 
 
@@ -26,14 +27,17 @@ class Nilai extends CI_Controller {
 		$level = $this->session->userdata('level');
 		$d['tgl_hari'] = hari_ini(date('w'));
 		$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-		$d['class'] = 'transaksi'; 
-		$d['judul'] = 'Nilai Klien';
+		
 		$d['nama_lengkap'] = $this->session->userdata('nama_lengkap');
 		$d['content'] = 'nilai/nilai';
 		if ($level=='instruktur'){
+			$d['class'] = 'transaksi'; 
+			$d['judul'] = 'Nilai Klien';
 			$id_instruktur = $this->session->userdata('id_username');
 			$d['data'] = $this->model_nilai->datapelajaraninstruktur($id_instruktur);
 		} else {
+			$d['class'] = 'Pembinaan'; 
+			$d['judul'] = 'Nilai Klien';
 			$d['data'] = $this->model_nilai->datapelajaran();
 		}
 		
@@ -51,11 +55,20 @@ class Nilai extends CI_Controller {
 				$d['mapel'] = $this->model_nilai->ambilmapel($kd_mp);
 				$d['tgl_hari'] = hari_ini(date('w'));
 				$d['tgl_indo'] = tgl_indo(date('Y-m-d'));
-				$d['class'] = 'transaksi'; 
+				$d['class'] = 'Pembinaan'; 
 				$d['judul'] = 'Input Nilai "'.$d['rombel']->rombel.'" Mata Pelajaran '.$d['mapel']->mapel.'';
 				$d['content'] = 'nilai/inputnilai';
 				$d['data'] = $this->model_nilai->dataklien($id_rombel,$kd_mp);
 				$d['dataklien'] = $this->model_nilai->dataklienada($id_rombel,$kd_mp);
+				$level = $this->session->userdata('level');
+				if ($level=='instruktur'){
+					$d['class'] = 'transaksi'; 
+					$d['judul'] = 'Nilai Klien';
+				} else {
+					$d['class'] = 'Pembinaan'; 
+					$d['judul'] = 'Nilai Klien';
+				}
+
 				$this->load->view('home', $d);	
 			} else {
 				redirect('penempatan','refresh');
