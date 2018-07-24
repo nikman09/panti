@@ -21,6 +21,7 @@ $(document).ready(function(){
 	});
 
 	$('#simpan').click(function(){	
+		if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
 		var v_id_pegawai	= $('#pegawai').val();
 		var v_sk			= $('#sk').val();
 		var v_tmt 			= $('#tmt').val();
@@ -42,6 +43,7 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
+		}
 	});
 
 

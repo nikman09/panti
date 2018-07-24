@@ -51,7 +51,7 @@
 						</div>
 					</div>
 					<div style="margin-left:127px">
-						<button type="submit" name="simpan" id="simpan" class="btn btn-small btn-success pull-left" >
+						<button type="submit" name="simpan" id="simpan" class="btn btn-small btn-success pull-left" onClick="return confirm('Apakah anda yakin ingin Menambah/Merubah data ini?')">
 						<i class="icon-save"></i>
 						Pindah
 						</button> &nbsp <a href="<?php echo site_url() ?>/penempatan/klien?as=<?php echo $asrama->kd_asrama ?>" class="btn btn-small btn-default">Kembali</a>

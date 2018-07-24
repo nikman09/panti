@@ -163,7 +163,7 @@ $(document).ready(function(){
 
 			<div class="profile-user-info">
 				<div class="profile-info-row">
-					<div class="profile-info-name">Status <?php echo $status ?></div>
+					<div class="profile-info-name">Status</div>
 					<div class="profile-info-value">
 						<select name="status" id="status"  class="span4" required>
 							<option value="">--Tentukan Status Klien--</option>
@@ -229,7 +229,7 @@ $(document).ready(function(){
 			</div>
 
 			<div class="alert alert-error" align="center">
-				<button type="submit" name="simpan" id="simpan" class="btn btn-mini btn-primary">
+				<button type="submit" name="simpan" id="simpan" class="btn btn-mini btn-primary" onClick="return confirm('Apakah anda yakin ingin Menambah/Merubah data ini?')">
 				<i class="icon-save"></i> Simpan
 				</button>
 				<a href="<?php echo base_url(); ?>index.php/klien" class="btn btn-mini btn-success">

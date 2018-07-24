@@ -23,7 +23,7 @@ class Model_data extends CI_Model {
 	}
 
 	public function status_klien(){
-		return array('Calon','Aktif','Keluar','Lulus');
+		return array('calon','aktif','keluar','lulus');
 	}
 
 	public function status_pendaftaran(){

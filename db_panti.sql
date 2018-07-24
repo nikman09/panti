@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22 Jul 2018 pada 15.37
--- Versi Server: 10.1.28-MariaDB
--- PHP Version: 5.6.32
+-- Generation Time: Jul 24, 2018 at 10:38 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `panti`
+-- Database: `db_panti`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
@@ -37,16 +37,17 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admins`
+-- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id_username`, `username`, `password`, `nama_lengkap`, `foto`) VALUES
-(1, 'admin', 'ed447b10b54c1ccbf0adffad50421770', 'M.Ifan Mashudi', '1.jpg');
+(1, 'admin', 'ed447b10b54c1ccbf0adffad50421770', 'M.Ifan Mashudi', '1.jpg'),
+(2, 'admin2', '827ccb0eea8a706c4c34a16891f84e7b', '1234567891', '2.JPG');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `asrama`
+-- Table structure for table `asrama`
 --
 
 CREATE TABLE `asrama` (
@@ -57,20 +58,21 @@ CREATE TABLE `asrama` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `asrama`
+-- Dumping data for table `asrama`
 --
 
 INSERT INTO `asrama` (`kd_asrama`, `asrama`, `kouta`, `id_pegawai`) VALUES
-(1, 'KECUBUNG', '14', '18'),
+(1, 'KECUBUNG1', '14', '18'),
 (2, 'BERLIAN', '14', '20'),
 (3, 'INTAN', '14', '19'),
 (4, 'MERAH SIAM', '14', '16'),
-(5, 'MUTIARA', '15', '');
+(5, 'MUTIARA', '15', '1'),
+(6, '23', '2', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE `berita` (
@@ -82,17 +84,18 @@ CREATE TABLE `berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
 INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `isi`, `tanggal`) VALUES
-(3, 'SARANA DAN PRASARANA', 'Fasilitas', 'Dalam upaya memberikan pelayanan rehabilitasi sosial yang prima, PSBN Fajar Harapan didukung dengan berbagai sarana dan prasarana seperti :Kantor dan peralatannya, mobil opersional, Asrama, ruang makan /dapur, ruang belajar, ruang praktek keterampilan tangan, ruang praktek pijat, ruang & lapangan olahraga, lab. Komputer Braille, laboratorium komputer bicara, poliklinik, ruang musik/band, perpustakaan braille, mushalla dll.', '2018-07-13'),
-(4, 'DUKUNGAN PENDIDIKAN FORMAL', 'Pendidikan', 'Bagi klien yang masih mempunyai kesempatan untuk menempuh pedidikan formal, PSBN Fajar Harapan memberikan dukungan dengan cara bekerja sama dengan Dinas Pendidikan dan SLB-A Fajar Harapan dari tingkat SDLB, SMPLB, dan SMALB Martapura, serta Pendidikan Inklusi di SMA 4 Banjarbaru (Pendidikan Inklusi= penyandang cacat/anak berkebutuhan khusus bersekolah di sekolah umum).', '2018-07-13');
+(3, 'SARANA DAN PRASARANA', 'Fasilitas', 'Dalam upaya memberikan pelayanan rehabilitasi sosial yang prima, PSBN Fajar Harapan didukung dengan berbagai sarana dan prasarana seperti :Kantor dan peralatannya, mobil opersional, Asrama, ruang makan /dapur, ruang belajar, ruang praktek keterampilan tangan, ruang praktek pijat, ruang & lapangan olahraga, lab. Komputer Braille, laboratorium komputer bicara, poliklinik, ruang musik/band, perpustakaan braille, mushalla dll.', '2018-07-24'),
+(4, 'DUKUNGAN PENDIDIKAN FORMAL', 'Pendidikan', 'Bagi klien yang masih mempunyai kesempatan untuk menempuh pedidikan formal, PSBN Fajar Harapan memberikan dukungan dengan cara bekerja sama dengan Dinas Pendidikan dan SLB-A Fajar Harapan dari tingkat SDLB, SMPLB, dan SMALB Martapura, serta Pendidikan Inklusi di SMA 4 Banjarbaru (Pendidikan Inklusi= penyandang cacat/anak berkebutuhan khusus bersekolah di sekolah umum).', '2018-07-13'),
+(5, '22', '2', '2', '2018-07-24');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `instruktur`
+-- Table structure for table `instruktur`
 --
 
 CREATE TABLE `instruktur` (
@@ -103,21 +106,23 @@ CREATE TABLE `instruktur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `instruktur`
+-- Dumping data for table `instruktur`
 --
 
 INSERT INTO `instruktur` (`id_instruktur`, `id_pegawai`, `username`, `password`) VALUES
-(2, 4, 'ida', '7f78f270e3e1129faf118ed92fdf54db'),
+(2, 4, 'ida', '202cb962ac59075b964b07152d234b70'),
 (3, 7, 'awi', 'd41d8cd98f00b204e9800998ecf8427e'),
 (4, 21, 'jumiati', '9df83fa6b486ad8ea5ac8bdc0420b5aa'),
 (5, 8, 'ita', '78b0fb7d034c46f13890008e6f36806b'),
 (6, 10, 'misrudin', '3ea0073958c224587a77172943f41631'),
-(7, 26, 'ifan', 'ed447b10b54c1ccbf0adffad50421770');
+(7, 26, 'ifan', 'ed447b10b54c1ccbf0adffad50421770'),
+(8, 5, '123123', '4297f44b13955235245b2497399d7a93'),
+(9, 2, '212', 'a01610228fe998f515a72dd730294d87');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal`
+-- Table structure for table `jadwal`
 --
 
 CREATE TABLE `jadwal` (
@@ -132,19 +137,20 @@ CREATE TABLE `jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `jadwal`
+-- Dumping data for table `jadwal`
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `id_tahunakademik`, `id_rombel`, `kd_mapel`, `id_instruktur`, `hari`, `jam`, `kd_ruangan`) VALUES
-(1, 1, '1', 'A', 3, 'Senin', '16:45-17:30', 'M'),
-(2, 1, '1', 'AP', 2, 'Selasa', '08:00-08:45', 'ADL'),
-(3, 1, '1', 'BING', 4, 'Selasa', '08:00-08:45', 'BT1'),
-(4, 1, '1', 'BIND', 5, 'Kamis', '11:00-11:45', 'BT3');
+(1, 1, '1', 'A', 3, 'Senin', '16:45-17:30', '1'),
+(2, 1, '1', 'AP', 2, 'Selasa', '08:00-08:45', '2'),
+(3, 1, '1', 'BING', 4, 'Selasa', '08:00-08:45', '3'),
+(4, 1, '1', 'BIND', 5, 'Kamis', '11:00-11:45', '4'),
+(5, 1, '1', 'A', 2, 'Senin', '08:00-08:45', '7');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `klien`
+-- Table structure for table `klien`
 --
 
 CREATE TABLE `klien` (
@@ -177,17 +183,17 @@ CREATE TABLE `klien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `klien`
+-- Dumping data for table `klien`
 --
 
 INSERT INTO `klien` (`id_klien`, `nir`, `nik`, `nama_klien`, `sex`, `kategori`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `kota`, `hp`, `email`, `nama_ayah`, `pekerjaan_ayah`, `nama_ibu`, `pekerjaan_ibu`, `alamat_ortu`, `hp_ortu`, `foto`, `status`, `status_daftar`, `tgl_insert`, `tgl_update`, `tgl_masuk`, `tgl_daftar`) VALUES
-(1, 521, ' ', 'NURDIN', 'L', 'Total', 'Islam', 'RANTAU', '1972-02-02', ' Desa Andika Kec. Tapin Tengah', 'TAPIN', '', ' ', 'AGAH', '', '0', '', 'Desa Andika Kabupaten Tapin', ' 0', 'IMG_0140_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '2018-07-13 10:44:31', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 521, ' ', 'NURDIN', 'L', 'Total', 'Islam', 'RANTAU', '1972-02-02', ' Desa Andika Kec. Tapin Tengah', 'TAPIN', '22', '22', 'AGAH', '', '0', '', 'Desa Andika Kabupaten Tapin', ' 0', 'IMG_0140_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '2018-07-24 09:25:43', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 307, '0', 'ARNAIN', 'L', 'Total', 'Islam', 'RANTAU', '1982-07-06', ' Desa Ilir Kecamatan Tapin Tengah', 'TAPIN', ' 0', ' 0', 'AMAS', '', '0', '', '  Desa Ilir Kecamatan Tapin Tengah', ' 0', '', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 424, '0', 'RUSMIATI', 'P', 'Total', 'Islam', 'GAMBUT', '1988-02-20', ' Handil II Rt.05 Rw.02 Banyu Hirang Kecamatan Gambut', 'BANJAR', ' 0', '0', 'M. HASAN B.', '', '0', '', '  Handil II Rt.05 Rw.02 Banyu Hirang Kecamatan Gambut', ' 0', 'IMG_0114_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 436, ' ', 'M. RIZAL', 'L', 'Total', 'Islam', 'Banjarmasin', '1983-07-29', 'Jln. Pangeran Gang Rahman ', 'BANJARMASIN', ' ', ' ', 'H. SYAHRANI', '', ' ', '', 'Jln. Pangeran Gang Rahman', ' ', 'IMG_0151_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 436, ' ', 'M. RIZAL', 'L', 'Total', 'Islam', 'Banjarmasin', '1983-07-29', 'Jln. Pangeran Gang Rahman ', 'BANJARMASIN', ' ', ' ', 'H. SYAHRANI', '', ' ', '', 'Jln. Pangeran Gang Rahman', ' ', 'IMG_0151_copy.jpg', 'lulus', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (5, 447, ' ', 'PARIDI', 'L', 'Total', 'Islam', 'Limpasu', '1989-09-05', ' Desa Pihandam No.2 Rt.07 Umpasu Kec. Batai Alai Utara', 'HULU SUNGAI TENGAH', '  ', '  ', 'JAILANI', '', ' ', '', ' Desa Pihandam No.2 Rt.07 Umpasu Kec. Batai Alai Utara', '  ', 'IMG_0134_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 455, ' ', 'RUMAIYANTI', 'P', 'Total', 'Islam', 'Barabai', '1989-07-03', ' Desa Sulangai Kec. Birayang', 'HULU SUNGAI TENGAH', ' ', ' ', 'M. SAKARIN', '', ' ', '', '  Desa Sulangai Kec. Birayang', ' ', 'IMG_0099_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 475, ' ', 'DEWI KANASTRI', 'P', 'Total', 'Islam', 'Madiun', '1977-04-12', 'Jln. Kelayan B Timur No.32 Rt.07 ', 'BANJARMASIN', ' ', ' ', 'SUKENDAR', '', ' ', '', ' ', ' ', 'Dewi_Kanastri.jpg', 'lulus', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 475, ' ', 'DEWI KANASTRI', 'P', 'Total', 'Islam', 'Madiun', '1977-04-12', 'Jln. Kelayan B Timur No.32 Rt.07 ', 'BANJARMASIN', ' ', ' ', 'SUKENDAR', '', ' ', '', ' ', ' ', 'Dewi_Kanastri.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (13, 480, ' ', 'ASNA', 'P', 'Total', 'Islam', 'Tanjung', '1990-02-10', 'Desa Banyu Tajun Kec. Tanjung', 'TABALONG', ' ', ' ', 'MISTAR', '', '', '', ' Desa Banyu Tajun Kec. Tanjung', ' ', 'IMG_0110_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (14, 481, ' ', 'RAHMAT', 'L', 'Total', 'Islam', 'Tanjung', '1988-09-02', 'Desa Kertak Panjang Kambitin Rt.05 ', 'TABALONG', ' ', ' ', 'ABIDIN', '', ' ', '', 'Desa Kertak Panjang Kambitin Rt.05 ', ' ', 'IMG_0141_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (15, 482, ' ', 'RUSDI', 'L', 'Total', 'Islam', 'Tanjung', '1990-10-05', 'Desa Kertak Panjang Kambitin Rt.05 ', 'TABALONG', ' ', ' ', 'ABIDIN', '', '', '', 'Desa Kertak Panjang Kambitin Rt.05 ', ' ', 'IMG_0097_copy.jpg', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -215,7 +221,7 @@ INSERT INTO `klien` (`id_klien`, `nir`, `nik`, `nama_klien`, `sex`, `kategori`, 
 (38, 580, ' ', 'MAHDIANSYAH', 'L', 'Total', 'Islam', 'Hulu Sungai Tengah', '1990-03-01', 'Desa Sungai Anting Rt.03 Rw.02 Kec.Candi Laras Kab.Tapin', 'TAPIN', '', '', '', '', 'RUSIAH', '', 'Desa Sungai Anting Rt.03 Rw.02 Kec.Candi Laras Kab.Tapin', '', 'IMG_0157_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (39, 0, ' 1', 'JANAWI', 'L', 'Total', 'Islam', 'Tigarun', '1990-06-01', 'Desa Tigarun Kec.Amuntai Kab.HSU', 'HULU SUNGAI UTARA', ' ', '', 'KURSANI', '', ' ', '', 'Desa Tigarun Kec.Amuntai Kab.HSU', ' ', '', 'aktif', 'y', '2018-07-14 00:21:28', '2018-07-14 00:21:28', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (40, 582, ' ', 'ANITA', 'L', 'Total', 'Islam', 'Tigarun', '1991-01-01', 'Desa Tigarun Rt.01 Kec.Amuntai Tengah Kab.HSU', 'HULU SUNGAI UTARA', ' ', ' ', 'BAHRIN', '', '', '', 'Desa Tigarun Rt.01 Kec.Amuntai Tengah Kab.HSU', '', 'IMG_0124_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(41, 584, ' ', 'LAIDINTA SYAKURA HEROICIDA MELODY ANCE MOKHTAR', 'P', 'Total', 'Islam', 'Banjarmasin', '2007-09-18', 'Jln. Rajawali Komp. TNI AU RT.39 RW.08 Kec.Landasan Ulin Banjarbaru', 'BANJARBARU', '', '', 'M. MOHTAR', '', '', '', 'Jln. Rajawali Komp. TNI AU RT.39 RW.08 Kec.Landasan Ulin Banjarbaru', '', '', 'calon', 'n', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(41, 584, ' ', 'LAIDINTA SYAKURA HEROICIDA MELODY ANCE MOKHTAR', 'P', 'Total', 'Islam', 'Banjarmasin', '2007-09-18', 'Jln. Rajawali Komp. TNI AU RT.39 RW.08 Kec.Landasan Ulin Banjarbaru', 'BANJARBARU', '', '', 'M. MOHTAR', '', '', '', 'Jln. Rajawali Komp. TNI AU RT.39 RW.08 Kec.Landasan Ulin Banjarbaru', '', '', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (42, 585, ' ', 'LUTHFI GAZALI R', 'L', 'Total', 'Islam', 'Marabahan', '1990-07-07', 'Desa Sungai Cuka RT.09 RW.03 Kec.Satui Kab.Tanah Bumbu', 'TANAH BUMBU', '', '', 'AHMAD SYAHRANI', '', '', '', 'Desa Sungai Cuka RT.09 RW.03 Kec.Satui Kab.Tanah Bumbu', '', 'IMG_0155_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (43, 586, ' ', 'ISMARTONO', 'L', 'Total', 'Islam', 'Nibung Terjun', '1982-12-02', 'Pondok Darmindo No.60 Banjarbaru', 'BANJARBARU', '', '', '', '', '', '', '', '', 'IMG_0127_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (44, 587, ' ', 'DONI DAMARA', 'L', 'Total', 'Islam', 'Sukamara', '1998-07-20', 'Pondok Darmindo No.60 Banjarbaru', 'BANJARBARU', '', '', 'AHMAD SIRAJUDIN', '', '', '', 'Desa Sungai Cuka RT.09 RW.03 Kec.Satui Kab.Tanah Bumbu', '', '', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -225,7 +231,7 @@ INSERT INTO `klien` (`id_klien`, `nir`, `nik`, `nama_klien`, `sex`, `kategori`, 
 (48, 597, ' ', 'YANDI RIZKY PRAWIRA', 'L', 'Total', 'Islam', 'Banjarmasin', '1994-12-31', 'Jln. Veteran Komp.A.Yani II No.36 RT.26 RW.03 Kec.Banjarmasin Timur', 'BANJARMASIN', '', '', 'EDIYANTO', '', '', '', 'Jln. Veteran Komp.A.Yani II No.36 RT.26 RW.03 Kec.Banjarmasin Timur', '', 'IMG_0150_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (49, 591, ' ', 'ABDIYAN NOOR', 'L', 'Total', 'Islam', 'Kotabaru', '1984-04-24', 'Jln. Peromnas No.38 RT.05 RW.02 Desa Hilir Muara Kec.Pulau Laut Kab.Kotabaru', 'KOTABARU', ' ', ' ', 'ABD. MARKASIH', '', '', '', 'Jln. Peromnas No.38 RT.05 RW.02 Desa Hilir Muara Kec.Pulau Laut Kab.Kotabaru', '', 'IMG_0147_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (50, 592, ' ', 'AMBAR', 'L', 'Total', 'Islam', 'Banjarmasin', '1983-09-10', 'Jln. Perintis Raya RT.02 RW.01 Kec.Tapin Utara', 'TAPIN', '', '', 'JAILANI', '', '', '', 'Jln. Perintis Raya RT.02 RW.01 Kec.Tapin Utara', '', 'IMG_0146_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(51, 593, ' ', 'RAGIL KHAIRIYA', 'P', 'Total', 'Islam', 'Banjarbaru', '2007-10-14', 'Jln. Rambai Tengah Sumber Adi RT.02 RW.03 Kel. Guntung Paikat Kec.Banjarbaru Selatan', 'BANJARBARU', '', '', 'DONNY SUPRIYANO', '', '', '', 'Jln. Rambai Tengah Sumber Adi RT.02 RW.03 Kel. Guntung Paikat Kec.Banjarbaru Selatan', '', '', 'calon', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(51, 593, ' ', 'RAGIL KHAIRIYA', 'P', 'Total', 'Islam', 'Banjarbaru', '2007-10-14', 'Jln. Rambai Tengah Sumber Adi RT.02 RW.03 Kel. Guntung Paikat Kec.Banjarbaru Selatan', 'BANJARBARU', '', '', 'DONNY SUPRIYANO', '', '', '', 'Jln. Rambai Tengah Sumber Adi RT.02 RW.03 Kel. Guntung Paikat Kec.Banjarbaru Selatan', '', '', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (52, 594, ' ', 'RADEN RAFI PRABANDARU', 'L', 'Total', 'Islam', 'Banjarmasin', '2006-09-24', 'Komp.Borneo Indah Jln. Cemara Blok.B2 No.02 Banjarbaru', 'BANJARBARU', '', '', 'R. SUNARJO PRABANDARU', '', '', '', 'Komp.Borneo Indah Jln. Cemara Blok.B2 No.02 Banjarbaru', '', 'Rafi.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (53, 595, ' ', 'ANTO', 'L', 'Total', 'Islam', 'Kapuas', '1988-06-17', 'Desa Hambulau Kec.Kapuas Hilir', 'BANJARBARU', '', '', '', '', 'WAHIDAH', '', 'Desa Hambulau Kec.Kapuas Hilir', '', '', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (54, 596, ' ', 'M. ARDIANSYAH', 'L', 'Total', 'Islam', 'Binuang', '1990-06-29', 'Jln. Pantai Atas Desa Raya Belanti RT.04 RW.02 Kec.Binuang Tapin', 'TAPIN', '', '', 'MULYADI', '', '', '', 'Jln. Pantai Atas Desa Raya Belanti RT.04 RW.02 Kec.Binuang Tapin', '', '', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -235,18 +241,22 @@ INSERT INTO `klien` (`id_klien`, `nir`, `nik`, `nama_klien`, `sex`, `kategori`, 
 (58, 601, ' 63498492830290', 'NOR HASAN', 'L', 'Total', 'Islam', 'Marindi', '1991-02-05', 'Desa Marindi RT.06 Kec.Haruai Kab.Tabalong', 'TABALONG', '08124345820', 'hasan.psbn@gmail.com', 'IMANI', '', 'IMAMAH', '', 'Desa Marindi RT.06 Kec.Haruai Kab.Tabalong', '085323728367', 'IMG_0126_copy.jpg', 'calon', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (59, 602, ' ', 'FATIMAH', 'P', 'Total', 'Islam', 'Surian Hanyar', '2008-04-18', 'Desa Puntik Luar Jln. Kampung Baru Kec.Mandastana Kab.Batola', 'BARITO KUALA', '', '', 'SUGIANOR', '', '', '', 'Desa Marindi RT.06 Kec.Haruai Kab.Tabalong', '', 'IMG_0118_copy.jpg', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (60, 603, ' ', 'ZAINAL ABIDIN', 'L', 'Total', 'Islam', 'Tabalong', '2004-05-11', 'Desa Marindi RT.06 Kec.Haruai Kab.Tabalong', 'TABALONG', '', '', 'IMANI', '', '', '', 'Desa Marindi RT.06 Kec.Haruai Kab.Tabalong', '', '', 'calon', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(61, 604, ' ', 'M. RAMADHONY', 'L', 'Total', 'Islam', 'Landasan Ulin', '1994-02-24', 'Jln.Tonhar RT.04 RW.01 Syamsudin Noor Kec.Landasan Ulin Banjarbaru', 'BANJARBARU', '', '', 'NUR ACHMAD', '', '', '', 'Jln.Tonhar RT.04 RW.01 Syamsudin Noor Kec.Landasan Ulin Banjarbaru', '', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(62, 605, ' ', 'GALIH PUTRA ABIMANYU', 'L', 'Total', 'Islam', 'Wayun', '2010-04-13', 'Jln. Swargaloka Wengga RT.02 RW.05 Landasan Ulin Kec.Liang Anggang Banjarbaru', 'BANJARBARU', '', '', 'AGUS MARDIONO', '', '', '', 'Jln. Swargaloka Wengga RT.02 RW.05 Landasan Ulin Kec.Liang Anggang Banjarbaru', '', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(61, 604, ' ', 'M. RAMADHONY', 'L', 'Total', 'Islam', 'Landasan Ulin', '1994-02-24', 'Jln.Tonhar RT.04 RW.01 Syamsudin Noor Kec.Landasan Ulin Banjarbaru', 'BANJARBARU', '', '', 'NUR ACHMAD', '', '', '', 'Jln.Tonhar RT.04 RW.01 Syamsudin Noor Kec.Landasan Ulin Banjarbaru', '', '', 'calon', 'n', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(62, 605, ' ', 'GALIH PUTRA ABIMANYU', 'L', 'Total', 'Islam', 'Wayun', '2010-04-13', 'Jln. Swargaloka Wengga RT.02 RW.05 Landasan Ulin Kec.Liang Anggang Banjarbaru', 'BANJARBARU', '', '', 'AGUS MARDIONO', '', '', '', 'Jln. Swargaloka Wengga RT.02 RW.05 Landasan Ulin Kec.Liang Anggang Banjarbaru', '', '', 'calon', 't', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (63, 606, ' ', 'JARKASI', 'L', 'Total', 'Islam', 'Alabio', '1989-10-08', 'Jln.Padat Karya Komp.Mutiara I Sungai Andai Banjarmasin Utara', 'BANJARMASIN', '', '', 'GULAMSYAH', '', '', '', 'Jln.Padat Karya Komp.Mutiara I Sungai Andai Banjarmasin Utara', '', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (64, 607, ' ', 'DWI RAHMAD JUNIANTO', 'L', 'Total', 'Islam', 'Banjarmasin', '1980-06-24', 'Jln. Padat Karya Blok Batu RT.09 RW.05 Kec. Banjarmasin Utara', 'BANJARMASIN', '', '', 'SURADI ROSO', '', '', '', 'Jln. Padat Karya Blok Batu RT.09 RW.05 Kec. Banjarmasin Utara', '', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (65, 608, ' ', 'GUSTI YUDI ANSYARI', 'L', 'Total', 'Islam', 'Negara', '1979-06-03', 'Desa Tambak Bitin RT.01 RW.01 Daha Utara Kab. HSS', 'HULU SUNGAI SELATAN', '', '', '', '', 'NOORMDIAH', '', 'Desa Tambak Bitin RT.01 RW.01 Daha Utara Kab. HSS', '', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (66, 609, ' ', 'M. ZAKIR', 'L', 'Total', 'Islam', 'Tanah Habang Kiri', '1985-06-30', 'Desa Tanah Habang Kiri No.8 RT.03 Kec.Lampihan Kab.Balangan', 'BALANGAN', '', '', '', '', 'SITI BADRIAH', '', 'Desa Tanah Habang Kiri No.8 RT.03 Kec.Lampihan Kab.Balangan', '', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(67, 610, ' ', 'MUHAMMAD', 'L', 'Total', 'Islam', 'Banjarmasin', '1982-03-21', 'Jln.Kuin Selatan No.18 RT.07 RW.14 Banjarmasin Barat', 'BANJARMASIN', '', '', 'TAJUDIN NOR', '', '', '', 'Jln.Kuin Selatan No.18 RT.07 RW.14 Banjarmasin Barat', '', '', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(67, 610, ' ', 'MUHAMMAD', 'L', 'Total', 'Islam', 'Banjarmasin', '1982-03-21', 'Jln.Kuin Selatan No.18 RT.07 RW.14 Banjarmasin Barat', 'BANJARMASIN', '', '', 'TAJUDIN NOR', '', '', '', 'Jln.Kuin Selatan No.18 RT.07 RW.14 Banjarmasin Barat', '', '', 'aktif', 'y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(68, 0, '1231123', '1231', 'P', 'Total', 'Islam', '13', '0000-00-00', '13', 'TANAH LAUT', '13', '', '1312', '', '123', '', '123', '123', '', 'calon', 'n', '2018-07-23 10:10:59', '2018-07-23 10:10:59', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(69, 22, '2', '2', 'L', 'Total', 'Islam', '2', '2018-07-24', '22', 'TANAH BUMBU', '22', '2@12.com', '22', '', '2', '', '2', '2', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(70, 2222, '22', '22', 'L', 'Total', 'Islam', '22', '2018-07-04', '22', 'BANJAR', '22', '22', '22', '', '22', '', '22', '22', '', 'calon', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(71, 1111, '11', '11', 'P', 'Total', 'Islam', 'KAB. TAPIN', '2018-07-06', '11', 'BANJAR', '11', '12345@1234.com', '11', '', '11', '', '1', '1', '', 'aktif', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mapel`
+-- Table structure for table `mapel`
 --
 
 CREATE TABLE `mapel` (
@@ -255,10 +265,11 @@ CREATE TABLE `mapel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `mapel`
+-- Dumping data for table `mapel`
 --
 
 INSERT INTO `mapel` (`kd_mp`, `mapel`) VALUES
+('22', '22'),
 ('A', 'AKHLAK'),
 ('AB', 'AL QUR\'AN BRAILLE'),
 ('AK', 'ADL KEPERAWATAN'),
@@ -290,7 +301,7 @@ INSERT INTO `mapel` (`kd_mp`, `mapel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `nilai`
+-- Table structure for table `nilai`
 --
 
 CREATE TABLE `nilai` (
@@ -303,23 +314,27 @@ CREATE TABLE `nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `nilai`
+-- Dumping data for table `nilai`
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_rombel`, `kd_mp`, `id_klien`, `nilai`, `id_tahunakademik`) VALUES
-(1, '1', 'A', 67, 90, 1),
 (2, '1', 'A', 47, 75, 1),
 (3, '1', 'A', 52, 85, 1),
 (4, '1', 'A', 43, 70, 1),
 (5, '1', 'A', 46, 80, 1),
 (6, '1', 'AP', 67, 76, 1),
 (7, '1', 'BIND', 67, 67, 1),
-(8, '1', 'BING', 67, 87, 1);
+(8, '1', 'BING', 67, 87, 1),
+(9, '1', 'AP', 47, 2, 1),
+(10, '1', 'AP', 46, 123, 1),
+(11, '1', 'AP', 52, 11, 1),
+(12, '1', 'A', 38, 22, 1),
+(14, '1', 'A', 67, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -344,11 +359,11 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `sex`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `hp`, `jabatan`, `probi`, `password`, `file_foto`, `tgl_insert`, `tgl_update`, `status`, `pendidikan`, `jurusan`, `email`) VALUES
-(1, '1', 'Kepala Panti', 'L', 'a', '2018-07-04', 'a', '0', 'Kepala Panti Sosial', '', 'c4ca4238a0b923820dcc509a6f75849b', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
+(1, '1', 'Kepala Panti22', 'P', 'a', '2018-07-11', 'a22', '222', 'Kepala Panti Sosial2', '', 'c4ca4238a0b923820dcc509a6f75849b', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
 (2, '2', 'Kepala TU', 'L', '0', '2018-07-13', '0', '0', 'Kepala Sub Bagian Tata Usaha', '', 'c81e728d9d4c2f636f067f89cc14862c', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
 (3, '3', 'kasi pembinaan', 'L', '0', '2018-07-13', '0', '0', 'Kepala Seksi Pembinaan dan Resosialisasi', '', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
 (4, '196612101989102003', 'Gt. IDA KARYANI,SE,MM', 'P', 'Banjar', '1967-10-12', ' ', ' ', 'Kepala Seksi Pelayanan', '', '314f8db14af312f39340dd5a446ed356', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S2', 'Ekonomi', ''),
@@ -372,12 +387,19 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `sex`, `tempat_lahir
 (22, '198809242014021002', 'M. RIZKY AL AMIN', 'L', 'Hulu Sungai Selatan', '1988-09-24', '', '', 'Pelatih Atlit Disabel', '', '0e6575c8448ad7d302c6c6a156132764', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'SMA / Sederajat', '', ''),
 (23, '19611231 200604 1 072', 'AKING', 'L', 'SERAU', '1961-12-31', 'Jln. Rahayu Sungai Paring Martapura', '', 'Analis Bimbingan Usaha', '', '76013debc6e643cfa08b9a33061e88d6', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'SD / Sederajat', '', ''),
 (25, '24', 'IR. BOYKE DANNY JUSUF', 'L', 'Kandangan', '0000-00-00', '', '', 'Instruktur', '', '1ff1de774005f8da13f42943881c655f', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Kontrak', 'S1', 'Teknik Elektro', ''),
-(26, '25', 'MUHAMMAD IFAN MASHUDI', 'L', 'Martapura', '1995-04-09', 'Jln. Rahayu No.43 Sungai Paring Martapura', '087816669990', 'Pranata Komputer', '', '8e296a067a37563370ded05f5a3bf3ec', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Kontrak', 'S1', 'Teknik Informatika', '');
+(26, '25', 'MUHAMMAD IFAN MASHUDI', 'L', 'Martapura', '1995-04-09', 'Jln. Rahayu No.43 Sungai Paring Martapura', '087816669990', 'Pranata Komputer', '', '8e296a067a37563370ded05f5a3bf3ec', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'Kontrak', 'S1', 'Teknik Informatika', ''),
+(27, '1', 'Kepala Panti22', 'P', 'a', '2018-07-11', 'a22', '222', 'Kepala Panti Sosial2', '', 'c4ca4238a0b923820dcc509a6f75849b', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
+(28, '1', 'Kepala Panti22', 'P', 'a', '2018-07-11', 'a22', '222', 'Kepala Panti Sosial2', '', 'c4ca4238a0b923820dcc509a6f75849b', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
+(29, '1', 'Kepala Panti22', 'P', 'a', '2018-07-11', 'a22', '222', 'Kepala Panti Sosial2', '', 'c4ca4238a0b923820dcc509a6f75849b', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
+(30, '1', 'Kepala Panti22', 'P', 'a', '2018-07-11', 'a22', '222', 'Kepala Panti Sosial2', '', 'c4ca4238a0b923820dcc509a6f75849b', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'S1', '', ''),
+(31, '111', '11', 'L', '11', '2018-06-29', '11111111', '1', '1', '', '698d51a19d8a121ce581499d7b701668', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'SD / Sederajat', '1', ''),
+(32, '', '', '', '', '0000-00-00', '', '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '', ''),
+(33, '12', '12345643', 'P', '12', '2018-06-29', '1', '121', '12', '', 'c20ad4d76fe97759aa27a0c99bff6710', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'PNS', 'SMP / Sederajat', '1', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penempatan`
+-- Table structure for table `penempatan`
 --
 
 CREATE TABLE `penempatan` (
@@ -388,11 +410,11 @@ CREATE TABLE `penempatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `penempatan`
+-- Dumping data for table `penempatan`
 --
 
 INSERT INTO `penempatan` (`id_penempatan`, `id_klien`, `kd_asrama`, `tgl_insert`) VALUES
-(27, 4, '1', '2018-07-13 16:31:26'),
+(27, 4, '2', '2018-07-24 10:27:43'),
 (28, 5, '2', '2018-07-13 16:31:50'),
 (29, 14, '2', '2018-07-13 16:31:56'),
 (30, 15, '2', '2018-07-13 16:32:03'),
@@ -420,12 +442,14 @@ INSERT INTO `penempatan` (`id_penempatan`, `id_klien`, `kd_asrama`, `tgl_insert`
 (53, 30, '5', '2018-07-13 18:29:57'),
 (54, 35, '5', '2018-07-13 18:30:02'),
 (55, 36, '5', '2018-07-13 18:30:06'),
-(57, 42, '1', '2018-07-15 04:46:12');
+(57, 42, '1', '2018-07-15 04:46:12'),
+(58, 2, '1', '2018-07-24 10:27:35'),
+(59, 38, '1', '2018-07-24 10:28:09');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penentuan_rombel`
+-- Table structure for table `penentuan_rombel`
 --
 
 CREATE TABLE `penentuan_rombel` (
@@ -436,7 +460,7 @@ CREATE TABLE `penentuan_rombel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `penentuan_rombel`
+-- Dumping data for table `penentuan_rombel`
 --
 
 INSERT INTO `penentuan_rombel` (`id_penentuan`, `id_rombel`, `id_tahunakademik`, `id_klien`) VALUES
@@ -479,12 +503,13 @@ INSERT INTO `penentuan_rombel` (`id_penentuan`, `id_rombel`, `id_tahunakademik`,
 (51, '5', 1, 22),
 (52, '6', 1, 5),
 (53, '6', 1, 23),
-(54, '6', 1, 3);
+(54, '6', 1, 3),
+(55, '1', 1, 38);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penunjukan`
+-- Table structure for table `penunjukan`
 --
 
 CREATE TABLE `penunjukan` (
@@ -498,19 +523,20 @@ CREATE TABLE `penunjukan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `penunjukan`
+-- Dumping data for table `penunjukan`
 --
 
 INSERT INTO `penunjukan` (`id_penunjukan`, `id_pegawai`, `nama_pegawai`, `kd_asrama`, `sk`, `tmt`, `tgl_sk`) VALUES
 (1, 18, 'ARSYADI', 1, '022/PSBN/DINSOS', '01-01-2018', '2017-12-30'),
 (2, 20, 'ABDI  DEDDI  MISWAR', 2, '023/PSBN/DINSOS', '01-01-2018', '2017-12-30'),
 (3, 19, 'SITI BARLIAN', 3, '024/PSBN/DINSOS', '01-01-2018', '2017-12-30'),
-(4, 16, 'HENNY WINARNO', 4, '022/PSBN/DINSOS', '01-01-2018', '2017-12-30');
+(4, 16, 'HENNY WINARNO', 4, '022/PSBN/DINSOS', '01-01-2018', '2017-12-30'),
+(5, 1, 'Kepala Panti22', 5, '123', '04-07-2018', '2018-06-28');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyaluran`
+-- Table structure for table `penyaluran`
 --
 
 CREATE TABLE `penyaluran` (
@@ -522,18 +548,19 @@ CREATE TABLE `penyaluran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `penyaluran`
+-- Dumping data for table `penyaluran`
 --
 
 INSERT INTO `penyaluran` (`id_penyaluran`, `tgl_disalurkan`, `id_klien`, `nilai`, `acc_pembinaan`) VALUES
-(1, '2018-04-10', 12, 'Baik', 'Y'),
+(1, '2018-04-10', 12, 'Baik', 'T'),
 (2, '2018-07-09', 3, 'Baik', 'T'),
-(3, '2018-07-26', 1, 'Kurang Baik', 'T');
+(3, '2018-07-26', 1, 'Kurang Baik', 'T'),
+(5, '2018-07-11', 4, 'Sangat Baik', 'Y');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `probi`
+-- Table structure for table `probi`
 --
 
 CREATE TABLE `probi` (
@@ -542,10 +569,11 @@ CREATE TABLE `probi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `probi`
+-- Dumping data for table `probi`
 --
 
 INSERT INTO `probi` (`kd_probi`, `probi`) VALUES
+('2', '21'),
 ('D', 'DASAR'),
 ('K', 'KHUSUS'),
 ('M', 'MUSIK'),
@@ -556,7 +584,7 @@ INSERT INTO `probi` (`kd_probi`, `probi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `riwayat_penempatan`
+-- Table structure for table `riwayat_penempatan`
 --
 
 CREATE TABLE `riwayat_penempatan` (
@@ -573,7 +601,7 @@ CREATE TABLE `riwayat_penempatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `riwayat_penempatan`
+-- Dumping data for table `riwayat_penempatan`
 --
 
 INSERT INTO `riwayat_penempatan` (`id`, `id_penempatan`, `id_klien`, `nama_klien`, `kd_asrama_asal`, `asrama_asal`, `kd_asrama_akhir`, `asrama_akhir`, `ket`, `tanggal`) VALUES
@@ -621,69 +649,76 @@ INSERT INTO `riwayat_penempatan` (`id`, `id_penempatan`, `id_klien`, `nama_klien
 (62, 59, 54, 'M. ARDIANSYAH', '1', 'KECUBUNG', '2', 'BERLIAN', 'pindah', '2018-07-15 01:23:47'),
 (63, 59, 54, 'M. ARDIANSYAH', '2', 'BERLIAN', '', '', 'hapus', '2018-07-15 01:29:58'),
 (64, 36, 17, 'SARIPUDIN', '1', 'KECUBUNG', '', '', 'hapus', '2018-07-15 01:30:50'),
-(65, 58, 67, 'MUHAMMAD', '1', 'KECUBUNG', '', '', 'hapus', '2018-07-15 01:31:16');
+(65, 58, 67, 'MUHAMMAD', '1', 'KECUBUNG', '', '', 'hapus', '2018-07-15 01:31:16'),
+(66, 58, 2, 'ARNAIN', '', '', '1', 'KECUBUNG1', 'tambah', '2018-07-24 02:27:35'),
+(67, 27, 4, 'M. RIZAL', '1', 'KECUBUNG1', '2', 'BERLIAN', 'pindah', '2018-07-24 02:27:43'),
+(68, 59, 38, 'MAHDIANSYAH', '', '', '1', 'KECUBUNG1', 'tambah', '2018-07-24 02:28:09');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rombel`
+-- Table structure for table `rombel`
 --
 
 CREATE TABLE `rombel` (
-  `id_rombel` varchar(11) NOT NULL,
+  `id_rombel` int(11) NOT NULL,
   `rombel` varchar(30) NOT NULL,
   `kelas` varchar(15) NOT NULL,
   `kd_probi` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `rombel`
+-- Dumping data for table `rombel`
 --
 
 INSERT INTO `rombel` (`id_rombel`, `rombel`, `kelas`, `kd_probi`) VALUES
-('1', 'PERSIAPAN', 'A', 'P'),
-('2', 'DASAR', 'A', 'D'),
-('3', 'SPORT MASSAGE A', 'A', 'SM'),
-('4', 'SPORT MASSAGE B', 'B', 'SM'),
-('5', 'SHI-ATSU', 'A', 'SA'),
-('6', 'KHUSUS', 'A', 'K'),
-('7', 'MUSIK', 'A', 'M');
+(1, 'PERSIAPAN', 'A', 'P'),
+(2, 'DASAR', 'A', 'D'),
+(3, 'SPORT MASSAGE A', 'A', 'SM'),
+(4, 'SPORT MASSAGE B', 'B', 'SM'),
+(5, 'SHI-ATSU', 'A', 'SA'),
+(6, 'KHUSUS', 'A', 'K'),
+(7, 'MUSIK', 'A', 'M'),
+(9, '22', '2', 'D');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ruangan`
+-- Table structure for table `ruangan`
 --
 
 CREATE TABLE `ruangan` (
-  `kd_ruangan` varchar(10) NOT NULL,
+  `kd_ruangan` int(10) NOT NULL,
   `nama_ruangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `ruangan`
+-- Dumping data for table `ruangan`
 --
 
 INSERT INTO `ruangan` (`kd_ruangan`, `nama_ruangan`) VALUES
-('A', 'Aula'),
-('ADL', 'Activity Dailing Living'),
-('BT1', 'Bimbingan Teori 1'),
-('BT2', 'Bimbingan Teori 2'),
-('BT3', 'Bimbingan Teori 3'),
-('BT4', 'Bimbingan Teori 4'),
-('F', 'Fitnes'),
-('K', 'Keterampilan'),
-('L', 'Lapangan'),
-('M', 'Mushola'),
-('M1', 'Musik'),
-('S', 'Shi-atsu'),
-('SM1', 'Praktek Sport Massage 1'),
-('SM2', 'Praktek Sport Massage 2');
+(1, 'Aula'),
+(2, 'Activity Dailing Living'),
+(3, 'Bimbingan Teori 1'),
+(4, 'Bimbingan Teori 2'),
+(5, 'Bimbingan Teori 3'),
+(6, 'Bimbingan Teori 4'),
+(7, 'Fitnes'),
+(8, 'Keterampilan'),
+(9, 'Lapangan'),
+(10, 'Mushola'),
+(11, 'Musik'),
+(12, 'Shi-atsu'),
+(13, 'Praktek Sport Massage 1'),
+(14, 'Praktek Sport Massage 2'),
+(15, '321'),
+(16, '123123'),
+(17, '221');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tahunakademik`
+-- Table structure for table `tahunakademik`
 --
 
 CREATE TABLE `tahunakademik` (
@@ -693,12 +728,13 @@ CREATE TABLE `tahunakademik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tahunakademik`
+-- Dumping data for table `tahunakademik`
 --
 
 INSERT INTO `tahunakademik` (`id_tahunakademik`, `tahunakademik`, `status`) VALUES
 (1, '2018', 'Aktif'),
-(2, '2019', 'Tidak Aktif');
+(2, '2019', 'Tidak Aktif'),
+(3, '1', 'Tidak Aktif');
 
 --
 -- Indexes for dumped tables
@@ -820,86 +856,82 @@ ALTER TABLE `tahunakademik`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id_username` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id_username` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `asrama`
 --
 ALTER TABLE `asrama`
-  MODIFY `kd_asrama` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `kd_asrama` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `instruktur`
 --
 ALTER TABLE `instruktur`
-  MODIFY `id_instruktur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id_instruktur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `klien`
 --
 ALTER TABLE `klien`
-  MODIFY `id_klien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
-
+  MODIFY `id_klien` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `penempatan`
 --
 ALTER TABLE `penempatan`
-  MODIFY `id_penempatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
-
+  MODIFY `id_penempatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `penentuan_rombel`
 --
 ALTER TABLE `penentuan_rombel`
-  MODIFY `id_penentuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
-
+  MODIFY `id_penentuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `penunjukan`
 --
 ALTER TABLE `penunjukan`
-  MODIFY `id_penunjukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_penunjukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `penyaluran`
 --
 ALTER TABLE `penyaluran`
-  MODIFY `id_penyaluran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id_penyaluran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `riwayat_penempatan`
 --
 ALTER TABLE `riwayat_penempatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+--
+-- AUTO_INCREMENT for table `rombel`
+--
+ALTER TABLE `rombel`
+  MODIFY `id_rombel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `ruangan`
+--
+ALTER TABLE `ruangan`
+  MODIFY `kd_ruangan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `tahunakademik`
 --
 ALTER TABLE `tahunakademik`
-  MODIFY `id_tahunakademik` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
+  MODIFY `id_tahunakademik` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

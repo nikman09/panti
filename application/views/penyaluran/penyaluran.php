@@ -159,7 +159,7 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 	</div>
 	<div class="modal-footer">
 		<div class="pagination pull-right no-margin">
-			<button type="submit" name="simpan" id="simpan" class="btn btn-small btn-success pull-left" >
+			<button type="submit" name="simpan" id="simpan" class="btn btn-small btn-success pull-left" onClick="return confirm('Apakah anda yakin ingin Menambah/Merubah data ini?')">
 				<i class="icon-save"></i>
 				Simpan
 			</button>
@@ -231,7 +231,7 @@ function editData(id_klien,id,tgl_disalurkan, nama_klien, nilai,acc_pembinaan){
 	</div>
 	<div class="modal-footer">
 		<div class="pagination pull-right no-margin">
-			<button type="submit" name="simpan" id="simpan" class="btn btn-small btn-success pull-left" >
+			<button type="submit" name="simpan" id="simpan" class="btn btn-small btn-success pull-left" onClick="return confirm('Apakah anda yakin ingin Menambah/Merubah data ini?')">
 				<i class="icon-save"></i>
 				Simpan
 			</button>

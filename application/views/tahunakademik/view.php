@@ -1,6 +1,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#simpan').click(function(){
+		if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
 		var id = $('#id').val();
 		var tahunakademik = $('#tahunakademik').val();
 		var status = $('#status').val();
@@ -28,6 +29,7 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
+		}
 	});
 
 	$('#tambah').click(function(){

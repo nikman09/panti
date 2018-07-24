@@ -1,6 +1,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#simpan').click(function(){
+	if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
 		var kode = $('#kode').val();
 		var mapel = $('#mapel').val();
 		var string = $('#my-form').serialize(); 
@@ -26,6 +27,7 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
+	}
 	});
 
 	$('#tambah').click(function(){

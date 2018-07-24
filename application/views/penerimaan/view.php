@@ -23,6 +23,7 @@ $(document).ready(function(){
 
 
 	$('#simpan').click(function(){
+		if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
 		var string = $('#my-form').serialize(); 
 		$.ajax({
 			type	: 'POST',
@@ -34,6 +35,7 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
+		}
 	});
 
 	$('.status').click(function(e){
@@ -51,6 +53,7 @@ $(document).ready(function(){
 	});
 
 	$('#simpan2').click(function(){
+		if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
 		var v_id_klien2 = $('#id_klien2').val(); 
 		var v_status2 = $('#status2').val();
 		$.ajax({
@@ -66,6 +69,7 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
+		}
 	});
 
 });

@@ -1,6 +1,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#simpan').click(function(){
+	if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
 		var id = $('#id').val();
 		var rombel = $('#rombel').val();
 		var kelas = $('#kelas').val();
@@ -35,6 +36,7 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
+	}
 	});
 
 	$('#tambah').click(function(){
@@ -126,12 +128,7 @@ function editData(id){
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
 					<br/>
-				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Id </label>
-					<div class="controls">
-						<input type="text" name="id" id="id" placeholder="Id" class="span8" />
-					</div>
-				</div>
+					<input type="hidden" name="id" id="id"  placeholder="Id" class="span8" />
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Kelompok Belajar</label>
 					<div class="controls">

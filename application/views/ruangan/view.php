@@ -1,16 +1,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#simpan').click(function(){
+		if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
 		var kode = $('#kode').val();
 		var ruangan = $('#ruangan').val();
 		var string = $('#my-form').serialize(); 
 
-		if(kode.length == 0){
-			alert('Maaf, Kode Ruangan Tidak boleh kosong');
-			$('#kode').focus();
-			return false;
-		}
-		
+	
 		if(ruangan.length == 0){
 			alert('Maaf, Nama Ruangan Tidak boleh kosong');
 			$('#ruangan').focus();
@@ -26,6 +22,7 @@ $(document).ready(function(){
 				location.reload();
 			}
 		});
+		}
 	});
 
 	$('#tambah').click(function(){
@@ -65,7 +62,6 @@ function editData(id){
 		<thead>
 			<tr>
 				<th class="center span2">NO</th>
-				<th class="center span3">KODE</th>
 				<th class="center">RUANGAN</th>
 				<th class="center">AKSI</th>
 			</tr>
@@ -77,7 +73,6 @@ function editData(id){
 			?>
 			<tr>
 				<td class="center"><?php echo $i++; ?></td>
-				<td class="center span3"><?php echo $dt->kd_ruangan; ?></td>
 				<td ><?php echo $dt->nama_ruangan; ?></td>
 				<td class="td-actions">
 					<center>
@@ -112,10 +107,9 @@ function editData(id){
 		<div class="row-fluid">
 			<form class="form-horizontal" name="my-form" id="my-form">
 				<div class="control-group">
-					<label class="control-label" for="form-filed-1">Kode Ruang</label>
-					<div class="controls">
-						<input type="text" name="kode" id="kode" placeholder="Kode Ruangan" class="span4"/>
-					</div>
+					
+						<input type="hidden" name="kode" id="kode" placeholder="Kode Ruangan" class="span4"/>
+					
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="form-filed-1">Nama Ruangan</label>

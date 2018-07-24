@@ -5,21 +5,23 @@ $(document).ready(function(){
 	});
 	
 	$('#simpan').click(function(){
-		var string = $('#my-form').serialize();
-		
-		
-		
-		$.ajax({
-			type	: 'POST',
-			url		: "<?php echo site_url(); ?>/pegawai/simpan",
-			data	: string,
-			cache	: false,
-			success	: function(data){
-				alert(data);
-				location.reload();
+		if (confirm("Yakin Ingin Menambah/Merubah Data?") == true) {
+			var string = $('#my-form').serialize();
+			
+			
+			
+			$.ajax({
+				type	: 'POST',
+				url		: "<?php echo site_url(); ?>/pegawai/simpan",
+				data	: string,
+				cache	: false,
+				success	: function(data){
+					alert(data);
+					location.reload();
 
-			}
-		});
+				}
+			});
+		}
 		
 	});
 
